@@ -25,7 +25,7 @@ console.log("process.env.REACT_APP_DEVELOPMENT_URL",process.env.REACT_APP_DEVELO
         setCategories(categories.filter((cat) => cat._id !== id));
       }
     } catch (err) {
-    console.log("error msg")
+    console.log("error msg",err)
     } 
   
   };
