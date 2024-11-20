@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useNavigate } from "react";
 import styles from "./Sidebar.module.css"; 
 import { Link } from "react-router-dom";
 
@@ -8,6 +8,12 @@ const Sidebar = () => {
   // const handleCollapse = () => {
   //   setIsCollapsed(!isCollapsed);
   // };
+  const navigate = useNavigate();
+
+ const handleLogout =() => {
+  localStorage.removeItem('token');
+  navigate('/')
+ }
 
   return (
     <>
@@ -49,9 +55,10 @@ const Sidebar = () => {
           </li>
      
           <div className={styles.logout}>
-            <a href="/">
-              <i className="fas fa-sign-out-alt"></i> {!isCollapsed && "Logout"}
-            </a>
+            <button onClick={handleLogout}>
+           
+              <i className="fas fa-sign-out-alt"></i>  Logout
+            </button>
           </div>
         </ul>
       </div>
