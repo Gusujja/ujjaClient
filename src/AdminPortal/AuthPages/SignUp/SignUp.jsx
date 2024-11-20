@@ -1,7 +1,7 @@
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { Link } from 'react-router-dom'; 
+import { Link, useNavigate } from 'react-router-dom'; 
 import axios from 'axios';
 import styles from './SignUp.module.css';
 
@@ -25,25 +25,27 @@ const SignUp = () => {
       .oneOf([Yup.ref('password'), null], 'Passwords must match')
       .required('Confirm Password is required'),
   });
-
+const navigate=useNavigate()
   // Handle form submission
   const handleSubmit = async (values, { setSubmitting }) => {
- 
-    try{
+ let data;
+     try{
       const userValues={
         ...values,
         name:values.fullName,
         repassword:values.confirmPassword
             }
-          const  data=await axios.post(`${web_Url}auth/signup`,userValues).then(res=>{
+           data=await axios.post(`${web_Url}auth/signup`,userValues).then(res=>{
               console.log("responsedata 111",res)
             })
             
             console.log("responsedata",data)
-            if(data.status)
+            if(data.status ==='201'){
+navigate("login")
+            }
             setSubmitting(false);
     }catch(error){
-      console.log("response error",error)
+      console.log("response error",data)
     }
   
 
