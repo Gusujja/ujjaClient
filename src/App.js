@@ -93,14 +93,14 @@ const App = () => {
 
   const token =   localStorage.getItem('token');
 const navigate=useNavigate()
-  useEffect(() => { 
-if(token){
-  return navigate("/")
-}
-else if(!token){
-return navigate("login")
-}
-  }, [token])
+//   useEffect(() => { 
+// if(token){
+//   return navigate("/")
+// }
+// else if(!token){
+// return navigate("login")
+// }
+//   }, [token])
 
 
   
