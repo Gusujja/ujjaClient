@@ -38,7 +38,7 @@ const navigate=useNavigate()
         await axios.post(`${web_Url}auth/signup`,userValues).then(res=>{
   
               if(res.status ===201){
-                navigate("login")
+                navigate("/login")
                             }
             })
             
