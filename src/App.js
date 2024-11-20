@@ -91,17 +91,16 @@ const App = () => {
     setCategories(prevCategories => [...prevCategories, newCategory]);
   };
 
-//   const token =   localStorage.getItem('token');
-// const navigate=useNavigate()
-//   useEffect(() => { 
-//     console.log("token is ",token)
-// if(token){
-//   return navigate("/")
-// }
-// else if(!token){
-// return navigate("login")
-// }
-//   }, [token])
+  const token =   localStorage.getItem('token');
+const navigate=useNavigate()
+  useEffect(() => { 
+if(token){
+  return navigate("/")
+}
+else if(!token){
+return navigate("login")
+}
+  }, [token])
 
 
   

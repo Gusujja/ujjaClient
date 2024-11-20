@@ -28,17 +28,19 @@ const SignUp = () => {
 
   // Handle form submission
   const handleSubmit = async (values, { setSubmitting }) => {
+ 
     try{
       const userValues={
         ...values,
         name:values.fullName,
         repassword:values.confirmPassword
             }
-            const data=await axios.post(`${web_Url}auth/signup`,userValues).then(res=>{
-              console.log("responsedata 111",data)
+          const  data=await axios.post(`${web_Url}auth/signup`,userValues).then(res=>{
+              console.log("responsedata 111",res)
             })
             
             console.log("responsedata",data)
+            if(data.status)
             setSubmitting(false);
     }catch(error){
       console.log("response error",error)
