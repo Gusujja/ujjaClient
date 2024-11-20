@@ -77,7 +77,7 @@ const tagManagerArgs = { gtmId: "GTM-ND5H33G7" };
 TagManager.initialize(tagManagerArgs);
 
 const App = () => {
-  const { pathname } = useLocation();
+  
   const [categories, setCategories] = useState([
     { name: "Technology", subcategories: ["AI", "Web Development", "Cybersecurity"] },
     { name: "Health", subcategories: ["Fitness", "Nutrition", "Mental Health"] },
@@ -102,7 +102,25 @@ const navigate=useNavigate()
 // }
 //   }, [token])
 
-
+const { pathname } = useLocation()
+useEffect(() => {
+  const regex = /\bsignup\b/;
+  let register = regex.test(pathname);
+  if (pathname === "/login" || register || pathname === "/") {
+    if (token) {
+      return navigate("/admin");
+    }
+  }
+  if (
+    !token &&
+    pathname !== "/" &&
+    pathname !== "/videos" &&
+    pathname !== "/videos/:videoId" 
+    
+  ) {
+    return navigate("/login");
+  }
+}, []);
   
   useEffect(() => {
     scrollToTop();
