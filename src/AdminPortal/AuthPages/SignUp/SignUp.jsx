@@ -35,7 +35,7 @@ const SignUp = () => {
         repassword:values.confirmPassword
             }
             const data=await axios.post(`${web_Url}auth/signup`,userValues).then(res=>{
-              console.log("responsedata",data)
+              console.log("responsedata 111",data)
             })
             
             console.log("responsedata",data)
