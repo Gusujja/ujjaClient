@@ -28,24 +28,25 @@ const SignUp = () => {
 const navigate=useNavigate()
   // Handle form submission
   const handleSubmit = async (values, { setSubmitting }) => {
- let data;
+
      try{
       const userValues={
         ...values,
         name:values.fullName,
         repassword:values.confirmPassword
             }
-           data=await axios.post(`${web_Url}auth/signup`,userValues).then(res=>{
-              console.log("responsedata 111",res)
+        await axios.post(`${web_Url}auth/signup`,userValues).then(res=>{
+  
+              if(res.status ===201){
+                navigate("login")
+                            }
             })
             
-            console.log("responsedata",data)
-            if(data.status ==='201'){
-navigate("login")
-            }
+            
+           
             setSubmitting(false);
     }catch(error){
-      console.log("response error",data)
+      console.log("response error",error)
     }
   
 
