@@ -67,8 +67,10 @@
   background-color:#8badb7;
 }
 
+
 .logout button {
-  color: #405f74;
+  color: white;
+  background-color: #405f74;
   font-size: 14px;
   text-decoration: none;
 }
