@@ -47,7 +47,7 @@
 
 // export default App;
 import { Suspense, useEffect } from "react";
-import { Routes, Route, useLocation} from "react-router-dom";
+import { Routes, Route, useLocation,useNavigate} from "react-router-dom";
 import AppNavbar from "./components/AppNavbar/AppNavbar";
 import Home from "./pages/Home/Index";
 import Classes from "./pages/Classes/Index";
