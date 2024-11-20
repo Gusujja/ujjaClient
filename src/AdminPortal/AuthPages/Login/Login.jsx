@@ -29,7 +29,7 @@ const Login = () => {
     try{ const data=await axios.post(`${web_Url}auth/login`,values).then(res=>{
       console.log("response",res)
       localStorage.setItem('token',res.data.token);
-      navigate("/")
+      navigate("/admin")
     })
  
 }catch(error){ 
