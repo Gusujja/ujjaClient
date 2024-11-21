@@ -70,27 +70,35 @@ const [categories,setCategories]=useState([])
       const formData = new FormData();
 
       // Append video metadata (title, small description, etc.)
-      formData.append("title", values.title);
-      formData.append("smallDescription", values.smallDescription);
-      formData.append("category", values.category);
-      formData.append("subCategory", values.subCategory);
-      formData.append("embedLink", values.embedLink);
+      // formData.append("title", values.title);
+      // formData.append("smallDescription", values.smallDescription);
+      // formData.append("category", values.category);
+      // formData.append("subCategory", values.subCategory);
+      // formData.append("embedLink", values.embedLink);
 
-      // Append the description (as it comes from the ReactQuill editor)
-      formData.append("description", description);
+      // // Append the description (as it comes from the ReactQuill editor)
+      // formData.append("description", description);
 
       // // Append the thumbnail file
       // if (values.thumbnail) {
       //   formData.append("thumbnail", values.thumbnail);
       // }
-
+      const data={  title: values.title,
+        smallDescription: values.smallDescription,
+        category: values.category,
+        subCategory: values.subCategory,
+        embedLink: values.embedLink,
+        // thumbnail: File,
+        description:description}
       try {
         // Make the request to the backend
         const response = await fetch(`${web_Url}videos`, {
           method: "POST",
-          body: formData,
+          headers: {
+            "Content-Type": "application/json",  // Sending JSON data
+          },
+          body: JSON.stringify(data), // Send the JSON strin
         });
-console.log("response",response)
         if (response.status === 201) {
          // alert("Video uploaded successfully!");
           // Reset the form or navigate as needed
@@ -110,12 +118,9 @@ console.log("response",response)
           setMsg("Bad Request!")
           setTimeout(()=>{
             setModalVisible(false);
-            formik.resetForm();
-            setVideoPreview("");
             setMsg("")
             setDescription("");
-            navigate("/videolist");
-          },1000)
+          },2000)
         }
       } catch (error) {
         setModalVisible(true);
