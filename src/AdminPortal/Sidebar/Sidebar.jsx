@@ -57,7 +57,7 @@ const Sidebar = () => {
           <div className={styles.logout}>
             <button onClick={handleLogout}>
            
-              <i className="fas fa-sign-out-alt"></i>  Logout
+              <i className="fas fa-sign-out-alt"></i>  Log out
             </button>
           </div>
         </ul>
