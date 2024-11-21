@@ -14,7 +14,7 @@ const web_Url =
     : process.env.REACT_APP_DEVELOPMENT_URL;
 const UploadVideo = () => {
   const navigate = useNavigate();
-  const [thumbnailPreview, setThumbnailPreview] = useState("");
+  // const [thumbnailPreview, setThumbnailPreview] = useState("");
   const [videoPreview, setVideoPreview] = useState("");
   const [description, setDescription] = useState("");
   const [isModalVisible, setModalVisible] = useState(false);
@@ -55,7 +55,7 @@ const [categories,setCategories]=useState([])
       category: "",
       subCategory: "",
       embedLink: "",
-      thumbnail: null, // for image file input
+      // thumbnail: null, // for image file input
     },
     validationSchema: Yup.object({
       title: Yup.string().required("Required"),
@@ -79,10 +79,10 @@ const [categories,setCategories]=useState([])
       // Append the description (as it comes from the ReactQuill editor)
       formData.append("description", description);
 
-      // Append the thumbnail file
-      if (values.thumbnail) {
-        formData.append("thumbnail", values.thumbnail);
-      }
+      // // Append the thumbnail file
+      // if (values.thumbnail) {
+      //   formData.append("thumbnail", values.thumbnail);
+      // }
 
       try {
         // Make the request to the backend
@@ -146,17 +146,17 @@ console.log("response",response)
   };
 
   // Handle image file selection and set preview
-  const handleThumbnailChange = (event) => {
-    const file = event.target.files[0];
-    if (file) {
-      formik.setFieldValue("thumbnail", file); // Set file to formik state
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setThumbnailPreview(reader.result); // Show preview using FileReader
-      };
-      reader.readAsDataURL(file);
-    }
-  };
+  // const handleThumbnailChange = (event) => {
+  //   const file = event.target.files[0];
+  //   if (file) {
+  //     formik.setFieldValue("thumbnail", file); // Set file to formik state
+  //     const reader = new FileReader();
+  //     reader.onloadend = () => {
+  //       setThumbnailPreview(reader.result); // Show preview using FileReader
+  //     };
+  //     reader.readAsDataURL(file);
+  //   }
+  // };
   const getVideoId = (url) => {
     const regex =
       /(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^&\n]{11})/;
@@ -262,7 +262,7 @@ console.log("response",response)
               </div>
 
               {/* Thumbnail Image Input */}
-              <div className={styles.formGroup}>
+              {/* <div className={styles.formGroup}>
                 <label htmlFor="thumbnail">Video Thumbnail</label>
                 <input
                   id="thumbnail"
@@ -271,7 +271,7 @@ console.log("response",response)
                   accept="image/*"
                   onChange={handleThumbnailChange}
                 />
-              </div>
+              </div> */}
 
               <div className={styles.formGroup}>
                 <label htmlFor="embedLink">Video Embed Link</label>
@@ -327,7 +327,7 @@ console.log("response",response)
               )}
 
               {/* Thumbnail Preview */}
-              {thumbnailPreview && (
+              {/* {thumbnailPreview && (
                 <div className={styles.preview}>
                   <p>Thumbnail Preview</p>
                   <img
@@ -337,7 +337,7 @@ console.log("response",response)
                     height="135"
                   />
                 </div>
-              )}
+              )} */}
             </div>
 
 
