@@ -29,7 +29,7 @@ const VideoDescription = ({ heading,description,views,time }) => {
     <VideoDescriptionStyled>
    <h4 className="heading">{heading}</h4>
 <div className="views-and-likes">
-<p className="description">{description.split(" ").slice(0, 350).join(" ") + (description.split(" ").length > 150 ? "..." : "")}</p>
+<p className="description">{String(description || "").split(" ").slice(0, 150).join(" ") + (description && String(description).split(" ").length > 150 ? "..." : "")}</p>
 
   
 
