@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { VideoDetailsStyled } from "./styles";
 import { Container } from "react-bootstrap";
-import VideoDescription from "../VideoCard/VideoDescription";
 import axios from 'axios';
 import { SmallHeadingBlack } from ".././../../components/GlobalStyle";
 import parse from 'html-react-parser';
-
 import { useNavigate, useParams } from "react-router-dom/dist";
 import VideoDescriptionOfDetail from "../VideoCard/VideoDescriptionOfDetail";
 const web_Url =
@@ -21,8 +19,6 @@ const VideoDetails = () => {
     const fetchVideos = async () => {
     try {
       const response = await axios.post(`${web_Url}videos/${videoId}`); // Replace with your backend URL
-    
-      console.log("resposne",response)
       setVideo(response.data);
       const res = await fetch(`${web_Url}videos`); // Replace with your backend URL
       const data = await res.json();

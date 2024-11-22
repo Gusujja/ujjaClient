@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import dot from '../../../assets/icons/dot.png'
 
 const VideoDescriptionStyled = styled.div`
   padding: 8px 10px;
