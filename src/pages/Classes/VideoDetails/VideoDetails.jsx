@@ -64,7 +64,7 @@ const VideoDetails = () => {
 
           <div className="videos-section d-flex flex-column gap-3">
             {allVideos?.map((item) => (
-              <VideoCard id={item._id} img={item.thumbnail} title={item.title} />
+              <VideoCard id={item._id} img={item.embedLink} title={item.title} />
             ))}
           </div>
         </div>

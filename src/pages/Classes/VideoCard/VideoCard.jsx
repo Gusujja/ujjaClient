@@ -2,14 +2,14 @@ import React from "react";
 import { VideoCardStyled } from "./styles";
 // import videoImg from "../../../assets/images/youtube.png";
 import { useNavigate } from "react-router-dom";
-import styles from "./VideoList.module.css";
+import styles from "../../../AdminPortal/VideosPages/VideoList/VideoList.module.css";
 import VideoDescription from "./VideoDescription";
 import parse from 'html-react-parser';
 const web_Url =
   process.env.NODE_ENV === "production"
     ? process.env.REACT_APP_PRODUCTION_URL
     : process.env.REACT_APP_DEVELOPMENT_URL;
-const VideoCard = ({title,description,img ,id}) => {
+const VideoCard = ({title,description,img ,embedLink,id}) => {
   const navigate = useNavigate();
   const des = typeof description === 'string' ? description : '';
   return (
@@ -19,10 +19,10 @@ const VideoCard = ({title,description,img ,id}) => {
     >
        <div className={styles.videoPreview}>
                   <iframe
-                    src={video.embedLink}
+                    src={embedLink}
                     frameBorder="0"
                     allowFullScreen
-                    title={video.title}
+                    title={title}
                     className={styles.iframe}
                   ></iframe>
                 </div>
