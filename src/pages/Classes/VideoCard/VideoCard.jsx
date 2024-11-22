@@ -24,7 +24,7 @@ const VideoCard = ({title,description,embedLink,id}) => {
                     src={embedLink}
                     frameBorder="0"
                     allowFullScreen
-                    title={title&& title.length>50 ? title.slice(0,40)+'...' : title}
+                    title={title}
                     className={styles.iframe}
                   ></iframe>
                 </div>
@@ -35,7 +35,7 @@ const VideoCard = ({title,description,embedLink,id}) => {
         </div> */}
       {/* </div> */}
       <VideoDescription
-        heading={title}
+        heading={title&& title.length>50 ? title.slice(0,40)+'...' : title}
         description={parse(trundesc)}     
       />
     </VideoCardStyled>

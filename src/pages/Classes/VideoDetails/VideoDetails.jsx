@@ -35,7 +35,7 @@ const VideoDetails = () => {
   };
   fetchVideos();
   
-  },[videoId])
+  },[videoId,allVideos])
   // console.log("video Data",data,videoId,videoData)
   console.log("vdeoby id",video)
   const description = typeof video?.description === 'string' ? video.description : '';
@@ -94,7 +94,7 @@ const VideoCard = ({ embedLink, title, id }) => {
                 title="1st Lesson Fundamentals Single Hand Guard pass - Brighton Marina Jiu Jitsu Academy - www.bmjja.co.uk"
                 frameborder="10x"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
+                // allowfullscreen
               ></iframe>
            
       </div>
