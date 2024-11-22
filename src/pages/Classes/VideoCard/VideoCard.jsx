@@ -9,9 +9,11 @@ const web_Url =
   process.env.NODE_ENV === "production"
     ? process.env.REACT_APP_PRODUCTION_URL
     : process.env.REACT_APP_DEVELOPMENT_URL;
-const VideoCard = ({title,description,img ,embedLink,id}) => {
+const VideoCard = ({title,description,embedLink,id}) => {
   const navigate = useNavigate();
-  const des = typeof description === 'string' ? description : '';
+  const des = typeof description === 'string' ?description: '';
+  const trundesc=des.length>100 ? des.slice(0,80)+'...' : des;
+
   return (
     <VideoCardStyled
       className="cursor-pointer"
@@ -22,7 +24,7 @@ const VideoCard = ({title,description,img ,embedLink,id}) => {
                     src={embedLink}
                     frameBorder="0"
                     allowFullScreen
-                    title={title}
+                    title={title&& title.length>50 ? title.slice(0,40)+'...' : title}
                     className={styles.iframe}
                   ></iframe>
                 </div>
@@ -34,7 +36,7 @@ const VideoCard = ({title,description,img ,embedLink,id}) => {
       {/* </div> */}
       <VideoDescription
         heading={title}
-        description={parse(des)}     
+        description={parse(trundesc)}     
       />
     </VideoCardStyled>
   );

@@ -64,7 +64,7 @@ const VideoDetails = () => {
 
           <div className="videos-section d-flex flex-column gap-3">
             {allVideos?.map((item) => (
-              <VideoCard id={item._id} img={item.embedLink} title={item.title} />
+              <VideoCard id={item._id} embedLink={item.embedLink} title={item.title} />
             ))}
           </div>
         </div>
@@ -75,7 +75,7 @@ const VideoDetails = () => {
 
 export default VideoDetails;
 
-const VideoCard = ({ img, title, id }) => {
+const VideoCard = ({ embedLink, title, id }) => {
   const navigate = useNavigate();
   return (
     <div
@@ -87,7 +87,16 @@ const VideoCard = ({ img, title, id }) => {
     }
     >
       <div className="image">
-      <img src={`${web_Url}thumbnails/${img}`} alt="" />
+      <iframe
+                width="100%"
+                height="100%"
+                src={embedLink}
+                title="1st Lesson Fundamentals Single Hand Guard pass - Brighton Marina Jiu Jitsu Academy - www.bmjja.co.uk"
+                frameborder="10x"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
+           
       </div>
       <VideoDescriptionOfDetail
         heading={title}

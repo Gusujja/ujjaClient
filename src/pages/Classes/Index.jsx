@@ -85,7 +85,7 @@ const web_Url =
           {allVideos?.map((item) => (
             <VideoCard
               id={item._id}
-              img={item.thumbnail}
+              embedLink={item.embedLink}
               title={item.title}
               description={item.description}
             />

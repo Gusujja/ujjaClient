@@ -29,7 +29,7 @@ const VideoDescription = ({ heading,description,views,time }) => {
     <VideoDescriptionStyled>
    <h4 className="heading">{heading}</h4>
 <div className="views-and-likes">
-<p className="description">{description.slice(0, 150) + "..."}</p>
+<p className="description">{description}</p>
   
 
 </div>
