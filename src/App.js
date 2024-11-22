@@ -107,7 +107,8 @@ useEffect(() => {
   const regex = /\bsignup\b/;
   let register = regex.test(pathname);
   if (pathname === "/login" || register || pathname === "/") {
-    if (token) {
+    if (token && pathname !== "/") {
+   
       return navigate("/admin");
     }
   }

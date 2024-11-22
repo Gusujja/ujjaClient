@@ -2,6 +2,7 @@ import React from "react";
 import { VideoCardStyled } from "./styles";
 // import videoImg from "../../../assets/images/youtube.png";
 import { useNavigate } from "react-router-dom";
+import styles from "./VideoList.module.css";
 import VideoDescription from "./VideoDescription";
 import parse from 'html-react-parser';
 const web_Url =
@@ -16,12 +17,21 @@ const VideoCard = ({title,description,img ,id}) => {
       className="cursor-pointer"
       onClick={() => navigate(`/videos/${id}`)}
     >
-      <div className="image-container">
-      <img src={`${web_Url}thumbnails/${img}`} alt="" />
+       <div className={styles.videoPreview}>
+                  <iframe
+                    src={video.embedLink}
+                    frameBorder="0"
+                    allowFullScreen
+                    title={video.title}
+                    className={styles.iframe}
+                  ></iframe>
+                </div>
+      {/* <div className="image-container">
+      <img src={`${web_Url}thumbnails/${img}`} alt="" /> */}
         {/* <div className="time">
           <p>3:30</p>
         </div> */}
-      </div>
+      {/* </div> */}
       <VideoDescription
         heading={title}
         description={parse(des)}     
