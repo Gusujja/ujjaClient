@@ -144,9 +144,8 @@ const AddCategory = () => {
 
   const [category, setCategory] = useState("");
   const [categories, setCategories] = useState([]);
-  const [newCategory, setNewCategory] = useState("");
   const [subCategory, setSubCategory] = useState("");
-  const [newSubCategory, setNewSubCategory] = useState("");
+  const [subCategories, setSubCategories] = useState([]);
   const [description, setDescription] = useState("");
   const [isModalVisible, setModalVisible] = useState(false);
   const [msg, setMsg] = useState("");
@@ -160,7 +159,8 @@ const AddCategory = () => {
           throw new Error("Failed to fetch categories");
         }
         const data = await response.json();
-        setCategories(data);
+        setCategories(data.categories || []);
+        setSubCategories(data.subCategories || []);
       } catch (err) {
         console.error("Error fetching categories:", err);
       }
@@ -173,8 +173,8 @@ const AddCategory = () => {
     event.preventDefault();
     try {
       const data = {
-        category: newCategory || category,
-        subCategory: newSubCategory || subCategory,
+        category,
+        subCategory,
       };
 
       const response = await axios.post(`${web_Url}category`, data);
@@ -183,7 +183,8 @@ const AddCategory = () => {
         setMsg("Category is uploaded");
         setTimeout(() => {
           setModalVisible(false);
-          setDescription("");
+          setCategory("");
+          setSubCategory("");
           setMsg("");
           navigate("/uploadvideo");
         }, 1000);
@@ -221,48 +222,40 @@ const AddCategory = () => {
             </button>
           </div>
           <form onSubmit={handleAddCategory} className={styles.form}>
+            {/* Combined Category Field */}
             <div className={styles.formGroup}>
               <label htmlFor="category">Category</label>
-              <select
+              <input
+                list="categoryList"
                 id="category"
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
-              >
-                <option value="">Select an existing category</option>
-                {categories.map((cat) => (
-                  <option key={cat.id} value={cat.name}>
-                    {cat.name}
-                  </option>
-                ))}
-              </select>
-              <input
-                type="text"
-                placeholder="Or enter a new category"
-                value={newCategory}
-                onChange={(e) => setNewCategory(e.target.value)}
-                onBlur={() => {
-                  if (newCategory) setCategory(newCategory);
-                }}
+                placeholder="Select or enter a category"
               />
+              <datalist id="categoryList">
+                {categories.map((cat) => (
+                  <option key={cat} value={cat} />
+                ))}
+              </datalist>
             </div>
+
+            {/* Combined Subcategory Field */}
             <div className={styles.formGroup}>
               <label htmlFor="subCategory">Subcategory</label>
               <input
-                type="text"
-                placeholder="Enter subcategory"
+                list="subCategoryList"
+                id="subCategory"
                 value={subCategory}
                 onChange={(e) => setSubCategory(e.target.value)}
+                placeholder="Select or enter a subcategory"
               />
-              <input
-                type="text"
-                placeholder="Or enter a new subcategory"
-                value={newSubCategory}
-                onChange={(e) => setNewSubCategory(e.target.value)}
-                onBlur={() => {
-                  if (newSubCategory) setSubCategory(newSubCategory);
-                }}
-              />
+              <datalist id="subCategoryList">
+                {subCategories.map((subCat) => (
+                  <option key={subCat} value={subCat} />
+                ))}
+              </datalist>
             </div>
+
             <button type="submit" className={styles.addButton}>
               Add Category
             </button>
