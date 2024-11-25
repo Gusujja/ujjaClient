@@ -221,7 +221,7 @@ const VideoList = () => {
 
         <div className={styles.videoGrid}>
           {allVideos.length > 0 ? (
-            allVideos.map((video) => (
+            allVideos?.map((video) => (
               <div key={video._id} className={styles.videoCard}>
                 <div className={styles.videoPreview}>
                   <iframe

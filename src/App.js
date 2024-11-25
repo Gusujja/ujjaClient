@@ -102,30 +102,30 @@ const navigate=useNavigate()
 // }
 //   }, [token])
 
-// const { pathname } = useLocation()
-// useEffect(() => {
-//   const regex = /\bsignup\b/;
-//   let register = regex.test(pathname);
-//   if (pathname === "/login" || register || pathname === "/") {
-//     if (token  &&
-//       pathname !== "/" &&
-//       pathname !== "/videos" &&
-//       pathname !== "/videos/:videoId" 
-//     ) {
+const { pathname } = useLocation()
+useEffect(() => {
+  const regex = /\bsignup\b/;
+  let register = regex.test(pathname);
+  if (pathname === "/login" || register || pathname === "/") {
+    if (token  &&
+      pathname !== "/" &&
+      pathname !== "/videos" &&
+      pathname !== "/videos/:videoId" 
+    ) {
    
-//       return navigate("/admin");
-//     }
-//   }
-//   if (
-//     !token &&
-//     pathname !== "/" &&
-//     pathname !== "/videos" &&
-//     pathname !== "/videos/:videoId" 
+      return navigate("/admin");
+    }
+  }
+  if (
+    !token &&
+    pathname !== "/" &&
+    pathname !== "/videos" &&
+    pathname !== "/videos/:videoId" 
     
-//   ) {
-//     return navigate("/login");
-//   }
-// }, []);
+  ) {
+    return navigate("/login");
+  }
+}, []);
   
   useEffect(() => {
     scrollToTop();

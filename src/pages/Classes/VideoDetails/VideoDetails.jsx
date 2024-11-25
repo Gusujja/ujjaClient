@@ -31,9 +31,9 @@ const VideoDetails = () => {
   };
   fetchVideos();
   
-  },[videoId,allVideos])
+  },[videoId])
   // console.log("video Data",data,videoId,videoData)
-  console.log("web Url",webUrl)
+  console.log("web Url",web_Url,allVideos)
   const description = typeof video?.description === 'string' ? video.description : '';
   return (
     <VideoDetailsStyled>
