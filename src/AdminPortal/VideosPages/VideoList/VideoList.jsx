@@ -233,7 +233,7 @@ const VideoList = () => {
                   ></iframe>
                 </div>
                 <div className={styles.videoInfo}>
-                  <h5>{video.title}</h5>
+                  <h6>{video.title}</h6>
                   <p>{video.smallDescription}</p>
                   <div className={styles.actions}>
                     <div onClick={() => handleView(video._id)}>

@@ -5,6 +5,7 @@ import Navbar from "../../Navbar/Navbar";
 import Sidebar from "../../Sidebar/Sidebar";
 import axios from "axios";
 import CustomModal from "../../CustomModal/CustomModal";
+import CategoryList from "../CategoryListPage/CategoryList";
 
 const AddCategory = () => {
   const web_Url =
@@ -140,6 +141,7 @@ console.log("set cate",categories,subCategories)
             </button>
           </form>
         </div>
+        <CategoryList/>
       </div>
     </>
   );
