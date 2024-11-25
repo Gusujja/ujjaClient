@@ -171,10 +171,10 @@ const VideoDetails = () => {
           </div>
 
           <div className="videos-section d-flex flex-column gap-3">
-            {/* {allVideos?.map((item) => (
+            {allVideos?.map((item) => (
 
               <VideoCard id={item._id}  embedLink={item.embedLink} title={item.title} />
-            ))} */}
+            ))}
             {/* {Array.isArray(allVideos) && allVideos?.map((item) => (
   <VideoCard id={item._id} embedLink={item.embedLink} title={item.title} />
 ))} */}
