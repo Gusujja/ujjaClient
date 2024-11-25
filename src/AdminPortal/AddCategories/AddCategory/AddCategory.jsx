@@ -79,9 +79,9 @@ console.log("set cate",categories,subCategories)
     }
   };
 
-  const handleCategoryList = () => {
-    navigate("/categorylist");
-  };
+  // const handleCategoryList = () => {
+  //   navigate("/categorylist");
+  // };
 
   return (
     <>
@@ -95,12 +95,12 @@ console.log("set cate",categories,subCategories)
         <div className={styles.container}>
           <div className={styles.header}>
             <h2>Add Category and Subcategory</h2>
-            <button
+            {/* <button
               onClick={handleCategoryList}
               className={styles.categorylist}
             >
               Browse Category List
-            </button>
+            </button> */}
           </div>
           <form onSubmit={handleAddCategory} className={styles.form}>
             {/* Combined Category Field */}
