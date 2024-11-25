@@ -234,7 +234,7 @@ const VideoList = () => {
                 </div>
                 <div className={styles.videoInfo}>
                   <h6>{video.title}</h6>
-                  <p>{video.smallDescription.slice(0,30)+'...'}</p>
+                  <p>{video.smallDescription.slice(0,20)+'...'}</p>
                   <div className={styles.actions}>
                     <div onClick={() => handleView(video._id)}>
                       <FiEye /> View
