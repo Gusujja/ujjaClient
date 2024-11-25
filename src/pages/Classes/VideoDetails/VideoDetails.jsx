@@ -144,7 +144,8 @@ const VideoDetails = () => {
   
   },[videoId])
   // console.log("video Data",data,videoId,videoData)
-  console.log("vdeoby id",video)
+  
+  console.log("vdeoby id",allVideos)
   const description = typeof video?.description === 'string' ? video.description : '';
   return (
     <VideoDetailsStyled>
@@ -170,10 +171,13 @@ const VideoDetails = () => {
           </div>
 
           <div className="videos-section d-flex flex-column gap-3">
-            {allVideos?.map((item) => (
+            {/* {allVideos?.map((item) => (
 
               <VideoCard id={item._id}  embedLink={item.embedLink} title={item.title} />
-            ))}
+            ))} */}
+            {Array.isArray(allVideos) && allVideos?.map((item) => (
+  <VideoCard id={item._id} embedLink={item.embedLink} title={item.title} />
+))}
           </div>
         </div>
       </Container>
