@@ -4,7 +4,7 @@ import { MenuOutlined } from "@ant-design/icons";
 import Dropdown from "react-bootstrap/Dropdown";
 
 import { NavbarContainer } from "./styles";
-import logo from "../../assets/svgs/logo.svg";
+// import logo from "../../assets/svgs/logo.svg";
 import { FlexContainer, fontFamilyMedium, fontFamilyRegular } from "../GlobalStyle";
 
 import { useNavigate, useLocation } from 'react-router-dom';
@@ -60,8 +60,8 @@ const AppNavbar = ({ scrollToSection }) => {
           onClick={() => navigate("/")}
           justifycontent="space-between"
         >
-          <img src={logo} alt="" />
-          <h4 className="brand_text">Brighton Marina Jiu Jitsu Academy</h4>
+          {/* <img src={logo} alt="" /> */}
+          <h4 className="brand_text">Unison Jiu Jitsu Academy</h4>
         </FlexContainer>
         <div className="app-navbar gap-4 d-lg-flex d-none">{navbarLinks}</div>
 

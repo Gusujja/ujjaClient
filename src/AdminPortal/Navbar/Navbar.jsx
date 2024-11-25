@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import "./Navbar.css";
-import logo from "../../assets/svgs/logo.svg";
+// import logo from "../../assets/svgs/logo.svg";
 import icon from "../../assets/images/icoimage.svg";
 import { CiBellOn } from "react-icons/ci";
 
@@ -23,9 +23,10 @@ const Navbar = () => {
       {/* Brand Logo */}
       <div className="navbar-logo">
         <a href="/">
-          <img src={logo} alt="" />
+          {/* <img src={logo} alt="" /> */}
+          <p>Unison Jiu Jitsu Academy</p>
         </a>
-        <p>Brighton Marina Jiu Jitsu Academy</p>
+      
       </div>
 
       {/* Search Bar */}
