@@ -27,7 +27,7 @@ const VideoDescriptionOfDetail = ({ heading,description,views,time }) => {
 
   return (
     <VideoDescriptionStyled>
-   <h4 className="heading">{heading}</h4>
+   <h4 className="heading">{heading.slice(0,30)+'...'}</h4>
 <div className="views-and-likes">
   <p className="description">{description}</p>
   <div>
