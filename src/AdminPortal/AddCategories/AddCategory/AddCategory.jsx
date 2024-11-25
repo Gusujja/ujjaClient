@@ -91,6 +91,7 @@ console.log("set cate",categories,subCategories)
         <div className={styles.sidebar}>
           <Sidebar />
         </div>
+        <div className={styles.inner_content}>
         <div className={styles.container}>
           <div className={styles.header}>
             <h2>Add Category and Subcategory</h2>
@@ -141,7 +142,10 @@ console.log("set cate",categories,subCategories)
             </button>
           </form>
         </div>
+        <div>
         <CategoryList/>
+        </div>
+        </div>
       </div>
      
     </>
