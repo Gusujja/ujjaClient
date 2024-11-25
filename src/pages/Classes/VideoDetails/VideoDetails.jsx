@@ -133,7 +133,7 @@ const VideoDetails = () => {
       setVideo(response.data);
       const res = await fetch(`${web_Url}videos`); // Replace with your backend URL
       const data = await res.json();
-      setAllVideos(data);
+      setAllVideos(data.video);
     } catch (err) {
       // setError(err.message);
     } finally {
@@ -175,9 +175,9 @@ const VideoDetails = () => {
 
               <VideoCard id={item._id}  embedLink={item.embedLink} title={item.title} />
             ))} */}
-            {Array.isArray(allVideos) && allVideos?.map((item) => (
+            {/* {Array.isArray(allVideos) && allVideos?.map((item) => (
   <VideoCard id={item._id} embedLink={item.embedLink} title={item.title} />
-))}
+))} */}
           </div>
         </div>
       </Container>
