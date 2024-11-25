@@ -33,7 +33,7 @@ const VideoDetails = () => {
   
   },[videoId,allVideos])
   // console.log("video Data",data,videoId,videoData)
-  console.log("vdeoby id",video)
+  console.log("web Url",webUrl)
   const description = typeof video?.description === 'string' ? video.description : '';
   return (
     <VideoDetailsStyled>
