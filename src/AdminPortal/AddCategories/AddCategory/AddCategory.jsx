@@ -141,8 +141,9 @@ console.log("set cate",categories,subCategories)
             </button>
           </form>
         </div>
+        <CategoryList/>
       </div>
-      <CategoryList/>
+     
     </>
   );
 };
