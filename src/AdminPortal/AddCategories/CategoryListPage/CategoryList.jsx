@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from "./CategoryList.module.css";
-import Navbar from "../../Navbar/Navbar";
+// import Navbar from "../../Navbar/Navbar";
 // import Sidebar from "../../Sidebar/Sidebar";
 import { MdDelete } from "react-icons/md";
 import axios from 'axios'
@@ -46,7 +46,7 @@ const CategoryList = () => {
 
   return (
     <>
-<Navbar/>
+{/* <Navbar/> */}
 <div className={styles.pageLayout}>
         {/* <div className={styles.sidebar}>
           <Sidebar />
