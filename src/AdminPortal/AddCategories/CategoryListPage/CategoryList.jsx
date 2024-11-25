@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "./CategoryList.module.css";
 import Navbar from "../../Navbar/Navbar";
-import Sidebar from "../../Sidebar/Sidebar";
+// import Sidebar from "../../Sidebar/Sidebar";
 import { MdDelete } from "react-icons/md";
 import axios from 'axios'
 
@@ -14,8 +14,6 @@ const CategoryList = () => {
     ? process.env.REACT_APP_PRODUCTION_URL
     : process.env.REACT_APP_DEVELOPMENT_URL;
   // Delete handler
-  
-console.log("process.env.REACT_APP_DEVELOPMENT_URL",process.env.REACT_APP_DEVELOPMENT_URL,process.env.NODE_ENV,process.env)
   const handleDelete = async (id) => {
     try {
       const response = await axios.delete(
@@ -50,9 +48,9 @@ console.log("process.env.REACT_APP_DEVELOPMENT_URL",process.env.REACT_APP_DEVELO
     <>
 <Navbar/>
 <div className={styles.pageLayout}>
-        <div className={styles.sidebar}>
+        {/* <div className={styles.sidebar}>
           <Sidebar />
-        </div>
+        </div> */}
       <div className={styles.container}>
         <h2>Category List</h2>
         <table className={styles.table}>
