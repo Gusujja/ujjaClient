@@ -24,9 +24,9 @@ const Navbar = () => {
       <div className="navbar-logo">
         <a href="/">
           {/* <img src={logo} alt="" /> */}
-          <p>Unison Jiu Jitsu Academy</p>
+          
         </a>
-      
+        <p>Unison Jiu Jitsu Academy</p>
       </div>
 
       {/* Search Bar */}
