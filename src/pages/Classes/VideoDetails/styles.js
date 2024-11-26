@@ -3,9 +3,9 @@ import { mediaDeviceMax } from "../../../components/GlobalStyle";
 
 export const VideoDetailsStyled = styled.div`
   .video-details-section {
-    flex: 4;
+    flex: 3;
     @media screen and (max-width: 1200px) {
-      flex: 4;
+      flex: 3;
     }
     @media screen and ${mediaDeviceMax.tabletL} {
       flex: 100%;

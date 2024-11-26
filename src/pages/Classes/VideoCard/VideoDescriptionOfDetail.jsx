@@ -23,7 +23,7 @@ const VideoDescriptionStyled = styled.div`
    
   }
 `;
-const VideoDescriptionOfDetail = ({ heading,description,views,time }) => {
+const VideoDescriptionOfDetail = ({ heading,description,smallDescription }) => {
 
   return (
     <VideoDescriptionStyled>
@@ -31,8 +31,9 @@ const VideoDescriptionOfDetail = ({ heading,description,views,time }) => {
 <div className="views-and-likes">
   <p className="description">{description}</p>
   <div>
-    <p>Brighton Marina</p>
-    <p>{views}{' '}.{' '}{time}</p>
+
+    {/* <p>Brighton Marina</p> */}
+    <p className="smallDescription">{smallDescription}</p>
   
   </div>
 
