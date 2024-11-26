@@ -1,109 +1,4 @@
-// import React, { useEffect, useState } from "react";
-// import { VideoDetailsStyled } from "./styles";
-// import { Container } from "react-bootstrap";
-// import axios from 'axios';
-// import { SmallHeadingBlack } from ".././../../components/GlobalStyle";
-// import parse from 'html-react-parser';
-// import { useNavigate, useParams } from "react-router-dom/dist";
-// import VideoDescriptionOfDetail from "../VideoCard/VideoDescriptionOfDetail";
-// const web_Url =
-//   process.env.NODE_ENV === "production"
-//     ? process.env.REACT_APP_PRODUCTION_URL
-//     : process.env.REACT_APP_DEVELOPMENT_URL;
-// const VideoDetails = () => {
-//   const { videoId } = useParams();
-//   // const videoData = data.find((item) => item.id === videoId);
-//   const [video,setVideo]=useState()
-//   const [allVideos,setAllVideos]=useState([])
-//   useEffect(()=>{
-//     const fetchVideos = async () => {
-//     try {
-//       const response = await axios.post(`${web_Url}videos/${videoId}`); // Replace with your backend URL
-//       setVideo(response.data);
-//       const res = await fetch(`${web_Url}videos`); // Replace with your backend URL
-//       const data = await res.json();
-//       setAllVideos(data);
-//     } catch (err) {
-//       // setError(err.message);
-//     } finally {
-//       // setLoading(false);
-//     }
-//   };
-//   fetchVideos();
-  
-//   },[videoId])
-//   // console.log("video Data",data,videoId,videoData)
-//   console.log("web Url",web_Url,allVideos)
-//   const description = typeof video?.description === 'string' ? video.description : '';
-//   return (
-//     <VideoDetailsStyled>
-//       <Container>
-//         <div className="d-flex flex-wrap gap-3">
-//           <div className="video-details-section">
-//             <div className="video-container">
-//               <iframe
-//                 width="100%"
-//                 height="100%"
-//                 src={video?.embedLink}
-//                 title="1st Lesson Fundamentals Single Hand Guard pass - Brighton Marina Jiu Jitsu Academy - www.bmjja.co.uk"
-//                 frameborder="10x"
 
-//                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-//                 allowfullscreen
-//               ></iframe>
-//             </div>
-//             <div className="title my-3">
-//               <SmallHeadingBlack style={{fontSize:'24px'}}>{video?.title}</SmallHeadingBlack>
-//             </div>
-//             <div className="details">{parse(description)}</div>
-//           </div>
-
-//           <div className="videos-section d-flex flex-column gap-3">
-//             {allVideos?.map((item) => (
-//               <VideoCard id={item._id} embedLink={item.embedLink} title={item.title} />
-//             ))}
-//           </div>
-//         </div>
-//       </Container>
-
-
-//     </VideoDetailsStyled>
-//   );
-// };
-
-// export default VideoDetails;
-
-// const VideoCard = ({ embedLink, title, id }) => {
-//   const navigate = useNavigate();
-//   return (
-//     <div
-//       className="video-card d-flex align-items-center justify-content-start"
-//       onClick={() =>{
-//         navigate(`/videos/${id}`)
-//         window.location.reload()
-//       }
-//     }
-//     >
-//       <div className="image">
-//       <iframe
-//                 width="100%"
-//                 height="100%"
-//                 src={embedLink}
-//                 title="1st Lesson Fundamentals Single Hand Guard pass - Brighton Marina Jiu Jitsu Academy - www.bmjja.co.uk"
-//                 frameborder="10x"
-//                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-//                 // allowfullscreen
-//               ></iframe>
-           
-//       </div>
-//       <VideoDescriptionOfDetail
-//         heading={title}
-//          views={"3.5M"}
-//         time={"1 year ago"}
-//       />
-//     </div>
-//   );
-// };
 import React, { useEffect, useState } from "react";
 import { VideoDetailsStyled } from "./styles";
 import { Container } from "react-bootstrap";
@@ -187,7 +82,7 @@ const VideoDetails = () => {
 
 export default VideoDetails;
 
-const VideoCard = ({ embedLink, title, id }) => {
+const VideoCard = ({ embedLink, title, id, smallDescription }) => {
   console.log("embedLink",embedLink)
   const navigate = useNavigate();
   return (
@@ -215,8 +110,9 @@ const VideoCard = ({ embedLink, title, id }) => {
             </div>
       <VideoDescriptionOfDetail
         heading={title}
-         views={"3.5M"}
-        time={"1 year ago"}
+        smallDescription={smallDescription}
+        //  views={"3.5M"}
+        // time={"1 year ago"}
       />
     </div>
   );
