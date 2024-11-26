@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 const VideoDescriptionStyled = styled.div`
   padding: 8px 10px;
+  border-radius: 10px;
 
   .heading {
     color: #0f0f0f;
