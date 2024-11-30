@@ -13,36 +13,36 @@ import { Rate } from "antd";
 import Fancybox from "../../../components/common/FancyBox";
 
 const videoData = [
-  {id:1,
-    image: thumbnail,
-    heading: "Single-Hand Guard Pass",
-    description:
-      "A technique in Brazilian Jiu-Jitsu where the practitioner uses one hand to control the opponent's leg or hip while passing their guard, enabling them to establish a dominant position.",
-    videoId: "https://youtu.be/lvBHGGK_WcQ",
-  },
-  {id:2,
-    image: thumbnail2,
-    heading: "Double Hand Guard pass",
-    description:
-      " Using both hands to control the opponent's legs, enabling passage of their guard",
-    rating: 4,
-    videoId: "https://youtu.be/H9qe1vdj_Oc",
-  },
-  {id:3,
-    image: thumbnail3,
-    heading: "Side Control Fundamental",
-    description: "Essential position in Jiu Jitsu for control and submissions",
-    rating: 4,
-    videoId: "https://youtu.be/fd1xC1YsPUg",
-  },
-  {id:4,
-    image: thumbnail4,
-    heading: "Americana from Mount Fundamental",
-    description:
-      "The Americana from Mount: A fundamental Jiu Jitsu technique leveraging arm pressure for a submission from mount position",
-    rating: 4,
-    videoId: "https://youtu.be/jhh9qHQ8LlA",
-  },
+  // {id:1,
+  //   image: thumbnail,
+  //   heading: "Single-Hand Guard Pass",
+  //   description:
+  //     "A technique in Brazilian Jiu-Jitsu where the practitioner uses one hand to control the opponent's leg or hip while passing their guard, enabling them to establish a dominant position.",
+  //   videoId: "https://youtu.be/lvBHGGK_WcQ",
+  // },
+  // {id:2,
+  //   image: thumbnail2,
+  //   heading: "Double Hand Guard pass",
+  //   description:
+  //     " Using both hands to control the opponent's legs, enabling passage of their guard",
+  //   rating: 4,
+  //   videoId: "https://youtu.be/H9qe1vdj_Oc",
+  // },
+  // {id:3,
+  //   image: thumbnail3,
+  //   heading: "Side Control Fundamental",
+  //   description: "Essential position in Jiu Jitsu for control and submissions",
+  //   rating: 4,
+  //   videoId: "https://youtu.be/fd1xC1YsPUg",
+  // },
+  // {id:4,
+  //   image: thumbnail4,
+  //   heading: "Americana from Mount Fundamental",
+  //   description:
+  //     "The Americana from Mount: A fundamental Jiu Jitsu technique leveraging arm pressure for a submission from mount position",
+  //   rating: 4,
+  //   videoId: "https://youtu.be/jhh9qHQ8LlA",
+  // },
 ];
 
 const VideoSection = () => {

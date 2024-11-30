@@ -29,6 +29,7 @@ h2 {
 
 .formGroup {
   margin-bottom: 15px;
+
 }
 
 label {
@@ -107,7 +108,7 @@ font-size: 14px;
 }
 
 .categorySubcategory select {
-  flex: 1; /* Allow select elements to grow and fill the remaining space */
+  flex: 2; /* Allow select elements to grow and fill the remaining space */
 }
 
 /* Thumbnail input styling */

@@ -45,16 +45,18 @@ const VideoDetails = () => {
   return (
     <VideoDetailsStyled>
       <Container>
-        <div className="d-flex flex-wrap gap-3">
+        <div className="d-flex flex-wrap gap-3" style={{    marginLeft: "-50px",
+    marginRight: "-50px"}}>
           <div className="video-details-section">
             <div className="video-container">
               <iframe
+              style={{borderRadius:"10px"}}
                 width="100%"
                 height="100%"
                 src={video?.embedLink}
                 title="1st Lesson Fundamentals Single Hand Guard pass - Brighton Marina Jiu Jitsu Academy - www.bmjja.co.uk"
                 frameborder="10x"
-
+           
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen
               ></iframe>
@@ -68,7 +70,7 @@ const VideoDetails = () => {
           <div className="videos-section d-flex flex-column gap-3">
             {allVideos?.map((item) => (
 
-              <VideoCard id={item._id}  embedLink={item.embedLink} title={item.title} />
+              <VideoCard id={item._id}  embedLink={item.embedLink} title={item.title} smallDescription={item.smallDescription} />
             ))}
             {/* {Array.isArray(allVideos) && allVideos?.map((item) => (
   <VideoCard id={item._id} embedLink={item.embedLink} title={item.title} />
@@ -101,6 +103,7 @@ const VideoCard = ({ embedLink, title, id, smallDescription }) => {
               <iframe
                 width="100%"
                 height="100%"
+                style={{borderRadius:"8px"}}
                 src={embedLink}
                 title="1st Lesson Fundamentals Single Hand Guard pass - Brighton Marina Jiu Jitsu Academy - www.bmjja.co.uk"
                 frameborder="10x"

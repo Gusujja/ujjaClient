@@ -3,15 +3,19 @@ import styled from "styled-components";
 
 const VideoDescriptionStyled = styled.div`
   padding: 8px 10px;
+      margin-top: 40px;
   border-radius: 10px;
  
 
   .heading {
     color: #0f0f0f;
-    font-weight: 400;
+    font-weight: 600;
     font-size: 14px;
     align-items: center;
-    margin-bottom: 3px;
+    // margin-bottom: 3px;
+      margin-top:-30px;
+      //  line-height: 1.5; /* Adjusts the spacing between lines */
+
   }
   .views-and-likes {
     color: #606060;
@@ -23,18 +27,22 @@ const VideoDescriptionStyled = styled.div`
 
    
   }
+    .smallDescription{
+    margin-left:-5px}
 `;
 const VideoDescriptionOfDetail = ({ heading,description,smallDescription }) => {
 
   return (
     <VideoDescriptionStyled>
-   <h4 className="heading">{heading.slice(0,20)+'...'}</h4>
+   <h4 className="heading"> <span>{heading.slice(0, 20)}</span>
+  <br />
+  <span>{heading.slice(20)}</span></h4>
 <div className="views-and-likes">
   <p className="description">{description}</p>
   <div>
 
     {/* <p>Brighton Marina</p> */}
-    <p className="smallDescription">{smallDescription}</p>
+    <p className="smallDescription">{smallDescription.slice(0,15)+'...'}</p>
   
   </div>
 

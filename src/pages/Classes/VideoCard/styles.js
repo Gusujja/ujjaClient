@@ -2,9 +2,16 @@ import styled from "styled-components";
 // import { mediaDeviceMax } from "../../../components/GlobalStyle";
 
 export const VideoCardStyled = styled.div`
-  border: 1px solid #dedef9;
-  border-radius: 10px 10px 0px 0px;
+  
+  
   padding-bottom: 10px;
+
+  .videos_videoCard{
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
 
   .image-container {
     position: relative;
@@ -29,3 +36,4 @@ export const VideoCardStyled = styled.div`
     }
   }
 `;
+

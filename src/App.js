@@ -30,19 +30,6 @@ const tagManagerArgs = { gtmId: "GTM-ND5H33G7" };
 TagManager.initialize(tagManagerArgs);
 
 const App = () => {
-  
-  const [categories, setCategories] = useState([
-    { name: "Technology", subcategories: ["AI", "Web Development", "Cybersecurity"] },
-    { name: "Health", subcategories: ["Fitness", "Nutrition", "Mental Health"] },
-  ]);
-
-
- 
-
-   // Add new category dynamically from AddCategory component
-   const handleAddCategory = (newCategory) => {
-    setCategories(prevCategories => [...prevCategories, newCategory]);
-  };
 
   const token =   localStorage.getItem('token');
 const navigate=useNavigate()
@@ -104,12 +91,12 @@ useEffect(() => {
           <Route path="/login" element={<Login />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/signup" element={<SignUp />} />
-          <Route path="/uploadvideo" element={<UploadVideo  categories={categories}/>}
+          <Route path="/uploadvideo" element={<UploadVideo  />}
            />
              <Route path="/editVideo/:Id" element={<EditVideo />} />
           <Route path="/videolist" element={<VideoList />} />
           <Route path="/categorylist" element={<CategoryList />} />
-          <Route path="/addcategory" element={<AddCategory onAddCategory={handleAddCategory} />} />
+          <Route path="/addcategory" element={<AddCategory  />} />
 
           <Route path="*" element={<div>Page not found.</div>} />
         </Routes>

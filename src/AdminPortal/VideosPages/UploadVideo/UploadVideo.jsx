@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
@@ -8,6 +8,7 @@ import styles from "./UploadVideo.module.css";
 import Sidebar from "../../Sidebar/Sidebar";
 import Navbar from "../../Navbar/Navbar";
 import CustomModal from "../../CustomModal/CustomModal";
+import Select from "react-select";
 const web_Url =
   process.env.NODE_ENV === "production"
     ? process.env.REACT_APP_PRODUCTION_URL
@@ -18,9 +19,9 @@ const UploadVideo = () => {
   const [videoPreview, setVideoPreview] = useState("");
   const [description, setDescription] = useState("");
   const [isModalVisible, setModalVisible] = useState(false);
-const [msg,setMsg]=useState('')
+  const [msg, setMsg] = useState("");
   const [subcategories, setSubcategories] = useState([]);
-const [categories,setCategories]=useState([])
+  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -30,16 +31,15 @@ const [categories,setCategories]=useState([])
           throw new Error("Failed to fetch videos");
         }
         const data = await response.json();
-        console.log("categories data",data)
         setCategories(data);
       } catch (err) {
-     console.log("error msg")
+        console.log("error msg");
       }
     };
 
     fetchCategories();
   }, []);
-  
+
   // const handleOpenModal = () => {
   //   setModalVisible(true);
   // };
@@ -53,17 +53,16 @@ const [categories,setCategories]=useState([])
       title: "",
       smallDescription: "",
       category: "",
-      subCategory: "",
+      subCategory: [],
       embedLink: "",
       // thumbnail: null, // for image file input
     },
     validationSchema: Yup.object({
       title: Yup.string().required("Required"),
-      smallDescription: Yup.string()
-        .required("Required")
-        .max(150, "Max 150 characters allowed"),
+      smallDescription: Yup.string().required("Required"),
       category: Yup.string().required("Required"),
-      subCategory: Yup.string().required("Required"),
+      // subCategory: Yup.string().required("Required"),
+      subCategory: Yup.array().min(1, "Select at least one subcategory"),
       embedLink: Yup.string().url("Invalid URL").required("Required"),
     }),
     onSubmit: async (values) => {
@@ -83,56 +82,57 @@ const [categories,setCategories]=useState([])
       // if (values.thumbnail) {
       //   formData.append("thumbnail", values.thumbnail);
       // }
-      const data={  title: values.title,
+      const data = {
+        title: values.title,
         smallDescription: values.smallDescription,
         category: values.category,
         subCategory: values.subCategory,
         embedLink: values.embedLink,
         // thumbnail: File,
-        description:description}
+        description: description,
+      };
       try {
         // Make the request to the backend
         const response = await fetch(`${web_Url}videos`, {
           method: "POST",
           headers: {
-            "Content-Type": "application/json",  // Sending JSON data
+            "Content-Type": "application/json", // Sending JSON data
           },
           body: JSON.stringify(data), // Send the JSON strin
         });
         if (response.status === 201) {
-         // alert("Video uploaded successfully!");
+          // alert("Video uploaded successfully!");
           // Reset the form or navigate as needed
           setModalVisible(true);
-          setMsg("Video is uploaded")
-          setTimeout(()=>{
+          setMsg("Video is uploaded");
+          setTimeout(() => {
             setModalVisible(false);
             formik.resetForm();
             setVideoPreview("");
             setDescription("");
-            setMsg("")
+            setMsg("");
             navigate("/videolist");
-          },1000)
-       
+          }, 1000);
         } else {
           setModalVisible(true);
-          setMsg("Bad Request!")
-          setTimeout(()=>{
+          setMsg("Bad Request!");
+          setTimeout(() => {
             setModalVisible(false);
-            setMsg("")
+            setMsg("");
             setDescription("");
-          },2000)
+          }, 2000);
         }
       } catch (error) {
         setModalVisible(true);
-        setMsg("Bad Request!")
-        setTimeout(()=>{
+        setMsg("Bad Request!");
+        setTimeout(() => {
           setModalVisible(false);
           formik.resetForm();
           setVideoPreview("");
-          setMsg("")
+          setMsg("");
           setDescription("");
           navigate("/videolist");
-        },1000);
+        }, 1000);
       }
     },
   });
@@ -146,7 +146,9 @@ const [categories,setCategories]=useState([])
   const handleCategoryChange = (event) => {
     const selectedCategory = event.target.value;
     formik.handleChange(event);
-    const categoryObj = categories.find((cat) => cat.category === selectedCategory);
+    const categoryObj = categories.find(
+      (cat) => cat.category === selectedCategory
+    );
     setSubcategories(categoryObj ? categoryObj.subcategories : []);
   };
 
@@ -221,17 +223,18 @@ const [categories,setCategories]=useState([])
                 className={`${styles.formGroup} ${styles.categorySubcategory}`}
               >
                 <div className={styles.formGroup}>
-                  <label htmlFor="category">Category</label>
+                  <label  htmlFor="category">Category</label>
                   <select
+                
                     id="category"
                     name="category"
                     onChange={handleCategoryChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.category}
                   >
-                    <option value="" label="Select category" />
+                    <option value="" label="Select category"   />
                     {categories.map((category, index) => (
-                      <option key={index} value={category.category}>
+                      <option  key={index} value={category.category}>
                         {category.category}
                       </option>
                     ))}
@@ -243,7 +246,8 @@ const [categories,setCategories]=useState([])
 
                 <div className={styles.formGroup}>
                   <label htmlFor="subCategory">Subcategory</label>
-                  <select
+
+                  {/* <select
                     id="subCategory"
                     name="subCategory"
                     onChange={formik.handleChange}
@@ -257,7 +261,27 @@ const [categories,setCategories]=useState([])
                         {subCategory}
                       </option>
                     ))}
-                  </select>
+                  </select> */}
+                  <Select 
+                    id="subCategory"
+                    name="subCategory"
+                    isMulti
+                    options={subcategories.map((sub) => ({
+                      value: sub,
+                      label: sub,
+                    }))}
+                    onChange={(selected) => {
+                      const values = selected.map((option) => option.value);
+                      formik.setFieldValue("subCategory", values);
+                    }}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.subCategory.map((value) => ({
+                      value,
+                      label: value,
+                    }))}
+                    className="reactSelectDropdown"
+                  />
+
                   {formik.touched.subCategory && formik.errors.subCategory ? (
                     <div className={styles.error}>
                       {formik.errors.subCategory}
@@ -279,7 +303,7 @@ const [categories,setCategories]=useState([])
               </div> */}
 
               <div className={styles.formGroup}>
-                <label htmlFor="embedLink">Video Embed Link</label>
+                <label htmlFor="embedLink">Video Link</label>
                 <input
                   id="embedLink"
                   name="embedLink"
@@ -299,6 +323,7 @@ const [categories,setCategories]=useState([])
                   value={description}
                   onChange={setDescription}
                   theme="snow"
+                  style={{ backgroundColor: "white" }}
                   modules={{
                     toolbar: [
                       [{ header: [1, 2, false] }],
@@ -310,7 +335,7 @@ const [categories,setCategories]=useState([])
                 />
               </div>
 
-              <button type="submit" className={styles.submitButton} >
+              <button type="submit" className={styles.submitButton}>
                 Upload Video
               </button>
             </div>
@@ -344,18 +369,12 @@ const [categories,setCategories]=useState([])
                 </div>
               )} */}
             </div>
-
-
           </form>
         </div>
 
-        <CustomModal
-        isVisible={isModalVisible}
-        title={msg}
-      >
-        {/* Custom content goes here */}
-        
-      </CustomModal>
+        <CustomModal isVisible={isModalVisible} title={msg}>
+          {/* Custom content goes here */}
+        </CustomModal>
       </div>
     </>
   );

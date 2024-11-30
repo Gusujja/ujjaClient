@@ -12,7 +12,7 @@ import {  useParams } from "react-router-dom/dist";
 import axios from 'axios'
 import { Formik } from 'formik';
 
-const EditVideo = ({categories}) => {
+const EditVideo = () => {
   const web_Url =
   process.env.NODE_ENV === "production"
     ? process.env.REACT_APP_PRODUCTION_URL
@@ -25,6 +25,7 @@ const EditVideo = ({categories}) => {
   const [isModalVisible, setModalVisible] = useState(false);
 const [msg,setMsg]=useState('')
   const [subcategories, setSubcategories] = useState([]);
+  const [categories,setCategories]=useState([])
 
   const [video,setVideo]=useState()
   useEffect(()=>{
@@ -50,7 +51,7 @@ const [msg,setMsg]=useState('')
       category: video?.category| "",
       subCategory: video?.subCategory| "",
       embedLink: video?.embedLink |"",
-      thumbnail: video?.thumbnail| null, // for image file input
+     // thumbnail: video?.thumbnail| null, // for image file input
       description:video?.description | " ",
     },
     validationSchema: Yup.object({
@@ -63,27 +64,36 @@ const [msg,setMsg]=useState('')
       embedLink: Yup.string().url("Invalid URL").required("Required"),
     }),
     onSubmit: async (values) => {
-      const formData = new FormData();
+      console.log("values",values)
+      // const formData = new FormData();
+      // // Append video metadata (title, small description, etc.)
+      // formData.append("title", values.title);
+      // formData.append("smallDescription", values.smallDescription);
+      // formData.append("category", values.category);
+      // formData.append("subCategory", values.subCategory);
+      // formData.append("embedLink", values.embedLink);
 
-      // Append video metadata (title, small description, etc.)
-      formData.append("title", values.title);
-      formData.append("smallDescription", values.smallDescription);
-      formData.append("category", values.category);
-      formData.append("subCategory", values.subCategory);
-      formData.append("embedLink", values.embedLink);
-
-      // Append the description (as it comes from the ReactQuill editor)
-      formData.append("description", description);
+      // // Append the description (as it comes from the ReactQuill editor)
+      // formData.append("description", description);
 
       // Append the thumbnail file
-      if (values.thumbnail) {
-        formData.append("thumbnail", values.thumbnail);
-      }
+      // if (values.thumbnail) {
+      //   formData.append("thumbnail", values.thumbnail);
+      // }
+      const data={  title: values.title,
+        smallDescription: values.smallDescription,
+        category: values.category,
+        subCategory: values.subCategory,
+        embedLink: values.embedLink,
+        // thumbnail: File,
+        description:description}
 
       try {
         // Make the request to the backend
-        const response = await axios.patch(`${web_Url}videos/${Id}` ,formData,
-        );
+        const response = await axios.patch(`${web_Url}videos/${Id}` , {
+         
+          ...data, // Send the JSON strin
+        });
         if (response.status === 200) {
          // alert("Video uploaded successfully!");
           // Reset the form or navigate as needed
@@ -125,6 +135,7 @@ const [msg,setMsg]=useState('')
     },
     enableReinitialize: true, 
   });
+  console.log("edit video",video,categories)
   useEffect(() => {
     if (video) {
       formik.setValues({
@@ -133,7 +144,7 @@ const [msg,setMsg]=useState('')
         category: video.category || "",
         subCategory: video.subCategory || "",
         embedLink: video.embedLink || "",
-        thumbnail: video.thumbnail || null,
+        // thumbnail: video.thumbnail || null,
       });
     }
   }, [video]);
@@ -146,22 +157,40 @@ const [msg,setMsg]=useState('')
   const handleCategoryChange = (event) => {
     const selectedCategory = event.target.value;
     formik.handleChange(event);
-    const categoryObj = categories.find((cat) => cat.name === selectedCategory);
-    setSubcategories(categoryObj ? categoryObj.subcategories : []);
+    const categoryObj = categories.find((cat) => cat.category === selectedCategory);
+  //  const categoryObj1 = categories.find((cat) => cat.category === video.category);
+      setSubcategories(categoryObj ? categoryObj.subcategories : []);
+   
   };
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const response = await fetch(`${web_Url}category`); // Replace with your backend URL
+        if (!response) {
+          throw new Error("Failed to fetch videos");
+        }
+        const data = await response.json();
+        setCategories(data);
+      } catch (err) {
+     console.log("error msg")
+      }
+    };
+
+    fetchCategories();
+  }, []);
 
   // Handle image file selection and set preview
-  const handleThumbnailChange = (event) => {
-    const file = event.target.files[0];
-    if (file) {
-      formik.setFieldValue("thumbnail", file); // Set file to formik state
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setThumbnailPreview(reader.result); // Show preview using FileReader
-      };
-      reader.readAsDataURL(file);
-    }
-  };
+  // const handleThumbnailChange = (event) => {
+  //   const file = event.target.files[0];
+  //   if (file) {
+  //     formik.setFieldValue("thumbnail", file); // Set file to formik state
+  //     const reader = new FileReader();
+  //     reader.onloadend = () => {
+  //       setThumbnailPreview(reader.result); // Show preview using FileReader
+  //     };
+  //     reader.readAsDataURL(file);
+  //   }
+  // };
   const getVideoId = (url) => {
     const regex =
       /(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^&\n]{11})/;
@@ -230,11 +259,12 @@ const [msg,setMsg]=useState('')
                     onChange={handleCategoryChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.category}
+                    multiple
                   >
                     <option value="" label="Select category" />
-                    {categories?.map((category, index) => (
-                      <option key={index} value={category.name}>
-                        {category.name}
+                    {categories?.map((c, index) => (
+                      <option key={index} value={c.category}>
+                        {c.category}
                       </option>
                     ))}
                   </select>
@@ -269,7 +299,7 @@ const [msg,setMsg]=useState('')
               </div>
 
               {/* Thumbnail Image Input */}
-              <div className={styles.formGroup}>
+              {/* <div className={styles.formGroup}>
                 <label htmlFor="thumbnail">Video Thumbnail</label>
                 <input
                   id="thumbnail"
@@ -278,7 +308,7 @@ const [msg,setMsg]=useState('')
                   accept="image/*"
                   onChange={handleThumbnailChange}
                 />
-              </div>
+              </div> */}
 
               <div className={styles.formGroup}>
                 <label htmlFor="embedLink">Video Embed Link</label>
