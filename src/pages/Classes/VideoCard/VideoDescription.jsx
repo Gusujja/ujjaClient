@@ -27,7 +27,7 @@ const VideoDescriptionStyled = styled.div`
    
   }
 `;
-const VideoDescription = ({ heading,description, smallDescription, views,time }) => {
+const VideoDescription = ({ heading, description, smallDescription, views,time }) => {
 
   return (
     <VideoDescriptionStyled>

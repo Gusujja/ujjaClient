@@ -233,8 +233,8 @@ const VideoList = () => {
                   ></iframe>
                 </div>
                 <div className={styles.videoInfo}>
-                  <h6>{video.title}</h6>
-                  <p>{video.smallDescription.slice(0,20)+'...'}</p>
+                  <h6>{video.title.slice(0,35)+'...'}</h6>
+                  <p>{video.smallDescription.slice(0,40)+'...'}</p>
                   <div className={styles.actions}>
                     <div onClick={() => handleView(video._id)}>
                       <FiEye /> View

@@ -14,7 +14,7 @@ import Footer from "./components/Footer/Footer";
 import ScrollToTopButton from "./components/common/Button/ScrollToTopButton";
 import { scrollToSection, scrollToTop } from "./utils/helper";
 import Modal from "styled-react-modal";
-import TagManager from "react-gtm-module";
+// import TagManager from "react-gtm-module";
 import AdminPortal from "./AdminPortal/Index";
 import Login from "./AdminPortal/AuthPages/Login/Login";
 import SignUp from "./AdminPortal/AuthPages/SignUp/SignUp";
@@ -24,12 +24,14 @@ import VideoList from "./AdminPortal/VideosPages/VideoList/VideoList";
 import AddCategory from "./AdminPortal/AddCategories/AddCategory/AddCategory";
 import EditVideo from "./AdminPortal/VideosPages/EditVideo/editVideo";
 import CategoryList from "./AdminPortal/AddCategories/CategoryListPage/CategoryList";
+import useGoogleAnalytics from "./hooks/CustomHooks/GtagHook";
 
-
-const tagManagerArgs = { gtmId: "GTM-ND5H33G7" };
-TagManager.initialize(tagManagerArgs);
+// const tagManagerArgs = { gtmId: "GTM-ND5H33G7" };
+// TagManager.initialize(tagManagerArgs);
 
 const App = () => {
+
+  useGoogleAnalytics();
 
   const token =   localStorage.getItem('token');
 const navigate=useNavigate()

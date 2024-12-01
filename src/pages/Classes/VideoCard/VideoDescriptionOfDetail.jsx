@@ -28,7 +28,13 @@ const VideoDescriptionStyled = styled.div`
    
   }
     .smallDescription{
-    margin-left:-5px}
+    margin-left:-5px
+      color: #606060;
+    font-size: 12px;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 4px;}
 `;
 const VideoDescriptionOfDetail = ({ heading,description,smallDescription }) => {
 
@@ -36,13 +42,13 @@ const VideoDescriptionOfDetail = ({ heading,description,smallDescription }) => {
     <VideoDescriptionStyled>
    <h4 className="heading"> <span>{heading.slice(0, 20)}</span>
   <br />
-  <span>{heading.slice(20)}</span></h4>
-<div className="views-and-likes">
+  <span>{heading.slice(20, 40)+ '...'}</span></h4>
   <p className="description">{description}</p>
   <div>
 
     {/* <p>Brighton Marina</p> */}
-    <p className="smallDescription">{smallDescription.slice(0,15)+'...'}</p>
+<div className="views-and-likes">
+    <p className="smallDescription">{smallDescription.slice(0,20)+'...'}</p>
   
   </div>
 

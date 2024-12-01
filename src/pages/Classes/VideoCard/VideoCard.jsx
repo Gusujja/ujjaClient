@@ -37,7 +37,7 @@ const VideoCard = ({title,description,embedLink,id}) => {
         </div> */}
       {/* </div> */}
       <VideoDescription
-        heading={title&& title.length>50 ? title.slice(0,15)+'...' : title}
+        heading={title&& title.length>50 ? title.slice(0,50)+'...' : title}
         description={parse(trundesc)}     
       />
     </div>
