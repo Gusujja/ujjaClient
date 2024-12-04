@@ -10,7 +10,8 @@ import Navbar from "../../Navbar/Navbar";
 import CustomModal from "../../CustomModal/CustomModal";
 import {  useParams } from "react-router-dom/dist";
 import axios from 'axios'
-import { Formik } from 'formik';
+import Select from "react-select";
+
 
 const EditVideo = () => {
   const web_Url =
@@ -19,15 +20,17 @@ const EditVideo = () => {
     : process.env.REACT_APP_DEVELOPMENT_URL;
   const { Id } = useParams();
   const navigate = useNavigate();
+  const [video,setVideo]=useState()
   const [thumbnailPreview, setThumbnailPreview] = useState("");
   const [videoPreview, setVideoPreview] = useState("");
-  const [description, setDescription] = useState("");
+  const [description, setDescription] = useState(video?.description || "");
   const [isModalVisible, setModalVisible] = useState(false);
 const [msg,setMsg]=useState('')
   const [subcategories, setSubcategories] = useState([]);
   const [categories,setCategories]=useState([])
 
-  const [video,setVideo]=useState()
+
+  
   useEffect(()=>{
     const fetchVideos = async () => {
     try {
@@ -42,9 +45,13 @@ const [msg,setMsg]=useState('')
   fetchVideos();
   
   },[Id])
-
+  useEffect(() => {
+    if (video) {
+      setDescription(video.description || "");
+    }
+  }, [video]);
+  
   const formik = useFormik({
-    
     initialValues: {
       title:  video?.title| "",
       smallDescription: video?.smallDescription| "",
@@ -52,15 +59,17 @@ const [msg,setMsg]=useState('')
       subCategory: video?.subCategory| "",
       embedLink: video?.embedLink |"",
      // thumbnail: video?.thumbnail| null, // for image file input
-      description:video?.description | " ",
+      //description:video?.description | " ",
     },
     validationSchema: Yup.object({
       title: Yup.string().required("Required"),
       smallDescription: Yup.string()
-        .required("Required")
-        .max(150, "Max 150 characters allowed"),
+        .required("Required"),
+        // .max(150, "Max 150 characters allowed"),
       category: Yup.string().required("Required"),
-      subCategory: Yup.string().required("Required"),
+      // subCategory: Yup.string().required("Required"),
+      subCategory: Yup.array().min(1, "Select at least one subcategory"),
+
       embedLink: Yup.string().url("Invalid URL").required("Required"),
     }),
     onSubmit: async (values) => {
@@ -259,7 +268,6 @@ const [msg,setMsg]=useState('')
                     onChange={handleCategoryChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.category}
-                    multiple
                   >
                     <option value="" label="Select category" />
                     {categories?.map((c, index) => (
@@ -273,7 +281,7 @@ const [msg,setMsg]=useState('')
                   ) : null}
                 </div>
 
-                <div className={styles.formGroup}>
+                {/* <div className={styles.formGroup}>
                   <label htmlFor="subCategory">Subcategory</label>
                   <select
                     id="subCategory"
@@ -290,6 +298,35 @@ const [msg,setMsg]=useState('')
                       </option>
                     ))}
                   </select>
+                  {formik.touched.subCategory && formik.errors.subCategory ? (
+                    <div className={styles.error}>
+                      {formik.errors.subCategory}
+                    </div>
+                  ) : null}
+                </div> */}
+                <div className={styles.formGroup}>
+                  <label htmlFor="subCategory">Subcategory</label>
+
+                  <Select 
+                    id="subCategory"
+                    name="subCategory"
+                    isMulti
+                    options={subcategories.map((sub) => ({
+                      value: sub,
+                      label: sub,
+                    }))}
+                    onChange={(selected) => {
+                      const values = selected.map((option) => option.value);
+                      formik.setFieldValue("subCategory", values);
+                    }}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.subCategory.map((value) => ({
+                      value,
+                      label: value,
+                    }))}
+                    className="reactSelectDropdown"
+                  />
+
                   {formik.touched.subCategory && formik.errors.subCategory ? (
                     <div className={styles.error}>
                       {formik.errors.subCategory}
@@ -328,7 +365,7 @@ const [msg,setMsg]=useState('')
               <div className={styles.formGroup}>
                 <label htmlFor="description">Description</label>
                 <ReactQuill
-                  value={description}
+                  value={description }
                   onChange={setDescription}
                   theme="snow"
                   modules={{

@@ -3,13 +3,9 @@ import { mediaDeviceMax } from "../../../components/GlobalStyle";
 
 export const VideoDetailsStyled = styled.div`
   .video-details-section {
-    flex: 3;
-margin-top: 7.3rem;
-margin-left: 0px;
-
-
+    flex: 4;
     @media screen and (max-width: 1200px) {
-      flex: 3;
+      flex: 4;
     }
     @media screen and ${mediaDeviceMax.tabletL} {
       flex: 100%;
@@ -17,9 +13,7 @@ margin-left: 0px;
     .video-container {
       width: 100%;
       height: 584px;
-      border-radius: 10px;
-     
-   
+   border-radius: 50px;
      
 
       video {
@@ -32,7 +26,6 @@ margin-left: 0px;
       border: 1px solid #dedef9;
       padding: 20px 18px;
       border-radius: 10px;
-      background: white;
     
 
       p {
@@ -44,8 +37,7 @@ margin-left: 0px;
   }
   .videos-section {
   margin-top: 7.3rem;
-    flex: 1;
-   margin-right: 0px;
+    flex: 2;
     @media screen and ${mediaDeviceMax.tabletL} {
       height: 600px;
       overflow: auto;
@@ -53,20 +45,17 @@ margin-left: 0px;
       border-radius: 6px;
     }
     .video-card {
-    
-      
+    // margin-top: 7.3rem;
+      border: 1px solid #dedef9;
+      border-radius: 6px;
       .image {
         width: 128px;
         height: 80px;
         
-      
-        
         img {
-     
+          border-radius: 6px 0px 0px 6px;
           width: 100%;
           height: 100%;
-            
-      
         }
       }
     }

@@ -66,7 +66,7 @@ const UploadVideo = () => {
       embedLink: Yup.string().url("Invalid URL").required("Required"),
     }),
     onSubmit: async (values) => {
-      const formData = new FormData();
+      //const formData = new FormData();
 
       // Append video metadata (title, small description, etc.)
       // formData.append("title", values.title);
@@ -247,21 +247,6 @@ const UploadVideo = () => {
                 <div className={styles.formGroup}>
                   <label htmlFor="subCategory">Subcategory</label>
 
-                  {/* <select
-                    id="subCategory"
-                    name="subCategory"
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    value={formik.values.subCategory}
-                    disabled={subcategories.length === 0}
-                  >
-                    <option value="" label="Select subcategory" />
-                    {subcategories.map((subCategory, index) => (
-                      <option key={index} value={subCategory}>
-                        {subCategory}
-                      </option>
-                    ))}
-                  </select> */}
                   <Select 
                     id="subCategory"
                     name="subCategory"

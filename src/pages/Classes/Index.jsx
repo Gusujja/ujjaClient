@@ -13,6 +13,8 @@ const web_Url =
     : process.env.REACT_APP_DEVELOPMENT_URL;
   const [allVideos, setAllVideos] = useState([{}]);
   const [categories, setCategories] = useState([]);
+  const [subcategories,setSubcategories]=useState([]);
+  const [category,setCategory]=useState("")
   useEffect(() => {
     const fetchVideos = async () => {
       try {
@@ -22,6 +24,8 @@ const web_Url =
         }
         const data = await response.json();
         setCategories(data);
+       
+
       } catch (err) {
      console.log("error msg")
       }
@@ -29,17 +33,16 @@ const web_Url =
 
     fetchVideos();
   }, []);
-  const fetchVideosByCategory = async (category) => {
+  const fetchVideosByCategory = async (subCategory) => {
     try {
       const response = await axios.get(`${web_Url}videos/search`, {
         params: {
           page:0,
           recordsPerPage:15,
           category:category,  
-          subCategory:"",
+          subCategory:subCategory,
         },
       });
-      console.log("resposne",response.data)
       setAllVideos(response.data.data)
    // setFilteredVideos(response.data.data)
     } catch (error) {
@@ -64,7 +67,13 @@ const web_Url =
 
     fetchVideos();
   }, []);
-
+useEffect(()=>{
+  const categoryObj = categories.find(
+    (cat) => cat.category === category
+  );
+  setSubcategories(categoryObj ? categoryObj.subcategories : []);
+},[category])
+  console.log("category",category,subcategories)
   return (
     <div style={{marginTop: "7.3rem"}} className="classes-page">
      <nav className={styles.categoryBar}>
@@ -73,12 +82,22 @@ const web_Url =
             All
           </li>
         {categories.map((category, index) => (
-          <li key={index} className={styles.categoryItem} onClick={()=>{fetchVideosByCategory(category.category)}}>
+          <li key={index} className={styles.categoryItem} onClick={()=>{setCategory(category.category)}}>
             {category.category}
           </li>
         ))}
       </ul>
     </nav>
+    <nav className={styles.categoryBar}>
+      <ul className={styles.categoryList}>
+        {subcategories.length > 0 && subcategories.map((subcategory, index) => (
+          <li key={index} className={styles.categoryItem} onClick={()=>{fetchVideosByCategory(subcategory)}}>
+            {subcategory}
+          </li>
+        ))}
+      </ul>
+    </nav>
+    
       <Container>
 
         <div className="video-card-row mt-4 d-grid gap-3">

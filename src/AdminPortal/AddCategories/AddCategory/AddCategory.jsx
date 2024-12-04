@@ -66,7 +66,7 @@ console.log("set cate",categories,subCategories)
           setCategory("");
           setSubCategory("");
           setMsg("");
-          navigate("/uploadvideo");
+          navigate("/addcategory");
         }, 1000);
       }
     } catch (error) {

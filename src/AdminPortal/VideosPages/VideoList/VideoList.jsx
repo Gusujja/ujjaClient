@@ -27,7 +27,7 @@ const VideoList = () => {
   const [totalPages, setTotalPages] = useState(1); // Total pages
   const [totalRecords, setTotalRecords] = useState(0); // Total records
 
-
+const [subcategories,setSubcategories]=useState([])
     // // Fetch the videos from the backend when the component mounts
     // useEffect(() => {
     //   const fetchVideos = async () => {
@@ -102,15 +102,20 @@ const VideoList = () => {
           const data = await response.json();
           console.log("categories data",data)
           setCategories(data);
+          const categoryObj = categories.find(
+            (cat) => cat.category === filter.category
+          );
+          setSubcategories(categoryObj ? categoryObj.subcategories : []);
+  
+
         } catch (err) {
        console.log("error msg")
         }
       };
   
       fetchCategories();
-    }, []);
+    }, [filter.category]);
     
-  console.log("categories",categories)
   
     const handleMenuClick = (event, videoId) => {
       setMenuVisible(menuVisible === videoId ? null : videoId);
@@ -152,18 +157,9 @@ const VideoList = () => {
       }
     };
   
-
   
-    const filteredSubCategories = categories.filter((item) => item.category === (filter?.category || ""));
+    console.log("filter category",subcategories)
   
-    console.log("filter category",filter.category, filteredSubCategories,filter.subCategory)
-  
-  
-
-
-
-
-
 
   const handleFilterChange = async (event) => {
     const { name, value } = event.target;
@@ -213,6 +209,13 @@ const VideoList = () => {
                 onChange={handleFilterChange}
               >
                 <option value="">All Subcategories</option>
+                {subcategories?.map((c,index) => (
+                    <option key={index} value={c}>
+                    {c}
+                  </option>
+                
+               
+              ))}
                 {/* Render subcategories dynamically */}
               </select>
             )}

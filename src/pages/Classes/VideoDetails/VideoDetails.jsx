@@ -46,7 +46,7 @@ const VideoDetails = () => {
     <VideoDetailsStyled>
       <Container>
         <div className="d-flex flex-wrap gap-3" style={{    marginLeft: "-50px",
-    marginRight: "-50px"}}>
+    marginRight: "-70px"}}>
           <div className="video-details-section">
             <div className="video-container">
               <iframe
@@ -62,7 +62,7 @@ const VideoDetails = () => {
               ></iframe>
             </div>
             <div className="title my-3">
-              <SmallHeadingBlack style={{fontSize:'24px'}}>{video?.title}</SmallHeadingBlack>
+              <SmallHeadingBlack style={{fontSize:'20px'}}>{video?.title}</SmallHeadingBlack>
             </div>
             <div className="details">{parse(description)}</div>
           </div>

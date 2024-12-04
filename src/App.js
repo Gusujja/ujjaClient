@@ -4,12 +4,14 @@ import { Routes, Route, useLocation,useNavigate} from "react-router-dom";
 import AppNavbar from "./components/AppNavbar/AppNavbar";
 import Home from "./pages/Home/Index";
 import Classes from "./pages/Classes/Index";
+import BmjjaVideoPage from "./pages/BmjjaVideoPage/Index"
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./utility_classes.css";
 import "./App.css";
 import "./components/GlobalStyle";
 import VideoDetails from "./pages/Classes/VideoDetails/VideoDetails";
+import BmjjaVideoDetails from "./pages/BmjjaVideoPage/BmjjaVideoDetails/BmjjaVideoDetails"
 import Footer from "./components/Footer/Footer";
 import ScrollToTopButton from "./components/common/Button/ScrollToTopButton";
 import { scrollToSection, scrollToTop } from "./utils/helper";
@@ -87,8 +89,10 @@ useEffect(() => {
         )}
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/videos" element={<Classes />} />
-          <Route path="/videos/:videoId" element={<VideoDetails />} />
+          {/* <Route path="/videos" element={<Classes />} />
+          <Route path="/videos/:videoId" element={<VideoDetails />} /> */}
+          <Route path="/videos" element={<BmjjaVideoPage />} />
+          <Route path="/videos/:videoId" element={<BmjjaVideoDetails />} />
           <Route path="/admin" element={<AdminPortal />} />
           <Route path="/login" element={<Login />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
