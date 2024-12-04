@@ -60,11 +60,8 @@ const UploadVideo = () => {
     validationSchema: Yup.object({
       title: Yup.string().required("Required"),
       smallDescription: Yup.string().required("Required"),
-      // category: Yup.string().required("Required"),
-            category: Yup.string(),
-      // subCategory: Yup.string().required("Required"),
-      // subCategory: Yup.array().min(1, "Select at least one subcategory"),
-      subCategory: Yup.array(),
+      category: Yup.string().required("Required"),
+      subCategory: Yup.array().min(1, "Select at least one subcategory"),
       embedLink: Yup.string().url("Invalid URL").required("Required"),
     }),
     onSubmit: async (values) => {

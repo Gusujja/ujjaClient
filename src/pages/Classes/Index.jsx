@@ -7,6 +7,7 @@ import axios from 'axios'
 // import Footer from "../../components/Footer/Footer";
 import "./styles.css";
 const Index = () => {
+
 const web_Url =
   process.env.NODE_ENV === "production"
     ? process.env.REACT_APP_PRODUCTION_URL
