@@ -56,7 +56,7 @@ const [msg,setMsg]=useState('')
       title:  video?.title| "",
       smallDescription: video?.smallDescription| "",
       category: video?.category| "",
-      subCategory: video?.subCategory| "",
+      subCategory: video?.subCategory| [],
       embedLink: video?.embedLink |"",
      // thumbnail: video?.thumbnail| null, // for image file input
       //description:video?.description | " ",

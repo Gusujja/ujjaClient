@@ -25,6 +25,7 @@ import AddCategory from "./AdminPortal/AddCategories/AddCategory/AddCategory";
 import EditVideo from "./AdminPortal/VideosPages/EditVideo/editVideo";
 import CategoryList from "./AdminPortal/AddCategories/CategoryListPage/CategoryList";
 import useGoogleAnalytics from "./hooks/CustomHooks/GtagHook";
+import FemalePage from "./pages/FemalePage/FemalePage";
 
 // const tagManagerArgs = { gtmId: "GTM-ND5H33G7" };
 // TagManager.initialize(tagManagerArgs);
@@ -89,6 +90,8 @@ useEffect(() => {
           <Route path="/" element={<Home />} />
           <Route path="/videos" element={<Classes />} />
           <Route path="/videos/:videoId" element={<VideoDetails />} />
+          <Route path="/femalepage" element={<FemalePage />} />
+
           <Route path="/admin" element={<AdminPortal />} />
           <Route path="/login" element={<Login />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
