@@ -6,6 +6,7 @@ import Sidebar from "../../Sidebar/Sidebar";
 import Navbar from "../../Navbar/Navbar";
 import axios from "axios";
 import CustomModal from "../../CustomModal/CustomModal";
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 const VideoList = () => {
   const web_Url =
@@ -166,6 +167,37 @@ const [subcategories,setSubcategories]=useState([])
     setFilter((prev) => ({ ...prev, [name]: value }));
   };
 
+// // Handle drag-and-drop
+// const onDragEnd = async (result) => {
+//   const { source, destination } = result;
+
+//   // If dropped outside a valid destination, do nothing
+//   if (!destination) return;
+
+//   // If dropped in the same position, do nothing
+//   if (source.index === destination.index) return;
+
+//   // Reorder the array locally
+//   const updatedVideos = Array.from(allVideos);
+//   const [movedVideo] = updatedVideos.splice(source.index, 1);
+//   updatedVideos.splice(destination.index, 0, movedVideo);
+
+//   setAllVideos(updatedVideos);
+
+//   // Update the order in the backend
+//   try {
+//     await axios.post(`${web_Url}videos/reorder`, {
+//       updatedOrder: updatedVideos.map((video, index) => ({
+//         id: video._id,
+//         position: index,
+//       })),
+//     });
+//   } catch (error) {
+//     console.error("Error updating video order:", error);
+//   }
+// };
+
+
   return (
     <>
     <CustomModal isVisible={isModalVisible} title="Are you sure you want to delete the Video?">
@@ -220,6 +252,43 @@ const [subcategories,setSubcategories]=useState([])
               </select>
             )}
           </div>
+          {/* <DragDropContext onDragEnd={onDragEnd}>
+        <Droppable droppableId="videoList">
+          {(provided) => (
+            <div
+              {...provided.droppableProps}
+              ref={provided.innerRef}
+              className={styles.videoGrid}
+            >
+              {allVideos.map((video, index) => (
+                <Draggable key={video._id} draggableId={video._id} index={index}>
+                  {(provided) => (
+                    <div
+                      ref={provided.innerRef}
+                      {...provided.draggableProps}
+                      {...provided.dragHandleProps}
+                      className={styles.videoCard}
+                    >
+                      <iframe
+                        src={video.embedLink}
+                        frameBorder="0"
+                        allowFullScreen
+                        title={video.title}
+                        className={styles.iframe}
+                      ></iframe>
+                      <div className={styles.videoInfo}>
+                        <h6>{video.title}</h6>
+                        <p>{video.smallDescription}</p>
+                      </div>
+                    </div>
+                  )}
+                </Draggable>
+              ))}
+              {provided.placeholder}
+            </div>
+          )}
+        </Droppable>
+      </DragDropContext> */}
         </div>
 
         <div className={styles.videoGrid}>
