@@ -63,6 +63,7 @@ useEffect(() => {
     !token &&
     pathname !== "/" &&
     pathname !== "/videos" &&
+    pathname !== "/femalepage" &&
     pathname !== "/videos/:videoId" 
     
   ) {

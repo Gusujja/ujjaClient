@@ -3,6 +3,7 @@ import "./PageStyles.css";
 import { SiTicktick } from "react-icons/si";
 import femalepageimg from "../../assets/images/femaleimg.jpg";
 import femalejiujitsu from "../../assets/images/femalejiujitsuimg.jpg";
+import MembershipModal from "../MembershipModal/MembershipModal";
 
 const ResponsivePage = () => {
   return (
@@ -12,31 +13,24 @@ const ResponsivePage = () => {
         <img src={femalepageimg} alt="Main" />
       </div>
 
+      <div className="container-membership">
+      <div className="text-mem">Women's Jiu Jitsu Group 1 (+16 years) Tuesday - Thursdays</div>
+      <button className="button-see-mem"><MembershipModal/></button>
+    </div>
+
       {/* Embedded iFrame Section */}
-      <div className="iframe-section">
+      {/* <div className="iframe-section">
         <iframe
           src="https://bmjja.kicksite.net/bizbuilders/landing_pages/eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjoibGRwZ18yMDAwNSJ9.MexZME6CjIVGZdVFkvF5Gy4dt1i1kG4-H-xqbizV9qA"
           title="Embedded Content"
           frameBorder="0"
           allowFullScreen
         ></iframe>
-      </div>
-      {/* <div className="textarea">
-        <h5>Jiu Jitsu For Female</h5>
-        <div className="tick_text">
-          <span>
-            <SiTicktick />
-          </span>
-          <p>Female Jiu Jitsu (16+ years old)</p>
-        </div>
       </div> */}
+    
         <div className="responsive-text-section">
         <h3>Jiu Jitsu For Female</h3>
             <div className="tick_text">
-        {/* <span>
-            <SiTicktick />
-          </span>
-          <p>Female Jiu Jitsu </p> */}
         </div>
       
       </div>
