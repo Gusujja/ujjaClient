@@ -4,39 +4,33 @@ import { SiTicktick } from "react-icons/si";
 import femalepageimg from "../../assets/images/femaleimg.jpg";
 import femalejiujitsu from "../../assets/images/femalejiujitsuimg.jpg";
 import MembershipModal from "../MembershipModal/MembershipModal";
+import TimeTable from "../Home/TimeTable/TimeTable";
+import Location from "../Home/Location/Location";
+
+const handleSignup = () => {
+    // Redirect to the provided link
+    window.open("https://kick.site/njfvbjnk", "_blank");
+  };
 
 const ResponsivePage = () => {
   return (
     <div className="page-container">
       {/* Full-Width Image Section */}
       <div className="image-section">
-        <img src={femalepageimg} alt="Main" />
+      <img src={femalepageimg} alt="Main" onClick={handleSignup}/>
       </div>
 
-      <div className="container-membership">
-      <div className="text-mem">Women's Jiu Jitsu Group 1 (+16 years) Tuesday - Thursdays</div>
-      <button className="button-see-mem"><MembershipModal/></button>
-    </div>
 
-      {/* Embedded iFrame Section */}
-      {/* <div className="iframe-section">
-        <iframe
-          src="https://bmjja.kicksite.net/bizbuilders/landing_pages/eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjoibGRwZ18yMDAwNSJ9.MexZME6CjIVGZdVFkvF5Gy4dt1i1kG4-H-xqbizV9qA"
-          title="Embedded Content"
-          frameBorder="0"
-          allowFullScreen
-        ></iframe>
-      </div> */}
-    
-        <div className="responsive-text-section">
-        <h3>Jiu Jitsu For Female</h3>
-            <div className="tick_text">
-        </div>
       
-      </div>
+    
+        {/* <div className="responsive-text-section">
+        <h3>Jiu Jitsu For Female</h3>      
+      </div> */}
+
       {/* Left Text - Right Image Section */}
       <div className="text-image-section">
         <div className="text-content">
+        <h3>Jiu Jitsu For Female</h3> 
           <p>
             Welcome to <span> "EmpowerHer Jiu-Jitsu"</span> – Embark on a
             transformative journey that not only hones your physical strength
@@ -71,7 +65,8 @@ const ResponsivePage = () => {
           </p>
         </div>
         <div className="image-content">
-          <img src={femalejiujitsu} alt="Side" />
+       <img src={femalejiujitsu} alt="Side" onClick={handleSignup}/>
+          <div onClick={handleSignup} className="singup_div">SIGN UP NOW LIMITED SPACES</div>
         </div>
       </div>
       {/* Responsive Text Section */}
@@ -96,6 +91,8 @@ const ResponsivePage = () => {
           first step on your Jiu Jitsu journey.
         </p>
       </div>
+      <Location/>
+      <TimeTable/>
     </div>
   );
 };
