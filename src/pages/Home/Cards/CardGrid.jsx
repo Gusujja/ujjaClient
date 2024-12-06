@@ -132,7 +132,7 @@ const Row3 = () => {
           rejuvenating your physical well-being. Contrary to common
           misconceptions, age is not a barrier to entry. Our jiu jitsu Academy
           delves into how Jiu Jitsu can be tailored to suit the needs of
-          individuals over 45, promoting flexibility, balance, and overall
+          individuals over 40, promoting flexibility, balance, and overall
           fitness. Learn how this dynamic martial art becomes a key ally in your
           journey to stay active and agile well into your golden years.
         </p>

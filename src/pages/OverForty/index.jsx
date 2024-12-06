@@ -10,7 +10,7 @@ const handleSignup = () => {
   window.open("https://kick.site/swhbnnlo", "_blank");
 };
 
-const OverForty = () => {
+const index = () => {
   return (
     <div className="page-container">
       {/* Full-Width Image Section */}
@@ -28,7 +28,7 @@ const OverForty = () => {
             even rejuvenating your physical well-being. Contrary to common
             misconceptions, age is not a barrier to entry. Our jiu jitsu Academy
             delves into how Jiu Jitsu can be tailored to suit the needs of
-            individuals over 45, promoting flexibility, balance, and overall
+            individuals over 40, promoting flexibility, balance, and overall
             fitness. Learn how this dynamic martial art becomes a key ally in
             your journey to stay active and agile well into your golden years.
           </p>
@@ -38,14 +38,14 @@ const OverForty = () => {
             even rejuvenating your physical well-being. Contrary to common
             misconceptions, age is not a barrier to entry. Our jiu jitsu Academy
             delves into how Jiu Jitsu can be tailored to suit the needs of
-            individuals over 45, promoting flexibility, balance, and overall
+            individuals over 40, promoting flexibility, balance, and overall
             fitness. Learn how this dynamic martial art becomes a key ally in
             your journey to stay active and agile well into your golden years.
           </p>
         </div>
         <div className="image-content">
           <img src={over40} alt="Side" onClick={handleSignup} />
-          <div onClick={handleSignup} className="singup_div">
+          <div onClick={handleSignup} className="overforty_div">
             SIGN UP NOW LIMITED SPACES
           </div>
         </div>
@@ -66,7 +66,7 @@ const OverForty = () => {
           <h5>Expert Guidance and Resources:</h5>
           <p>
             Take the first step towards a healthier, more fulfilling life by
-            exploring the world of Jiu Jitsu tailored to those over 45. Join our
+            exploring the world of Jiu Jitsu tailored to those over 40. Join our
             community, embrace the art, and experience the multifaceted benefits
             that extend far beyond the mat. Welcome to a new chapter of
             vitality, connection, and mental resilience – welcome to "Jiu Jitsu
@@ -95,4 +95,4 @@ const OverForty = () => {
   );
 };
 
-export default OverForty;
+export default index;
