@@ -37,7 +37,7 @@ const TimeTable = () => {
     <TimeTableStyled className="py-5" id={"timeTableSection"}>
       <Container>
         <HeadingWithLine
-          heading={"Brighton Marina Jiu Jitsu Weekly Time Table"}
+          heading={"Unison Jiu Jitsu Weekly Time Table"}
         >
           <p className="mt-2">
             27 The Waterfront, Marina Way, Brighton Marina, Brighton and Hove,

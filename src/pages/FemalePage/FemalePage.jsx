@@ -1,9 +1,7 @@
 import React from "react";
 import "./PageStyles.css";
-import { SiTicktick } from "react-icons/si";
 import femalepageimg from "../../assets/images/femaleimg.jpg";
 import femalejiujitsu from "../../assets/images/femalejiujitsuimg.jpg";
-import MembershipModal from "../MembershipModal/MembershipModal";
 import TimeTable from "../Home/TimeTable/TimeTable";
 import Location from "../Home/Location/Location";
 
@@ -19,13 +17,6 @@ const ResponsivePage = () => {
       <div className="image-section">
       <img src={femalepageimg} alt="Main" onClick={handleSignup}/>
       </div>
-
-
-      
-    
-        {/* <div className="responsive-text-section">
-        <h3>Jiu Jitsu For Female</h3>      
-      </div> */}
 
       {/* Left Text - Right Image Section */}
       <div className="text-image-section">

@@ -26,6 +26,8 @@ import EditVideo from "./AdminPortal/VideosPages/EditVideo/editVideo";
 import CategoryList from "./AdminPortal/AddCategories/CategoryListPage/CategoryList";
 import useGoogleAnalytics from "./hooks/CustomHooks/GtagHook";
 import FemalePage from "./pages/FemalePage/FemalePage";
+import OverForty from "./pages/OverForty/OverForty"
+
 
 // const tagManagerArgs = { gtmId: "GTM-ND5H33G7" };
 // TagManager.initialize(tagManagerArgs);
@@ -64,6 +66,7 @@ useEffect(() => {
     pathname !== "/" &&
     pathname !== "/videos" &&
     pathname !== "/femalepage" &&
+    pathname !== "/over40" &&
     pathname !== "/videos/:videoId" 
     
   ) {
@@ -92,6 +95,8 @@ useEffect(() => {
           <Route path="/videos" element={<Classes />} />
           <Route path="/videos/:videoId" element={<VideoDetails />} />
           <Route path="/femalepage" element={<FemalePage />} />
+          <Route path="/over40" element={<OverForty/>} />
+        
 
           <Route path="/admin" element={<AdminPortal />} />
           <Route path="/login" element={<Login />} />

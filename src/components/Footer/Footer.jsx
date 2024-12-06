@@ -51,7 +51,7 @@ const Footer = () => {
         <div className="social-media-row d-flex align-items-center justify-content-center gap-5 mt-5 flex-wrap">
           <div className="rights-reserved">
             <p>
-              ©2024 Brighton Marina Jiu Jitsu Academy. All rights reserved.{" "}
+              ©2024 Unison Jiu Jitsu Academy. All rights reserved.{" "}
             </p>
           </div>
           <div className="social-media-icons d-flex gap-3">

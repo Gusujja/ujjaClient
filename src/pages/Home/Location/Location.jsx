@@ -46,7 +46,7 @@ const Location = () => {
   );
   return (
     <div className="py-5">
-      <HeadingWithLine heading={"Brighton Marina Jiu Jitsu Academy Location"}>
+      <HeadingWithLine heading={"Unison Jiu Jitsu Academy Location"}>
         <p className="mt-2">
           27 The Waterfront, Marina Way, Brighton Marina, Brighton and Hove,
           Brighton BN2 5WA
