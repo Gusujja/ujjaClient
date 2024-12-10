@@ -7,37 +7,58 @@ import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
 
 import Form from "react-bootstrap/Form";
-import Button from "../common/Button/Button";
+import Button from "../../../../components/common/Button/Button"
 import { LoadingOutlined } from "@ant-design/icons";
-import "./ContactForm.css";
+import "./FemaleContact.css";
 
-const ContactForm = () => {
+const Index = () => {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState(null);
   const [error, setError] = useState(false);
+  const [submitted, setSubmitted] = useState(false); // State to manage form visibility
   const form = useRef();
-
-  const sendEmail = (e) => {
+  const web_Url =
+  process.env.NODE_ENV === "production"
+    ? process.env.REACT_APP_PRODUCTION_URL
+    : process.env.REACT_APP_DEVELOPMENT_URL;
+  const sendEmail = async (e) => {
     e.preventDefault();
     setLoading(true);
-    emailjs
-      .sendForm("service_xtl26ro", "template_d53tmld", form.current, {
-        publicKey: "rMro0PHMnbToeSI6I",
-      })
-      .then(
-        () => {
-          setMessage("Email sent successfully!");
-          setLoading(false);
-          setError(false);
-          resetMsg();
+
+    // Create form data object
+    const formData = new FormData(form.current);
+    const data = {
+      name: formData.get("from_name"),
+      email: formData.get("reply_to"),
+      phone: value || "", // Use phone input state
+      gender: formData.get("gender"),
+      birthdate: formData.get("birthdate"),
+    };
+const formType='females'
+    try {
+      const response = await fetch(`${web_Url}forms/${formType}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-        () => {
-          setMessage("Failed to send Email. Try again later!");
-          setLoading(false);
-          setError(true);
-          resetMsg();
-        }
-      );
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        setMessage("Form submitted successfully!");
+        setError(false);
+        setSubmitted(true);
+      } else {
+        setMessage("Failed to submit the form. Please try again.");
+        setError(true);
+      }
+    } catch (err) {
+      setMessage("An error occurred. Please try again later.");
+      setError(true);
+    } finally {
+      setLoading(false);
+      resetMsg();
+    }
   };
 
   const [value, setValue] = useState();
@@ -53,7 +74,9 @@ const ContactForm = () => {
   return (
     <Card className="contact-card">
       <Card.Body>
+      {!submitted ? ( // Show form only if not submitted
         <Form onSubmit={sendEmail} ref={form} className="contact-form">
+            <h5 >Female Jiu Jitsu</h5>
           <Form.Label className="form-label">
             Name <span className="required">*</span>
           </Form.Label>
@@ -101,14 +124,21 @@ const ContactForm = () => {
           </Form.Label>
           <Form.Control type="date" name="birthdate" required className="form-input" />
           
-          <Button type="submit" className="submit-button" disable={loading}>
+          <Button type="submit" className="female-submit-button" disable={loading}>
             {loading ? <LoadingOutlined /> : "Submit"}
           </Button>
         </Form>
+              ) : (
+                // Show Thank You message
+                <div className="thank-you-message">
+                  <h3>Thank You!</h3>
+                  <p>Your form has been submitted successfully. A member of our staff will contact you within 48 hours</p>
+                </div>
+              )}
       </Card.Body>
     </Card>
   );
 };
 
-export default ContactForm;
+export default Index;
 

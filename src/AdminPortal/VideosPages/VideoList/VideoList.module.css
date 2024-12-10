@@ -61,12 +61,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-right: -20px;
 
 }
 
 .filterBox select {
   margin-left: 7px;
   padding: 5px;
+  margin-right: 35px;
 }
 
 /* .filterBox option select:hover{
@@ -155,4 +157,134 @@
 
 .deleteButtons:hover {
   background-color: #8badb7;
+}
+
+.filterBox{
+  display: flex;
+
+}
+
+.category {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 30px ;
+  width: 100%;
+  max-width: 400px;
+}
+
+.dropdownContainer {
+  width: 100%;
+}
+
+.dropdown {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  color: #333;
+  outline: none;
+  cursor: pointer;
+}
+
+.dropdown:focus {
+  border-color: #007bff;
+  box-shadow: 0px 0px 6px rgba(0, 123, 255, 0.5);
+}
+
+@media (max-width: 768px) {
+  .category {
+    gap: 8px;
+  }
+
+  .dropdown {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dropdown {
+    font-size: 0.8rem;
+    padding: 6px;
+  }
+}
+
+/* General Responsiveness for Larger Screens */
+@media (min-width: 1440px) {
+  .pageLayout {
+    padding: 20px;
+  }
+
+  .sidebar {
+    width: 300px; /* Slightly larger sidebar for bigger screens */
+  }
+
+  .content {
+    padding: 40px; /* More padding for spacious feel */
+  }
+
+  .filterBox select {
+    padding: 10px; /* Increase padding for select boxes */
+    margin-right: 50px;
+    font-size: 1.1rem; /* Slightly larger font for readability */
+  }
+
+  .uploadButton {
+    font-size: 1.1rem; /* Larger font size */
+    padding: 15px 30px; /* More spacious button */
+  }
+
+  .videoGrid {
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); /* Larger cards */
+    gap: 30px; /* Increased gap between cards */
+  }
+
+  .videoCard {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Slightly deeper shadow */
+  }
+
+  .videoInfo p {
+    font-size: 14px; /* Adjust text size for better visibility */
+  }
+
+  .actions div {
+    font-size: 14px; /* Larger action text */
+  }
+}
+
+@media (min-width: 1600px) {
+  .sidebar {
+    width: 350px; /* Further increased sidebar width */
+  }
+
+  .content {
+    padding: 60px; /* Extra padding for very large screens */
+  }
+
+  .filterBox select {
+    font-size: 1.2rem; /* Larger font size */
+    margin-right: 60px;
+  }
+
+  .uploadButton {
+    font-size: 14px; /* Adjust button text size */
+    padding: 20px 40px;
+  }
+
+  .videoGrid {
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); /* Larger grid items */
+    gap: 40px; /* Extra space between grid items */
+  }
+
+  .videoCard {
+    padding: 20px; /* Add padding for extra spacing */
+  }
+
+  .videoInfo p {
+    font-size: 14px; /* Text size for 1600px screens */
+  }
 }

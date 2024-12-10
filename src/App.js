@@ -25,11 +25,12 @@ import AddCategory from "./AdminPortal/AddCategories/AddCategory/AddCategory";
 import EditVideo from "./AdminPortal/VideosPages/EditVideo/editVideo";
 import CategoryList from "./AdminPortal/AddCategories/CategoryListPage/CategoryList";
 import useGoogleAnalytics from "./hooks/CustomHooks/GtagHook";
-import FemalePage from "./pages/FemalePage/FemalePage";
-import OverForty from "./pages/OverForty"
-import Beginners from "./pages/Beginners/Index"
-import Kids from "./pages/Kids/Index"
-import Teenagers from "./pages/Teenagers/Index"
+import FemalePage from "./pages/StaticPages/FemalePage/FemalePage";
+import OverForty from "./pages/StaticPages/OverForty"
+import Beginners from "./pages/StaticPages/Beginners/Index"
+import Kids from "./pages/StaticPages/Kids/Index"
+import Teenagers from "./pages/StaticPages/Teenagers/Index"
+import Thankyou from "./pages/StaticPages/Thankyou/Index"
 
 
 
@@ -106,6 +107,8 @@ useEffect(() => {
           <Route path="/kids" element={<Kids/>} />
           <Route path="/beginners" element={<Beginners/>} />
           <Route path="/teenagers" element={<Teenagers/>} />
+          <Route path="/thankyou" element={<Thankyou/>} />
+
         
 
           <Route path="/admin" element={<AdminPortal />} />

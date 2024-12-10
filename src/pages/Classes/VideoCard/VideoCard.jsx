@@ -43,9 +43,7 @@ const VideoCard = ({ title, description, embedLink, id }) => {
           description={parse(trundesc)}
         />
         <div className="play_Button " >
-        {/* <div className="playButton">  */}
           <span><CgPlayButtonO /></span>  <p>Play</p></div>
-        {/* </div> */}
       </div>
     </VideoCardStyled>
   );

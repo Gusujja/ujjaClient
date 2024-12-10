@@ -6,7 +6,7 @@ width: 255px;
 height: 38px;
   padding: 8px 6px 8px 6px;
   gap: 10px;
-  border-radius: 6px 6px 0px 0px;
+  // border-radius: 6px 6px 0px 0px;
   border: 0.5px 0px 0px 0px;
   opacity: 0px;
 
