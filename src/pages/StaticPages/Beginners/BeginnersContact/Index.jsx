@@ -10,6 +10,8 @@ import Form from "react-bootstrap/Form";
 import Button from "../../../../components/common/Button/Button"
 import { LoadingOutlined } from "@ant-design/icons";
 import "./BeginnersContact.css";
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 const Index = () => {
   const [loading, setLoading] = useState(false);
@@ -17,6 +19,8 @@ const Index = () => {
   const [error, setError] = useState(false);
   const [submitted, setSubmitted] = useState(false); // State to manage form visibility
   const formRef = useRef();
+  const [birthdate, setBirthdate] = useState(null);
+
 const [value, setValue] = useState();
 const web_Url =
   process.env.NODE_ENV === "production"
@@ -71,7 +75,7 @@ const formType='beginners'
   };
 
   return (
-    <Card className="contact-card">
+    <div className="contact-card">
       <Card.Body>
       {!submitted ? ( // Show form only if not submitted
         <Form onSubmit={sendEmail} ref={formRef} className="contact-form">
@@ -135,7 +139,7 @@ const formType='beginners'
             </div>
           )}
       </Card.Body>
-    </Card>
+    </div>
   );
 };
 

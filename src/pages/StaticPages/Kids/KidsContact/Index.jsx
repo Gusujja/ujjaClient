@@ -10,6 +10,8 @@ import Form from "react-bootstrap/Form";
 import Button from "../../../../components/common/Button/Button"
 import { LoadingOutlined } from "@ant-design/icons";
 import "./KidsContact.css";
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 const Index = () => {
   const [loading, setLoading] = useState(false);
@@ -17,6 +19,8 @@ const Index = () => {
   const [error, setError] = useState(false);
   const [submitted, setSubmitted] = useState(false); // State to manage form visibility
   const form = useRef();
+  const [birthdate, setBirthdate] = useState(null);
+
   const sendEmail = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -72,7 +76,7 @@ const formType='kids'
   };
 
   return (
-    <Card className="contact-card">
+    <div className="contact-card">
       <Card.Body>
       {!submitted ? ( // Show form only if not submitted
         <Form onSubmit={sendEmail} ref={form} className="contact-form">
@@ -119,10 +123,15 @@ const formType='kids'
             <option value="Other">Other</option>
           </Form.Select>
           
-          <Form.Label className="form-label">
-            Birthdate <span className="required">*</span>
-          </Form.Label>
-          <Form.Control type="date" name="birthdate" required className="form-input" />
+          <Form.Label className="form-label">Birthdate <span className="required">*</span></Form.Label>
+      <DatePicker
+        selected={birthdate}
+        onChange={(date) => setBirthdate(date)}
+        dateFormat="dd/MM/yyyy"
+        className="form-input form-control" // Bootstrap styling compatibility
+        placeholderText="dd/mm/yyyy"
+        required
+      />
           
           <Button type="submit" className="kids-submit-button" disable={loading} >
             {loading ? <LoadingOutlined /> : "Submit"}
@@ -136,7 +145,7 @@ const formType='kids'
             </div>
           )}
       </Card.Body>
-    </Card>
+    </div>
   );
 };
 
