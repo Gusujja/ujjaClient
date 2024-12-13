@@ -4,6 +4,7 @@ import styles from "./Leads.module.css";
 import Navbar from "../Navbar/Navbar";
 import Sidebar from "../Sidebar/Sidebar";
 
+
 const Leads = () => {
   const navigate = useNavigate();
 
@@ -34,6 +35,7 @@ const Leads = () => {
               </div>
             ))}
           </div>
+        
         </main>
       </div>
     </>

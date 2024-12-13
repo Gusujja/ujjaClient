@@ -29,7 +29,6 @@ import OverForty from "./pages/StaticPages/OverForty";
 import Beginners from "./pages/StaticPages/Beginners/Index";
 import Kids from "./pages/StaticPages/Kids/Index";
 import Teenagers from "./pages/StaticPages/Teenagers/Index";
-import Thankyou from "./pages/StaticPages/Thankyou/Index";
 import Leads from "./AdminPortal/Leads/Leads";
 import LeadsDetail from "./AdminPortal/Leads/LeadsDetail/LeadsDetail";
 
@@ -94,7 +93,7 @@ const App = () => {
     "/addcategory",
     "/categorylist",
     "/leads",
-    "/leads/female",
+    "/leads/females",
     "/leads/kids",
     "/leads/teenagers",
     "/leads/over40",
@@ -119,7 +118,7 @@ const App = () => {
           <Route path="/kids" element={<Kids />} />
           <Route path="/beginners" element={<Beginners />} />
           <Route path="/teenagers" element={<Teenagers />} />
-          <Route path="/thankyou" element={<Thankyou />} />
+         
 
           <Route path="/leads" element={<Leads />} />
           <Route path="/leads/:category" element={<LeadsDetail />} />

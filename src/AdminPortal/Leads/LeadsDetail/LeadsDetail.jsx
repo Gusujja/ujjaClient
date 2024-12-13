@@ -12,14 +12,7 @@ const LeadsDetail = () => {
     process.env.NODE_ENV === "production"
       ? process.env.REACT_APP_PRODUCTION_URL
       : process.env.REACT_APP_DEVELOPMENT_URL;
-  const dummyData = [
-    { key: "1", name: "John Doe", email: "john.doe@example.com", phoneNumber: "1234567890", gender: "Male", birthDate: "1990-05-20" },
-    { key: "2", name: "Jane Smith", email: "jane.smith@example.com", phoneNumber: "0987654321", gender: "Female", birthDate: "1985-11-15" },
-    { key: "3", name: "Emily Johnson", email: "emily.johnson@example.com", phoneNumber: "5678901234", gender: "Female", birthDate: "1992-03-30" },
-   
-   
-    // Add more items here for larger datasets
-  ];
+
   const [data,setData]=useState()
 const {category}=useParams()
 console.log(category)
@@ -39,7 +32,7 @@ console.log(category)
       }
     };
 
-    fetchContactData();
+    fetchContactData ();
   }, [category]);
 
 
@@ -69,7 +62,7 @@ console.log(category)
       title: "Birth Date",
       dataIndex: "birthdate",
       key: "birthDate",
-      render: (date) => new Date(date).toLocaleDateString(),
+      render: (date) => new Date(date).toLocaleDateString('en-GB'),
     },
   ];
 
