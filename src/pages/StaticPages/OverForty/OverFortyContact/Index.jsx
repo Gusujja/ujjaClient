@@ -99,7 +99,7 @@ const formType='over40'
               className="phone-input"
             />
           </div>
-          <div className="alert-container">
+          {/* <div className="alert-container">
             <IoMdAlert size={"1.1rem"} />
             <span>
               By opting in to SMS, the person agrees to receive announcements
@@ -107,7 +107,7 @@ const formType='over40'
             </span>
             <br />
             <span>Standard messaging rates may apply. Reply STOP to opt out.</span>
-          </div>
+          </div> */}
           
           <Form.Label className="form-label">
             Gender <span className="required">*</span>

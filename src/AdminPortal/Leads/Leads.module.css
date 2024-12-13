@@ -1,0 +1,98 @@
+/* Leads.module.css */
+.pageLayout {
+  display: flex;
+  min-height: 100vh;
+  background-color: #fafafa;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #f5f5f5;
+  box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1);
+}
+
+.mainContent {
+  flex: 1;
+  padding: 20px;
+}
+
+.leadsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+}
+
+.card {
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(135deg, #ececec, #ffffff);
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-align: center;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card h6 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Media Queries */
+@media (max-width: 1600px) {
+  .card {
+    width: 140px;
+    height: 140px;
+    font-size: 16px;
+  }
+
+  .mainContent {
+    padding: 40px;
+  }
+}
+
+@media (max-width: 1400px) {
+  .card {
+    width: 120px;
+    height: 120px;
+    font-size: 14px;
+  }
+
+  .mainContent {
+    padding: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+
+  .mainContent {
+    padding: 10px;
+  }
+
+  .card {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    width: 80px;
+    height: 80px;
+    font-size: 12px;
+  }
+}

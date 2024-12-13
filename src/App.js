@@ -1,6 +1,5 @@
-
 import { Suspense, useEffect } from "react";
-import { Routes, Route, useLocation,useNavigate} from "react-router-dom";
+import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import AppNavbar from "./components/AppNavbar/AppNavbar";
 import Home from "./pages/Home/Index";
 import Classes from "./pages/Classes/Index";
@@ -26,68 +25,81 @@ import EditVideo from "./AdminPortal/VideosPages/EditVideo/editVideo";
 import CategoryList from "./AdminPortal/AddCategories/CategoryListPage/CategoryList";
 import useGoogleAnalytics from "./hooks/CustomHooks/GtagHook";
 import FemalePage from "./pages/StaticPages/FemalePage/FemalePage";
-import OverForty from "./pages/StaticPages/OverForty"
-import Beginners from "./pages/StaticPages/Beginners/Index"
-import Kids from "./pages/StaticPages/Kids/Index"
-import Teenagers from "./pages/StaticPages/Teenagers/Index"
-import Thankyou from "./pages/StaticPages/Thankyou/Index"
-
-
+import OverForty from "./pages/StaticPages/OverForty";
+import Beginners from "./pages/StaticPages/Beginners/Index";
+import Kids from "./pages/StaticPages/Kids/Index";
+import Teenagers from "./pages/StaticPages/Teenagers/Index";
+import Thankyou from "./pages/StaticPages/Thankyou/Index";
+import Leads from "./AdminPortal/Leads/Leads";
+import LeadsDetail from "./AdminPortal/Leads/LeadsDetail/LeadsDetail";
 
 // const tagManagerArgs = { gtmId: "GTM-ND5H33G7" };
 // TagManager.initialize(tagManagerArgs);
 
 const App = () => {
-
   useGoogleAnalytics();
 
-  const token =   localStorage.getItem('token');
-const navigate=useNavigate()
-//   useEffect(() => { 
-// if(token){
-//   return navigate("/")
-// }
-// else if(!token){
-// return navigate("login")
-// }
-//   }, [token])
+  const token = localStorage.getItem("token");
+  const navigate = useNavigate();
+  //   useEffect(() => {
+  // if(token){
+  //   return navigate("/")
+  // }
+  // else if(!token){
+  // return navigate("login")
+  // }
+  //   }, [token])
 
-const { pathname } = useLocation()
-useEffect(() => {
-  const regex = /\bsignup\b/;
-  let register = regex.test(pathname);
-  if (pathname === "/login" || register || pathname === "/") {
-    if (token  &&
+  const { pathname } = useLocation();
+  useEffect(() => {
+    const regex = /\bsignup\b/;
+    let register = regex.test(pathname);
+    if (pathname === "/login" || register || pathname === "/") {
+      if (
+        token &&
+        pathname !== "/" &&
+        pathname !== "/videos" &&
+        pathname !== "/videos/:videoId"
+      ) {
+        return navigate("/admin");
+      }
+    }
+    if (
+      !token &&
       pathname !== "/" &&
       pathname !== "/videos" &&
-      pathname !== "/videos/:videoId" 
+      pathname !== "/femalepage" &&
+      pathname !== "/over40" &&
+      pathname !== "/kids" &&
+      pathname !== "/beginners" &&
+      pathname !== "/teenagers" &&
+      pathname !== "/videos/:videoId"
     ) {
-   
-      return navigate("/admin");
+      return navigate("/login");
     }
-  }
-  if (
-    !token &&
-    pathname !== "/" &&
-    pathname !== "/videos" &&
-    pathname !== "/femalepage" &&
-    pathname !== "/over40" &&
-    pathname !== "/kids" &&
-    pathname !== "/beginners" &&
-    pathname !== "/teenagers" &&
-    pathname !== "/videos/:videoId" 
-    
-  ) {
-    return navigate("/login");
-  }
-}, []);
-  
+  }, []);
+
   useEffect(() => {
     scrollToTop();
   }, [pathname]);
 
   // List of paths where Navbar and Footer shouldn't be displayed
-  const noNavFooterRoutes = ["/admin", "/login", "/forgot-password", "/signup", "/uploadvideo", "/videolist", "/addcategory", "/categorylist"];
+  const noNavFooterRoutes = [
+    "/admin",
+    "/login",
+    "/forgot-password",
+    "/signup",
+    "/uploadvideo",
+    "/videolist",
+    "/addcategory",
+    "/categorylist",
+    "/leads",
+    "/leads/female",
+    "/leads/kids",
+    "/leads/teenagers",
+    "/leads/over40",
+    "/leads/beginners",
+  ];
 
   const shouldShowNavAndFooter = !noNavFooterRoutes.includes(pathname);
 
@@ -103,24 +115,24 @@ useEffect(() => {
           <Route path="/videos" element={<Classes />} />
           <Route path="/videos/:videoId" element={<VideoDetails />} />
           <Route path="/femalepage" element={<FemalePage />} />
-          <Route path="/over40" element={<OverForty/>} />
-          <Route path="/kids" element={<Kids/>} />
-          <Route path="/beginners" element={<Beginners/>} />
-          <Route path="/teenagers" element={<Teenagers/>} />
-          <Route path="/thankyou" element={<Thankyou/>} />
+          <Route path="/over40" element={<OverForty />} />
+          <Route path="/kids" element={<Kids />} />
+          <Route path="/beginners" element={<Beginners />} />
+          <Route path="/teenagers" element={<Teenagers />} />
+          <Route path="/thankyou" element={<Thankyou />} />
 
-        
+          <Route path="/leads" element={<Leads />} />
+          <Route path="/leads/:category" element={<LeadsDetail />} />
 
           <Route path="/admin" element={<AdminPortal />} />
           <Route path="/login" element={<Login />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/signup" element={<SignUp />} />
-          <Route path="/uploadvideo" element={<UploadVideo  />}
-           />
-             <Route path="/editVideo/:Id" element={<EditVideo />} />
+          <Route path="/uploadvideo" element={<UploadVideo />} />
+          <Route path="/editVideo/:Id" element={<EditVideo />} />
           <Route path="/videolist" element={<VideoList />} />
           <Route path="/categorylist" element={<CategoryList />} />
-          <Route path="/addcategory" element={<AddCategory  />} />
+          <Route path="/addcategory" element={<AddCategory />} />
 
           <Route path="*" element={<div>Page not found.</div>} />
         </Routes>
@@ -131,6 +143,6 @@ useEffect(() => {
       <Modal />
     </div>
   );
-}
+};
 
 export default App;

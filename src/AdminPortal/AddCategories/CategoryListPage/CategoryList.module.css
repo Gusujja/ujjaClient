@@ -51,13 +51,14 @@
   }
   
   .deleteButton {
-    padding: 8px 12px;
+    padding: 6px 10px;
     font-size: 14px;
     color: #fff;
     background-color: #405f74 ;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    margin: 10px;
   }
   
   .deleteButton:hover {
@@ -74,3 +75,43 @@
     }
   }
   
+  .editButton {
+    padding: 6px 10px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #405f74;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .editButton:hover {
+    background-color:#8badb7;
+  }
+  
+  .saveButton, .cancelButton {
+    padding: 6px 10px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 5px;
+  }
+  
+  .saveButton {
+    color: #fff;
+    background-color: #405f74;
+  }
+
+  .saveButton:hover {
+    background-color:#8badb7;
+  }
+  
+  .cancelButton {
+    color: #fff;
+    background-color: #405f74 ;
+  }
+  
+  .cancelButton:hover {
+    background-color: red;
+  }

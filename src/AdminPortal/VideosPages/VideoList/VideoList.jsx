@@ -29,7 +29,8 @@ const VideoList = () => {
   const [currentPage, setCurrentPage] = useState(1); // Track current page
   const [totalPages, setTotalPages] = useState(1); // Total pages
   const [totalRecords, setTotalRecords] = useState(0); // Total records
-
+  const [search,setsearch]=useState("")
+  const [recordsPerPage,setRecordsPerPage]=useState(10)
   const [subcategories, setSubcategories] = useState([]);
   // // Fetch the videos from the backend when the component mounts
   // useEffect(() => {
@@ -60,15 +61,18 @@ const VideoList = () => {
   // Fetch the videos from the backend when the component mounts or when the page/filter changes
   useEffect(() => {
     fetchVideos();
-  }, [filter, currentPage]);
+  }, [filter, currentPage,search,recordsPerPage]);
 
   // Pagination states
 
   //  Search dropdown
+
   const handleVideoSearch = (option) => {
+    setsearch(option)
     console.log(`Selected option: ${option}`);
   };
   const handleVideoSearchByNums = (option) => {
+setRecordsPerPage(option)
     console.log(`Selected option: ${option}`);
   };
 
@@ -78,7 +82,8 @@ const VideoList = () => {
       const response = await axios.get(`${web_Url}videos/search`, {
         params: {
           page: currentPage, // Adjust for zero-based index
-          recordsPerPage: 10, // Fetch 10 records per page
+          recordsPerPage: recordsPerPage, // Fetch 10 records per page
+          sortOrder:search,
           category: filter.category,
           subCategory: filter.subCategory,
         },

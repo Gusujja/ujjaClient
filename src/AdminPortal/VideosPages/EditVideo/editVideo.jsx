@@ -29,7 +29,7 @@ const [msg,setMsg]=useState('')
   const [subcategories, setSubcategories] = useState([]);
   const [categories,setCategories]=useState([])
 
-
+console.log("id issss",Id)
   
   useEffect(()=>{
     const fetchVideos = async () => {
@@ -56,7 +56,7 @@ const [msg,setMsg]=useState('')
       title:  video?.title| "",
       smallDescription: video?.smallDescription| "",
       category: video?.category| "",
-      subCategory: video?.subCategory| [],
+      subCategory: video?.subCategory ,
       embedLink: video?.embedLink |"",
      // thumbnail: video?.thumbnail| null, // for image file input
       //description:video?.description | " ",
@@ -208,7 +208,7 @@ const [msg,setMsg]=useState('')
   };
 
   const videoId = getVideoId(videoPreview);
-
+console.log("formik values",formik.values)
   return (
     <>
       <Navbar />
@@ -320,7 +320,7 @@ const [msg,setMsg]=useState('')
                       formik.setFieldValue("subCategory", values);
                     }}
                     onBlur={formik.handleBlur}
-                    value={formik.values.subCategory.map((value) => ({
+                    value={formik.values.subCategory?.map((value) => ({
                       value,
                       label: value,
                     }))}
