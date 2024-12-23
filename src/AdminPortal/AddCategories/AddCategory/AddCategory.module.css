@@ -1,10 +1,11 @@
 .pageLayout {
     display: flex;
+
   }
   
   .sidebar {
     width: 250px;
-    background-color: #f5f5f5;
+    background-color: white;
   } 
 .container {
   width: 100%;

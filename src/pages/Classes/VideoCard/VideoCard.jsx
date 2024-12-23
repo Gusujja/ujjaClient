@@ -10,7 +10,7 @@ const web_Url =
   process.env.NODE_ENV === "production"
     ? process.env.REACT_APP_PRODUCTION_URL
     : process.env.REACT_APP_DEVELOPMENT_URL;
-const VideoCard = ({ title, description, embedLink, id }) => {
+const VideoCard = ({ title, description, embedLink, id, smallDescription }) => {
   const navigate = useNavigate();
   const des = typeof description === "string" ? description : "";
   const trundesc = des.length > 100 ? des.slice(0, 197) + "..." : des;
@@ -41,6 +41,7 @@ const VideoCard = ({ title, description, embedLink, id }) => {
             title && title.length > 50 ? title.slice(0, 47) + "..." : title
           }
           description={parse(trundesc)}
+          smallDescription={smallDescription}
         />
         <div className="play_Button " >
           <span><CgPlayButtonO /></span>  <p>Play</p></div>

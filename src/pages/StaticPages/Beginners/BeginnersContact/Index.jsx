@@ -13,6 +13,7 @@ import "./BeginnersContact.css";
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
+
 const Index = () => {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState(null);
@@ -20,6 +21,7 @@ const Index = () => {
   const [submitted, setSubmitted] = useState(false); // State to manage form visibility
   const formRef = useRef();
   const [birthdate, setBirthdate] = useState(null);
+  
 
 const [value, setValue] = useState();
 const web_Url =
@@ -122,10 +124,21 @@ const formType='beginners'
             <option value="Other">Other</option>
           </Form.Select>
           
-          <Form.Label className="form-label">
-            Birthdate <span className="required">*</span>
-          </Form.Label>
-          <Form.Control type="date" name="birthdate" required className="form-input" />
+          <Form.Label className="date-picker-label">Birthdate</Form.Label>
+          <DatePicker
+        selected={birthdate} // Links the picker to the selected date.
+        onChange={(date) => setBirthdate(date)} // Updates the state when a new date is selected.
+        dateFormat="dd/MM/yyyy" // British-style display format.
+        className="professional-date-picker" // Custom styling class for the input field.
+        placeholderText="DD/MM/YYYY" // Placeholder for the input field.
+        showYearDropdown // Enables a dropdown for year selection.
+        showMonthDropdown // Enables a dropdown for month selection.
+        dropdownMode="select" // Dropdown menus for year and month are select-based.
+        yearDropdownItemNumber={100} // Limits the year dropdown to the last 100 years.
+        minDate={new Date(1900, 0, 1)} // Set minimum date as 1st January 1900.
+        maxDate={new Date()} // Set maximum date as today.
+        required // Makes the input field mandatory.
+      />
           
           <Button type="submit" className="beginners-submit-button" disable={loading} >
             {loading ? <LoadingOutlined /> : "Submit"}

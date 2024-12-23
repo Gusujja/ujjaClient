@@ -3,18 +3,19 @@ import styles from "./CategoryList.module.css";
 import { MdDelete, MdEdit, MdSaveAs, MdCancel } from "react-icons/md";
 import axios from "axios";
 
-const CategoryList = () => {
+const CategoryList = ({Categories}) => {
   const [categories, setCategories] = useState([]);
   const [editingCategory, setEditingCategory] = useState(null);
   const [updatedCategory, setUpdatedCategory] = useState("");
   const [updatedSubcategories, setUpdatedSubcategories] = useState("");
-
+console.log("Cate",Categories)
   const web_Url =
     process.env.NODE_ENV === "production"
       ? process.env.REACT_APP_PRODUCTION_URL
       : process.env.REACT_APP_DEVELOPMENT_URL;
 
   // Fetch categories
+
   useEffect(() => {
     const fetchCategories = async () => {
       try {
@@ -23,6 +24,7 @@ const CategoryList = () => {
           throw new Error("Failed to fetch categories");
         }
         const data = await response.json();
+        console.log("cate",categories)
         setCategories(data);
       } catch (err) {
         console.log("Error fetching categories:", err);
@@ -30,7 +32,7 @@ const CategoryList = () => {
     };
 
     fetchCategories();
-  }, []);
+  }, [Categories]);
 
   // Delete handler
   const handleDelete = async (id) => {
@@ -61,7 +63,8 @@ const CategoryList = () => {
         `${web_Url}category/${editingCategory}`,
         updatedData
       );
-      console.log("resposne",response)
+      console.log("resposne ",response)
+  
       if (response.status) {
         setCategories(
           categories.map((cat) =>
@@ -77,6 +80,30 @@ const CategoryList = () => {
     }
   };
 
+
+  // const handleSave = async () => {
+  //   try {
+  //     const updatedData = {
+  //       category: updatedCategory,
+  //       subCategory: updatedSubcategories.split(",").map((sub) => sub.trim()),
+  //     };
+  //     const response = await axios.patch(
+  //       `${web_Url}category/${editingCategory}`,
+  //       updatedData
+  //     );
+  //     console.log("response", response);
+  
+  //     if (response.status === 200) {
+  //       // Refetch the categories after successful update
+  //       const fetchResponse = await axios.get(`${web_Url}category`);
+  //       setCategories(fetchResponse.data); // Update the categories state
+  //       setEditingCategory(null);
+  //     }
+  //   } catch (err) {
+  //     console.log("Error updating category:", err);
+  //   }
+  // };
+  
   return (
     <div className={styles.pageLayout}>
       <div className={styles.container}>
@@ -90,7 +117,7 @@ const CategoryList = () => {
             </tr>
           </thead>
           <tbody>
-            {categories.length > 0 ? (
+            {categories.length > 0  ? (
               categories.map((cat) =>
                 editingCategory === cat._id ? (
                   <tr key={cat._id}>

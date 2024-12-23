@@ -49,6 +49,8 @@ const App = () => {
   // }
   //   }, [token])
 
+  
+
   const { pathname } = useLocation();
   useEffect(() => {
     const regex = /\bsignup\b/;

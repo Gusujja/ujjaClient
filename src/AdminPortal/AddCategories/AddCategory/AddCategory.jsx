@@ -7,6 +7,7 @@ import axios from "axios";
 import CustomModal from "../../CustomModal/CustomModal";
 import CategoryList from "../CategoryListPage/CategoryList";
 
+
 const AddCategory = () => {
   const web_Url =
     process.env.NODE_ENV === "production"
@@ -15,6 +16,7 @@ const AddCategory = () => {
 
   const [category, setCategory] = useState("");
   const [categories, setCategories] = useState([]);
+  const [newCategory, setNewCategory] = useState("");
   const [subCategory, setSubCategory] = useState("");
   const [subCategories, setSubCategories] = useState([]);
   const [description, setDescription] = useState("");
@@ -48,7 +50,6 @@ const AddCategory = () => {
     fetchCategories();
   }, [web_Url]);
   
-console.log("set cate",categories,subCategories)
   const handleAddCategory = async (event) => {
     event.preventDefault();
     try {
@@ -58,7 +59,11 @@ console.log("set cate",categories,subCategories)
       };
 
       const response = await axios.post(`${web_Url}category`, data);
+      console.log("resposne",response)
       if (response.status === 201) {
+        const newCategory = response.data; // Assuming the API response includes the new category object
+        setNewCategory(newCategory)
+        setCategories((prev) => [...prev, newCategory]); // Update the category list
         setModalVisible(true);
         setMsg("Category is uploaded");
         setTimeout(() => {
@@ -66,6 +71,7 @@ console.log("set cate",categories,subCategories)
           setCategory("");
           setSubCategory("");
           setMsg("");
+          // window.location.reload();
           navigate("/addcategory");
         }, 1000);
       }
@@ -143,7 +149,7 @@ console.log("set cate",categories,subCategories)
           </form>
         </div>
         <div>
-        <CategoryList/>
+        <CategoryList Categories={newCategory}/>
         </div>
         </div>
       </div>
