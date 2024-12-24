@@ -1,6 +1,6 @@
 .pageContainer {
   display: flex;
-  margin-top: 7.3rem; /* Adjust based on header height */
+  margin-top: 7.3rem; 
 }
 
 .sidebar {
@@ -8,7 +8,7 @@
   background-color: white;
   padding: 15px;
   position: sticky;
-  top: 7.3rem; /* Adjust based on header height */
+  top: 5.3rem; /* Adjust based on header height */
   max-height: calc(100vh - 7.3rem); /* Prevent overlapping the footer */
   overflow-y: auto; /* Scrollable sidebar */
   /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */

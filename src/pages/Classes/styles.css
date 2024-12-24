@@ -23,6 +23,14 @@
   background: #14131a;
   color: white;
 }
+
+.newVideoContainer{
+  display: grid; /* This makes it a grid */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Adjusts to fit the screen */
+  gap: 20px; /* Space between the videos */
+  padding: 20px; /* Add some space around the grid */
+}
+
 /* .classes-page .video-card-row {
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 } */

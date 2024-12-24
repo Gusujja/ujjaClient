@@ -117,8 +117,6 @@
 // };
 
 // export default Index;
-
-
 import React, { useState, useEffect } from "react";
 import VideoCard from "./VideoCard/VideoCard";
 import { Container } from "react-bootstrap";
@@ -241,7 +239,7 @@ const Index = () => {
 
       <div className={styles.videoContent}>
         <Container>
-          <div className="videoGrid">
+          <div className="video-card-row videoGrid">
             {allVideos?.length === 0 ? (
               <div className={styles.noVideosMessage}>No videos available</div>
             ) : (
@@ -252,7 +250,6 @@ const Index = () => {
                   embedLink={item.embedLink}
                   title={item.title}
                   description={item.description}
-                  // smallDescription={item.smallDescription}
                 />
               ))
             )}

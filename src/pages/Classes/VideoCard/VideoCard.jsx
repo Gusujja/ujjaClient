@@ -20,7 +20,7 @@ const VideoCard = ({ title, description, embedLink, id, smallDescription }) => {
       className="cursor-pointer"
       onClick={() => navigate(`/videos/${id}`)}
     >
-      <div className=" videoCard">
+      <div className="videos_videoCard videoCard">
         <div className={styles.videoPreview}>
           <iframe
             src={embedLink}
@@ -38,7 +38,7 @@ const VideoCard = ({ title, description, embedLink, id, smallDescription }) => {
         {/* </div> */}
         <VideoDescription
           heading={
-            title && title.length > 50 ? title.slice(0, 40) + "..." : title
+            title && title.length > 40 ? title.slice(0, 40) + "..." : title
           }
           description={parse(trundesc)}
           smallDescription={smallDescription}
