@@ -13,14 +13,14 @@ const web_Url =
 const VideoCard = ({ title, description, embedLink, id, smallDescription }) => {
   const navigate = useNavigate();
   const des = typeof description === "string" ? description : "";
-  const trundesc = des.length > 100 ? des.slice(0, 197) + "..." : des;
+  const trundesc = des.length > 100 ? des.slice(0, 150) + "..." : des;
 
   return (
     <VideoCardStyled
       className="cursor-pointer"
       onClick={() => navigate(`/videos/${id}`)}
     >
-      <div className="videos_videoCard">
+      <div className=" videoCard">
         <div className={styles.videoPreview}>
           <iframe
             src={embedLink}
@@ -38,7 +38,7 @@ const VideoCard = ({ title, description, embedLink, id, smallDescription }) => {
         {/* </div> */}
         <VideoDescription
           heading={
-            title && title.length > 50 ? title.slice(0, 47) + "..." : title
+            title && title.length > 50 ? title.slice(0, 40) + "..." : title
           }
           description={parse(trundesc)}
           smallDescription={smallDescription}

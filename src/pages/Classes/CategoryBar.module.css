@@ -18,6 +18,9 @@
 .videoContent {
   flex-grow: 1;
   padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
 }
 
 .categoryList {
@@ -52,7 +55,7 @@
 .subcategoryItem {
   font-size: 12px;
   padding: 5px 10px;
-  background-color:white;
+  background-color: white;
   color: black;
   border-radius: 3px;
   cursor: pointer;
@@ -61,7 +64,7 @@
 }
 
 .subcategoryItem:hover {
-  background-color:  #8badb7;
+  background-color: #8badb7;
 }
 
 @media (max-width: 768px) {

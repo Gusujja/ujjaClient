@@ -23,17 +23,10 @@
   background: #14131a;
   color: white;
 }
-.classes-page .video-card-row {
+/* .classes-page .video-card-row {
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+} */
 
-}
-.classes-page .videoGrid {
-  
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-  
-}
 @media screen and (max-width: 600px) {
   .classes-page .video-card-row {
     grid-template-columns: 1fr;

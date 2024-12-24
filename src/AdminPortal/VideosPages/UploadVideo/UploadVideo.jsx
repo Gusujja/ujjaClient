@@ -219,9 +219,9 @@ const UploadVideo = () => {
 
               {/* Category and Subcategory Fields */}
               <div
-                className={`${styles.formGroup} ${styles.categorySubcategory}`}
+                className={`${styles.formGroup} ${styles.categorySubcategory}` }
               >
-                <div className={styles.formGroup}>
+                <div className={`${styles.formGroup} ${styles.category}`}>
                   <label  htmlFor="category">Category</label>
                   <select
                 
@@ -243,7 +243,7 @@ const UploadVideo = () => {
                   ) : null}
                 </div>
 
-                <div className={styles.formGroup}>
+                <div className={`${styles.formGroup} ${styles.category}`}>
                   <label htmlFor="subCategory">Subcategory</label>
 
                   <Select 
@@ -263,7 +263,8 @@ const UploadVideo = () => {
                       value,
                       label: value,
                     }))}
-                    className="reactSelectDropdown"
+                    className="reactSelectDropdown selectSubCat"
+                    
                   />
 
                   {formik.touched.subCategory && formik.errors.subCategory ? (

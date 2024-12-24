@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const VideoDescriptionStyled = styled.div`
-  padding: 8px 10px;
+  padding: 0px 10px;
   align-items: center;
     // margin-top:-35px;
  border-radius: 10px;
@@ -21,7 +21,7 @@ const VideoDescriptionStyled = styled.div`
     color: #606060;
     font-size: 10px;
     letter-spacing: 1px;
-    display: flex;
+    // display: flex;
     align-items: center;
     gap: 4px;
      margin-bottom: 10px;

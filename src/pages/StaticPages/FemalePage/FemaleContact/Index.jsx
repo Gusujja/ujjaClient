@@ -124,13 +124,19 @@ const formType='females'
           </Form.Select>
           
           <Form.Label className="form-label">Birthdate <span className="required">*</span></Form.Label>
-      <DatePicker
-        selected={birthdate}
-        onChange={(date) => setBirthdate(date)}
-        dateFormat="dd/MM/yyyy"
-        className="form-input form-control" // Bootstrap styling compatibility
-        placeholderText="dd/mm/yyyy"
-        required
+          <DatePicker
+        selected={birthdate} // Links the picker to the selected date.
+        onChange={(date) => setBirthdate(date)} // Updates the state when a new date is selected.
+        dateFormat="dd/MM/yyyy" // British-style display format.
+        className="professional-date-picker" // Custom styling class for the input field.
+        placeholderText="dd/mm/yyyy" // Placeholder for the input field.
+        showYearDropdown // Enables a dropdown for year selection.
+        showMonthDropdown // Enables a dropdown for month selection.
+        dropdownMode="select" // Dropdown menus for year and month are select-based.
+        yearDropdownItemNumber={100} // Limits the year dropdown to the last 100 years.
+        minDate={new Date(1900, 0, 1)} // Set minimum date as 1st January 1900.
+        maxDate={new Date()} // Set maximum date as today.
+        required // Makes the input field mandatory.
       />
           
           <Button type="submit" className="female-submit-button" disable={loading}>

@@ -130,7 +130,7 @@ const formType='beginners'
         onChange={(date) => setBirthdate(date)} // Updates the state when a new date is selected.
         dateFormat="dd/MM/yyyy" // British-style display format.
         className="professional-date-picker" // Custom styling class for the input field.
-        placeholderText="DD/MM/YYYY" // Placeholder for the input field.
+        placeholderText="dd/mm/yyyy" // Placeholder for the input field.
         showYearDropdown // Enables a dropdown for year selection.
         showMonthDropdown // Enables a dropdown for month selection.
         dropdownMode="select" // Dropdown menus for year and month are select-based.

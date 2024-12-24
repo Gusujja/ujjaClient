@@ -1,3 +1,8 @@
+input{
+  font-size: 12px;
+}
+
+
 .pageLayout {
   display: flex;
 }
@@ -53,6 +58,7 @@ textarea {
   width: 100%;
   height: 80px;
   box-sizing: border-box;
+ 
 }
 
 .error {
@@ -102,10 +108,7 @@ font-size: 14px;
 }
 
 /* Specific styles for category and subcategory inputs */
-.categorySubcategory {
-  display: flex; /* Enable flexbox for this group */
-  gap: 1rem; /* Space between inputs */
-}
+
 
 .categorySubcategory select {
   flex: 2; /* Allow select elements to grow and fill the remaining space */
@@ -139,3 +142,81 @@ font-size: 14px;
     flex-direction: column;
   }
 }
+
+.categorySubcategorydiv{
+display: flex;
+flex-direction: column;
+
+}
+
+
+.categorySubcategory {
+  display: flex;
+  align-items: flex-start; 
+  flex-wrap: wrap; 
+  flex-direction: column;
+}
+
+.category {
+  flex: 1; /* Allows inputs to grow and share space evenly */
+  min-width: 200px; /* Ensures inputs do not become too narrow */
+}
+
+
+select,
+.reactSelectDropdown .selectSubCat {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 14px;
+  border-radius: 4px;
+  background-color:white; /* Light background color */
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+select:focus,
+.reactSelectDropdown .selectSubCat:focus {
+  border-color:  #405f74; /* Blue border on focus */
+  /* box-shadow: 0 0 5px #405f74; */
+}
+
+.reactSelectDropdown .selectSubCat {
+  min-height: 50px;
+}
+
+option {
+  background-color: white; /* White background for options */
+  color: #333; /* Dark gray text */
+}
+
+.reactSelectDropdown .selectSubCat__control {
+
+  box-shadow: none;
+}
+
+.reactSelectDropdown .selectSubCat__control--is-focused {
+  border-color: #405f74;
+}
+
+.reactSelectDropdown .selectSubCat__menu {
+  z-index: 1000;
+  background-color: #fff;
+  /* border: 1px solid #ccc; */
+  
+}
+
+.reactSelectDropdown .selectSubCat__option--is-focused {
+  background-color: #f1f8ff; /* Light blue background on hover */
+  color: #8badb7; /* Blue text */
+}
+
+.reactSelectDropdown .selectSubCat__option--is-selected {
+  background-color: #8badb7; /* Blue background for selected option */
+  color: #fff; /* White text for selected option */
+}
+
+.error {
+  color: #d9534f; /* Red for error messages */
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
