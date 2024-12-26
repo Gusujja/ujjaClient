@@ -1,8 +1,8 @@
 import React from "react";
 import { VideoCardStyled } from "./styles";
-// import videoImg from "../../../assets/images/youtube.png";
 import { useNavigate } from "react-router-dom";
-import styles from "../../../AdminPortal/VideosPages/VideoList/VideoList.module.css";
+// import styles from "../../../AdminPortal/VideosPages/VideoList/VideoList.module.css";
+import styles from "../CategoryBar.module.css"
 import VideoDescription from "./VideoDescription";
 import parse from "html-react-parser";
 import { CgPlayButtonO } from "react-icons/cg";
@@ -13,7 +13,7 @@ const web_Url =
 const VideoCard = ({ title, description, embedLink, id, smallDescription }) => {
   const navigate = useNavigate();
   const des = typeof description === "string" ? description : "";
-  const trundesc = des.length > 60 ? des.slice(0, 100) + "..." : des;
+  const trundesc = des.length > 60 ? des.slice(0, 133) + "..." : des;
 
   return (
     <>
@@ -39,10 +39,10 @@ const VideoCard = ({ title, description, embedLink, id, smallDescription }) => {
           {/* </div> */}
           <VideoDescription
             heading={
-              title && title.length > 30 ? title.slice(0, 30) + "..." : title
+              title && title.length > 30 ? title.slice(0, 35) + "..." : title
             }
             description={parse(trundesc)}
-            smallDescription={smallDescription}
+           
           />
           <div className="play_Button ">
             <span>
