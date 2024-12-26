@@ -4,9 +4,8 @@ import styled from "styled-components";
 export const VideoCardStyled = styled.div`
   padding-bottom: 10px;
 
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
+
+  
 
   .videos_videoCard {
     background-color: #fff;
@@ -15,12 +14,9 @@ export const VideoCardStyled = styled.div`
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   }
 
-  .videoCard {
-    background-color: #fff;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  }
+ 
+
+
 
   .play_Button {
     display: flex;

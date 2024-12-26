@@ -1,7 +1,7 @@
 // import React,{ useState,useEffect } from "react";
 // import VideoCard from "./VideoCard/VideoCard";
 // import { Container } from "react-bootstrap";
-// import styles from './CategoryBar.module.css'; 
+// import styles from './CategoryBar.module.css';
 // import axios from 'axios'
 
 // // import Footer from "../../components/Footer/Footer";
@@ -25,7 +25,6 @@
 //         }
 //         const data = await response.json();
 //         setCategories(data);
-       
 
 //       } catch (err) {
 //      console.log("error msg")
@@ -40,7 +39,7 @@
 //         params: {
 //           page:0,
 //           recordsPerPage:15,
-//           category:category,  
+//           category:category,
 //           subCategory:subCategory,
 //         },
 //       });
@@ -98,7 +97,7 @@
 //         ))}
 //       </ul>
 //     </nav>
-    
+
 //       <Container>
 
 //         <div className="video-card-row mt-4 d-grid gap-3">
@@ -120,8 +119,8 @@
 import React, { useState, useEffect } from "react";
 import VideoCard from "./VideoCard/VideoCard";
 import { Container } from "react-bootstrap";
-import styles from './CategoryBar.module.css'; 
-import axios from 'axios';
+import styles from "./CategoryBar.module.css";
+import axios from "axios";
 
 const Index = () => {
   const web_Url =
@@ -165,7 +164,9 @@ const Index = () => {
 
   // Update subcategories when active category changes
   useEffect(() => {
-    const categoryObj = categories.find((cat) => cat.category === activeCategory);
+    const categoryObj = categories.find(
+      (cat) => cat.category === activeCategory
+    );
     setSubcategories(categoryObj ? categoryObj.subcategories : []);
   }, [activeCategory, categories]);
 
@@ -214,7 +215,11 @@ const Index = () => {
           {categories.map((category, index) => (
             <React.Fragment key={index}>
               <li
-                className={`${styles.categoryItem} ${activeCategory === category.category ? styles.activeCategory : ""}`}
+                className={`${styles.categoryItem} ${
+                  activeCategory === category.category
+                    ? styles.activeCategory
+                    : ""
+                }`}
                 onClick={() => setActiveCategory(category.category)}
               >
                 {category.category}
@@ -238,23 +243,19 @@ const Index = () => {
       </div>
 
       <div className={styles.videoContent}>
-        <Container>
-          <div className="video-card-row videoGrid">
-            {allVideos?.length === 0 ? (
-              <div className={styles.noVideosMessage}>No videos available</div>
-            ) : (
-              allVideos?.map((item) => (
-                <VideoCard
-                  key={item._id}
-                  id={item._id}
-                  embedLink={item.embedLink}
-                  title={item.title}
-                  description={item.description}
-                />
-              ))
-            )}
-          </div>
-        </Container>
+        {allVideos?.length === 0 ? (
+          <div className={styles.noVideosMessage}>No videos available</div>
+        ) : (
+          allVideos?.map((item) => (
+            <VideoCard
+              key={item._id}
+              id={item._id}
+              embedLink={item.embedLink}
+              title={item.title}
+              description={item.description}
+            />
+          ))
+        )}
       </div>
     </div>
   );
