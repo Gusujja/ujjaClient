@@ -7,14 +7,28 @@ export const VideoCardStyled = styled.div`
 
   
 
-  .videos_videoCard {
-    background-color: #fff;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  }
+  // .videos_videoCard {
+  //   background-color: #fff;
+  //   border-radius: 10px;
+  //   overflow: hidden;
+  //   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  // }
 
- 
+ .videos_videoCard {
+  width: 300px; 
+  height: 280px; 
+  display: flex;
+  flex-direction: column;
+  background-color: #f9f9f9; 
+  border-radius: 8px;
+  overflow: hidden; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  transition: transform 0.3s ease; 
+}
+
+.videos_videoCard:hover {
+  transform: scale(1.05); 
+}
 
 
 
@@ -22,8 +36,7 @@ export const VideoCardStyled = styled.div`
     display: flex;
     position: relative;
     right: 10px;
-    float: right;
-    margin-bottom: 5px;
+    float: left;
     cursor: pointer;
   }
 
