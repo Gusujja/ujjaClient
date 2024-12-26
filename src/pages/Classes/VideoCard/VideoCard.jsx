@@ -13,7 +13,7 @@ const web_Url =
 const VideoCard = ({ title, description, embedLink, id, smallDescription }) => {
   const navigate = useNavigate();
   const des = typeof description === "string" ? description : "";
-  const trundesc = des.length > 40 ? des.slice(0, 50) + "..." : des;
+  const trundesc = des.length > 60 ? des.slice(0, 100) + "..." : des;
 
   return (
     <>
