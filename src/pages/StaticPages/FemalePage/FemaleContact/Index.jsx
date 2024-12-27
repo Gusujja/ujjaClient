@@ -36,8 +36,10 @@ const Index = () => {
       email: formData.get("reply_to"),
       phone: value || "", // Use phone input state
       gender: formData.get("gender"),
-      birthdate: formData.get("birthdate"),
+      birthdate: birthdate ? birthdate.toISOString() : "", // Convert to string format
     };
+    console.log(data);
+
 const formType='females'
     try {
       const response = await fetch(`${web_Url}forms/${formType}`, {
@@ -47,6 +49,8 @@ const formType='females'
         },
         body: JSON.stringify(data),
       });
+
+
 
       if (response.ok) {
         setMessage("Form submitted successfully!");
@@ -64,6 +68,7 @@ const formType='females'
       resetMsg();
     }
   };
+  console.log(birthdate);
 
   const [value, setValue] = useState();
 
@@ -103,15 +108,7 @@ const formType='females'
               className="phone-input"
             />
           </div>
-          {/* <div className="alert-container">
-            <IoMdAlert size={"1.1rem"} />
-            <span>
-              By opting in to SMS, the person agrees to receive announcements
-              and billing alerts from Brighton Marina Jiu Jitsu Academy.
-            </span>
-            <br />
-            <span>Standard messaging rates may apply. Reply STOP to opt out.</span>
-          </div> */}
+       
           
           <Form.Label className="form-label">
             Gender <span className="required">*</span>
@@ -125,18 +122,18 @@ const formType='females'
           
           <Form.Label className="form-label">Birthdate <span className="required">*</span></Form.Label>
           <DatePicker
-        selected={birthdate} // Links the picker to the selected date.
-        onChange={(date) => setBirthdate(date)} // Updates the state when a new date is selected.
-        dateFormat="dd/MM/yyyy" // British-style display format.
-        className="professional-date-picker" // Custom styling class for the input field.
-        placeholderText="dd/mm/yyyy" // Placeholder for the input field.
-        showYearDropdown // Enables a dropdown for year selection.
-        showMonthDropdown // Enables a dropdown for month selection.
-        dropdownMode="select" // Dropdown menus for year and month are select-based.
-        yearDropdownItemNumber={100} // Limits the year dropdown to the last 100 years.
-        minDate={new Date(1900, 0, 1)} // Set minimum date as 1st January 1900.
-        maxDate={new Date()} // Set maximum date as today.
-        required // Makes the input field mandatory.
+        selected={birthdate}
+        onChange={(date) => setBirthdate(date)} 
+        dateFormat="dd/MM/yyyy" 
+        className="professional-date-picker" 
+        placeholderText="dd/mm/yyyy" 
+        showYearDropdown 
+        showMonthDropdown 
+        dropdownMode="select" 
+        yearDropdownItemNumber={100} 
+        minDate={new Date(1900, 0, 1)} 
+        maxDate={new Date()} 
+        required 
       />
           
           <Button type="submit" className="female-submit-button" disable={loading}>
