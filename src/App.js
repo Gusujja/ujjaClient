@@ -13,7 +13,7 @@ import Footer from "./components/Footer/Footer";
 import ScrollToTopButton from "./components/common/Button/ScrollToTopButton";
 import { scrollToSection, scrollToTop } from "./utils/helper";
 import Modal from "styled-react-modal";
-// import TagManager from "react-gtm-module";
+import TagManager from "react-gtm-module";
 import AdminPortal from "./AdminPortal/Index";
 import Login from "./AdminPortal/AuthPages/Login/Login";
 import SignUp from "./AdminPortal/AuthPages/SignUp/SignUp";
@@ -32,8 +32,8 @@ import Teenagers from "./pages/StaticPages/Teenagers/Index";
 import Leads from "./AdminPortal/Leads/Leads";
 import LeadsDetail from "./AdminPortal/Leads/LeadsDetail/LeadsDetail";
 
-// const tagManagerArgs = { gtmId: "GTM-ND5H33G7" };
-// TagManager.initialize(tagManagerArgs);
+const tagManagerArgs = { gtmId: "GTM-TTDBW2PL" };
+TagManager.initialize(tagManagerArgs);
 
 const App = () => {
   useGoogleAnalytics();
