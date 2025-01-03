@@ -2,6 +2,12 @@ import styled from "styled-components";
 import { mediaDeviceMax } from "../../../components/GlobalStyle";
 
 export const VideoSectionStyled = styled.div`
+
+margin-top:50px;
+
+.videoSectionHeading h4{
+font-weight:600;
+}
   .video-card {
     border: 1px solid #e7e5f2;
     border-radius: 10px 10px 0 0;

@@ -5,6 +5,11 @@ import {
 } from "../../../components/GlobalStyle";
 
 export const TimeTableStyled = styled.div`
+
+.timetableHeading h4{
+font-weight:600;
+margin: 0px 0px 35px 50px;
+}
   .table-responsive {
     &::-webkit-scrollbar {
       width: 12px;

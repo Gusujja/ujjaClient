@@ -43,26 +43,26 @@ const Joining = () => {
   };
 
   return (
-    <JoiningContainer className="mt-3 mb-4">
-      <div className="bg-image py-4">
+    <JoiningContainer className="mt-3">
+      <div className="bg-image py-6 bookContainer">
         <Container>
-          <TextCard
-            heading={"Brighton Marina Jiu Jitsu Academy"}
-            background="#ffffffa6"
-            className={"mb-5"}
-            id="MaleJiu"
-          >
-            <p>
-              Provides a challenging yet safe and caring environment for all our
-              members, no matter your age or ability. An environment where
-              children, teenagers and adults can grow in their skills towards a
-              rewarding life on and off the mats.
-            </p>
-          </TextCard>
-          <div className="mb-3">
-            <SmallHeadingBlack>
-              The Benefit of Joining our Jiu Jitsu Program
-            </SmallHeadingBlack>
+          <div style={{ marginLeft: "-14px" }}>
+            <TextCard
+              // background="#ffffffa6"
+              className={"mb-5"}
+              id="MaleJiu"
+            >
+              <h2>Brighton Marina Jiu Jitsu Academy</h2>
+              <p>
+                Provides a challenging yet safe and caring environment for all
+                our members, no matter your age or ability. An environment where
+                children, teenagers and adults can grow in their skills towards
+                a rewarding life on and off the mats.
+              </p>
+            </TextCard>
+          </div>
+          <div className="secondPassage" >
+            <h2>The Benefit of Joining our Jiu Jitsu Program</h2>
             <TextCard
               className="description"
               width="500px"
@@ -78,31 +78,32 @@ const Joining = () => {
               </ul>
             </TextCard>
           </div>
-          <TextCard className="book-class text-center" width={"445px"}>
-            <Button
-              bgColor={pureDark3}
-              borderColor={pureDark3}
-              width={"290px"}
-              className={"text-white"}
-              onClick={handleClick}
-            >
-              Book a Free Intro Class Today
-            </Button>
-            {/* <CustomModal
+          {/* <TextCard className="book-class text-center" width={"445px"}> */}
+          <Button
+            bgColor={pureDark3}
+            borderColor={pureDark3}
+            width={"290px"}
+            className={"bookButton "}
+            onClick={handleClick}
+          >
+            BOOK A FREE INTRO CLASS TODAY
+          </Button>
+
+          {/* <CustomModal
           isModalVisible={openModal}
           setIsModalVisible={setOpenModal}
           onCancel={closeModal}
           ><ContactForm/></CustomModal> */}
-          </TextCard>
+          {/* </TextCard> */}
         </Container>
       </div>
       <div className="our-mission-section">
         <FlexContainer className="py-lg-0 py-5">
           <Container>
-            <div className="text text-white text-center">
-              Our mission is to help to preserve the foundations and principles{" "}
-              <br />
-              of Jiu-jitsu whilst embracing a modern approach to learning.
+            <div className="text text-white" >
+              Our mission is to help to preserve the <br /> foundations and
+              principles of Jiu-jitsu whilst <br />
+              embracing a modern approach to learning.
             </div>
           </Container>
           <div className="image d-lg-block d-none">

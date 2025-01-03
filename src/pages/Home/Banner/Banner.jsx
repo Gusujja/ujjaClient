@@ -1,17 +1,18 @@
 import React from "react";
-import { Row, Col } from "antd";
-import { Container } from "react-bootstrap";
+// import { Row, Col } from "antd";
+// import { Container } from "react-bootstrap";
 
-import bannerImg from "../../../assets/images/banner.jpeg";
-import { BannerContainer } from "./styles";
-import {
-  FlexContainer,
-  darkGreen1,
-  pureDark5,
-  fontFamilyMedium,
-  fontFamilyRegular,
-} from "../../../components/GlobalStyle";
-import Button from "../../../components/common/Button/Button";
+import homepageimg from "../../../assets/images/homepageimg.jpg";
+import styles from './Banner.module.css';
+// import { BannerContainer } from "./styles";
+// import {
+//   FlexContainer,
+//   darkGreen1,
+//   pureDark5,
+//   fontFamilyMedium,
+//   fontFamilyRegular,
+// } from "../../../components/GlobalStyle";
+// import Button from "../../../components/common/Button/Button";
 
 const Banner = () => {
   const handleClick = () => {
@@ -21,7 +22,20 @@ const Banner = () => {
 
   return (
     <>
-      <BannerContainer>
+
+<div className={styles.bannerContainer}>
+      <img
+        src={homepageimg}
+        alt="HomePage Banner"
+        className={styles.bannerImage}
+        
+      />
+      <button className={styles.bannerButton} onClick={handleClick }>
+        BOOK A FREE INTRO CLASS TODAY
+      </button>
+    </div>
+      {/* <BannerContainer>
+      
         <Container className="home_page_wrapper" id="homepage" style={{marginTop: "7.3rem"}}>
           <Row>
             <Col lg={{ span: 16 }} span={24} className="px-0">
@@ -89,10 +103,8 @@ const Banner = () => {
             </Col>
           </Row>
         </Container>
-      </BannerContainer>
-      <div>
-      
-      </div>
+      </BannerContainer> */}
+    
     </>
   );
 };

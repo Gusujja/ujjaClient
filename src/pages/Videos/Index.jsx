@@ -1,16 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { FiEye, FiEdit, FiTrash } from "react-icons/fi";
 import { Link, useNavigate } from "react-router-dom";
-import styles from "./VideoList.module.css";
-import Sidebar from "../../Sidebar/Sidebar";
-import Navbar from "../../Navbar/Navbar";
+import styles from "./style.module.css";
 import axios from "axios";
-import CustomModal from "../../CustomModal/CustomModal";
-import SearchDropdown from "./SearchDropdown/Index";
-import SearchDropdownByNums from "./SerachDropdownByNums/Index";
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import SearchDropdown from "../../AdminPortal/VideosPages/VideoList/SearchDropdown/Index";
+import SearchDropdownByNums from "../../AdminPortal/VideosPages/VideoList/SerachDropdownByNums/Index";
+import { CgPlayButtonO } from "react-icons/cg";
 
-const VideoList = () => {
+const Videos = () => {
   const web_Url =
     process.env.NODE_ENV === "production"
       ? process.env.REACT_APP_PRODUCTION_URL
@@ -29,25 +25,25 @@ const VideoList = () => {
   const [currentPage, setCurrentPage] = useState(1); // Track current page
   const [totalPages, setTotalPages] = useState(1); // Total pages
   const [totalRecords, setTotalRecords] = useState(0); // Total records
-  const [search,setsearch]=useState("")
-  const [recordsPerPage,setRecordsPerPage]=useState(10)
+  const [search, setsearch] = useState("");
+  const [recordsPerPage, setRecordsPerPage] = useState(10);
   const [subcategories, setSubcategories] = useState([]);
-  
+
   // Fetch the videos from the backend when the component mounts or when the page/filter changes
   useEffect(() => {
     fetchVideos();
-  }, [filter, currentPage,search,recordsPerPage]);
+  }, [filter, currentPage, search, recordsPerPage]);
 
   // Pagination states
 
   //  Search dropdown
 
   const handleVideoSearch = (option) => {
-    setsearch(option)
+    setsearch(option);
     console.log(`Selected option: ${option}`);
   };
   const handleVideoSearchByNums = (option) => {
-setRecordsPerPage(option)
+    setRecordsPerPage(option);
     console.log(`Selected option: ${option}`);
   };
 
@@ -58,7 +54,7 @@ setRecordsPerPage(option)
         params: {
           page: currentPage, // Adjust for zero-based index
           recordsPerPage: recordsPerPage, // Fetch 10 records per page
-          sortOrder:search,
+          sortOrder: search,
           category: filter.category,
           subCategory: filter.subCategory,
         },
@@ -102,9 +98,9 @@ setRecordsPerPage(option)
     fetchCategories();
   }, [filter.category]);
 
-  const handleMenuClick = (event, videoId) => {
-    setMenuVisible(menuVisible === videoId ? null : videoId);
-  };
+  // const handleMenuClick = (event, videoId) => {
+  //   setMenuVisible(menuVisible === videoId ? null : videoId);
+  // };
 
   const handleClose = () => {
     setMenuVisible(null);
@@ -115,43 +111,41 @@ setRecordsPerPage(option)
     handleClose();
   };
 
-  const handleEdit = (videoId) => {
-    navigate(`/editVideo/${videoId}`);
-    handleClose();
-  };
+  // const handleEdit = (videoId) => {
+  //   navigate(`/editVideo/${videoId}`);
+  //   handleClose();
+  // };
 
-  const handleDelete = async (videoId) => {
-    setModalVisible(true);
-    setDeleteId(videoId);
-  };
-  const handleDeleteVideo = async () => {
-    if (deleteId) {
-      setModalVisible(false);
-      try {
-        const response = await axios.delete(`${web_Url}videos/${deleteId}`); // Replace with your backend URL
-        if (response.status) {
-          setIsDelete(true);
-          setAllVideos(allVideos?.filter((item) => item._id !== deleteId))
-          setTimeout(() => {
-            setIsDelete(false);
-          }, 1000);
-        }
-      } catch (err) {
-        console.log("erro", err);
-      }
-    }
-  };
-
+  // const handleDelete = async (videoId) => {
+  //   setModalVisible(true);
+  //   setDeleteId(videoId);
+  // };
+  // const handleDeleteVideo = async () => {
+  //   if (deleteId) {
+  //     setModalVisible(false);
+  //     try {
+  //       const response = await axios.delete(`${web_Url}videos/${deleteId}`); // Replace with your backend URL
+  //       if (response.status) {
+  //         setIsDelete(true);
+  //         setAllVideos(allVideos?.filter((item) => item._id !== deleteId))
+  //         setTimeout(() => {
+  //           setIsDelete(false);
+  //         }, 1000);
+  //       }
+  //     } catch (err) {
+  //       console.log("erro", err);
+  //     }
+  //   }
+  // };
 
   const handleFilterChange = async (event) => {
     const { name, value } = event.target;
     setFilter((prev) => ({ ...prev, [name]: value }));
   };
 
-
   return (
     <>
-      <CustomModal
+      {/* <CustomModal
         isVisible={isModalVisible}
         title="Are you sure you want to delete the Video?"
       >
@@ -166,63 +160,54 @@ setRecordsPerPage(option)
             Yes
           </button>
         </div>
-      </CustomModal>
+      </CustomModal> */}
 
-      <Navbar />
-      <div className={styles.pageLayout}>
-        <div className={styles.sidebar}>
-          <Sidebar />
-        </div>
+      <div className={styles.pageLayout} style={{ marginTop: "4.3rem" }}>
+       
 
         <div className={styles.content}>
           <div className={styles.filterContainer}>
-            <div className={styles.heading}>
-              <h2>Uploaded Videos List</h2>
-            </div>
+            <div className={styles.heading}></div>
             <div className={styles.filterBox}>
-            <div className={styles.category}>
-  <div className={styles.dropdownContainer}>
-    <select
-      name="category"
-      className={styles.dropdown}
-      value={filter.category}
-      onChange={handleFilterChange}
-    >
-      <option value="">All Categories</option>
-      {categories?.map((c) => (
-        <option key={c.category} value={c.category}>
-          {c.category}
-        </option>
-      ))}
-    </select>
-  </div>
-{filter.category && allVideos.length > 0 &&  (
-    <div className={styles.dropdownContainer}>
-      <select
-        name="subCategory"
-        className={styles.dropdown}
-        value={filter.subCategory}
-        onChange={handleFilterChange}
-      >
-        <option value="">All Subcategories</option>
-        {subcategories?.map((c, index) => (
-          <option key={index} value={c}>
-            {c}
-          </option>
-        ))}
-      </select>
-    </div>
-  )
+              <div className={styles.category}>
+                <div className={styles.dropdownContainer}>
+                  <select
+                    name="category"
+                    className={styles.dropdown}
+                    value={filter.category}
+                    onChange={handleFilterChange}
+                  >
+                    <option value="">All Categories</option>
+                    {categories?.map((c) => (
+                      <option key={c.category} value={c.category}>
+                        {c.category}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                {filter.category && allVideos.length > 0 && (
+                  <div className={styles.dropdownContainer}>
+                    <select
+                      name="subCategory"
+                      className={styles.dropdown}
+                      value={filter.subCategory}
+                      onChange={handleFilterChange}
+                    >
+                      <option value="">All Subcategories</option>
+                      {subcategories?.map((c, index) => (
+                        <option key={index} value={c}>
+                          {c}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                )}
+              </div>
 
-}
- 
-</div>
-
-          <SearchDropdownByNums onSelect={handleVideoSearchByNums} />
-          <SearchDropdown onSelect={handleVideoSearch} />
+              <SearchDropdownByNums onSelect={handleVideoSearchByNums} />
+              <SearchDropdown onSelect={handleVideoSearch} />
             </div>
           </div>
-
 
           <div className={styles.videoGrid}>
             {allVideos.length > 0 ? (
@@ -242,14 +227,14 @@ setRecordsPerPage(option)
                     <p>{video.smallDescription.slice(0, 40) + "..."}</p>
                     <div className={styles.actions}>
                       <div onClick={() => handleView(video._id)}>
-                        <FiEye /> View
+                        <CgPlayButtonO /> Play
                       </div>
-                      <div onClick={() => handleEdit(video._id)}>
+                      {/* <div onClick={() => handleEdit(video._id)}>
                         <FiEdit /> Edit
                       </div>
                       <div onClick={() => handleDelete(video._id)}>
                         <FiTrash /> Delete
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                 </div>
@@ -285,4 +270,4 @@ setRecordsPerPage(option)
   );
 };
 
-export default VideoList;
+export default Videos;

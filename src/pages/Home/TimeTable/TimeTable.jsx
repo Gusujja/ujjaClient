@@ -1,6 +1,6 @@
 import React from "react";
 import {TimeTableStyled } from "./styles";
-import HeadingWithLine from "../Headings/HeadingWithLine";
+// import HeadingWithLine from "../Headings/HeadingWithLine";
 import { Container } from "react-bootstrap";
 import { EVENTS_DB } from "./DB";
 const TimeTable = () => {
@@ -35,16 +35,18 @@ const TimeTable = () => {
 
   return (
     <TimeTableStyled className="py-5" id={"timeTableSection"}>
-      <Container>
-        <HeadingWithLine
-          heading={"Unison Jiu Jitsu Weekly Time Table"}
-        >
-          <p className="mt-2">
+      <Container style={{maxWidth:"1263px"}}>
+        <div className="timetableHeading">
+          <h4>Unison Jiu Jitsu Weekly Time Table</h4>
+        </div>
+         
+        
+          {/* <p className="mt-2">
             27 The Waterfront, Marina Way, Brighton Marina, Brighton and Hove,
             Brighton BN2 5WA
-          </p>
-        </HeadingWithLine>
-        <div className="table-responsive mt-4">
+          </p> */}
+   
+        <div className="table-responsive mt-4" style={{width:"101%"}}>
           <table className="table table-bordered table-sm">
             <thead>
               <tr>

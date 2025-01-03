@@ -45,13 +45,19 @@ const Location = () => {
     <></>
   );
   return (
-    <div className="py-5">
-      <HeadingWithLine heading={"Unison Jiu Jitsu Academy Location"}>
+    <div className="py-5" >
+      {/* <HeadingWithLine heading={"Unison Jiu Jitsu Academy Location"}>
+      </HeadingWithLine> */}
+        <div style={{ margin: "0px 0px 35px 50px"}}>
+          <h4 style={{fontWeight:"600"}}>
+          Unison Jiu Jitsu Academy Location
+          </h4>
+      
         <p className="mt-2">
           27 The Waterfront, Marina Way, Brighton Marina, Brighton and Hove,
           Brighton BN2 5WA
-        </p>
-      </HeadingWithLine>
+        </p> 
+         </div>
       <div className=" mt-4">{renderMap}</div>
     </div>
   );

@@ -1,8 +1,10 @@
 import React from "react";
 import { TextCardStyled } from "./styles";
 import { SmallHeadingBlack } from "../../../components/GlobalStyle";
+import { CardHeadingBlack } from "../../../components/GlobalStyle";
 
-const TextCard = ({ heading, children, className, width, background,id }) => {
+
+const TextCard = ({ smallHeading, heading, children, className, width, background,id }) => {
   return (
     <TextCardStyled
       className={"text-card " + className}
@@ -10,7 +12,8 @@ const TextCard = ({ heading, children, className, width, background,id }) => {
       background={background}
       id={id}
     >
-      {heading && <SmallHeadingBlack>{heading}</SmallHeadingBlack>}
+      {heading && <CardHeadingBlack>{heading}</CardHeadingBlack>}
+      {smallHeading && <SmallHeadingBlack>{smallHeading}</SmallHeadingBlack>}
       <div className="content">{children}</div>
     </TextCardStyled>
   );

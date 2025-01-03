@@ -3,8 +3,6 @@
 
 import React, { useRef, useState } from "react";
 import { Card } from "react-bootstrap";
-import emailjs from "@emailjs/browser";
-import { IoMdAlert } from "react-icons/io";
 import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
 import Form from "react-bootstrap/Form";
@@ -38,7 +36,7 @@ const Index = () => {
       email: formData.get("reply_to"),
       phone: value || "",
       gender: formData.get("gender"),
-      birthdate: formData.get("birthdate"),
+      birthdate: birthdate ? birthdate.toISOString() : "",
     };
     const formType = "teenagers";
 

@@ -32,13 +32,7 @@ export const VideoCardStyled = styled.div`
 
 
 
-  .play_Button {
-    display: flex;
-    position: relative;
-    right: 10px;
-    float: left;
-    cursor: pointer;
-  }
+
 
   .play_Button p {
     margin-top: 4px;

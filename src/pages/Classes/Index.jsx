@@ -224,8 +224,12 @@ const Index = () => {
               >
                 {category.category}
               </li>
+              
+
               {activeCategory === category.category && (
+                
                 <ul className={styles.subcategoryList}>
+                 
                   {subcategories.map((subcategory, idx) => (
                     <li
                       key={idx}
@@ -235,6 +239,7 @@ const Index = () => {
                       {subcategory}
                     </li>
                   ))}
+               
                 </ul>
               )}
             </React.Fragment>

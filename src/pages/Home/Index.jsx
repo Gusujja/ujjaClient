@@ -1,6 +1,6 @@
 import React from "react";
 import Banner from "./Banner/Banner";
-import Explore from "./Explore/Explore";
+// import Explore from "./Explore/Explore";
 import Joining from "./Joining/Joining";
 import CardGrid from "./Cards/CardGrid";
 import VideoSection from "./Videos/VideoSection";
@@ -9,12 +9,14 @@ import TimeTable from "./TimeTable/TimeTable";
 import Location from "./Location/Location";
 
 import "./styles.css";
+import Programs from "./Programs/Programs";
 
 const Index = () => {
   return (
     <div>
       <Banner />
-      <Explore />
+      <Programs />
+      {/* <Explore /> */}
       <Joining />
       <CardGrid />
       <VideoSection />

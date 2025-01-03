@@ -36,7 +36,7 @@ const Index = () => {
       email: formData.get("reply_to"),
       phone: value || "", // Use phone input state
       gender: formData.get("gender"),
-      birthdate: formData.get("birthdate"),
+      birthdate: birthdate ? birthdate.toISOString() : "",
     };
 const formType='kids'
     try {

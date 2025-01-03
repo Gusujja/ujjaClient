@@ -1,53 +1,78 @@
-import React from "react";
-
+import React, { useState, useEffect } from "react";
 import { MenuOutlined } from "@ant-design/icons";
 import Dropdown from "react-bootstrap/Dropdown";
-
 import { NavbarContainer } from "./styles";
-// import logo from "../../assets/svgs/logo.svg";
 import { FlexContainer, fontFamilyMedium, fontFamilyRegular } from "../GlobalStyle";
-
-import { useNavigate, useLocation } from 'react-router-dom';
-
+import { useNavigate, useLocation } from "react-router-dom";
 
 const AppNavbar = ({ scrollToSection }) => {
+  const web_Url =
+    process.env.NODE_ENV === "production"
+      ? process.env.REACT_APP_PRODUCTION_URL
+      : process.env.REACT_APP_DEVELOPMENT_URL;
+  const [categories, setCategories] = useState([]);
+  const [subcategories, setSubcategories] = useState([]);
+  const [filter, setFilter] = useState({ category: "", subCategory: "" });
+
   const navigate = useNavigate();
   const location = useLocation();
 
-  const isHomePage = location.pathname === '/';
-  const isVideosPage = location.pathname === '/videos';
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const response = await fetch(`${web_Url}category`); // Replace with your backend URL
+        if (!response) {
+          throw new Error("Failed to fetch categories");
+        }
+        const data = await response.json();
+        setCategories(data);
+
+        const categoryObj = data.find((cat) => cat.category === filter.category);
+        setSubcategories(categoryObj ? categoryObj.subcategories : []);
+      } catch (err) {
+        console.log("error fetching categories:", err);
+      }
+    };
+
+    fetchCategories();
+  }, [filter.category]);
+
+  const handleClick = (item) => {
+    if (item.link) {
+      if (location.pathname === item.link && item.link === "/") {
+        scrollToTop(); // Scroll to top if already on the Home page
+      } else {
+        navigate(item.link); // Navigate to the link
+      }
+    } else if (item.ref) {
+      if (location.pathname !== "/") {
+        navigate("/"); // Navigate to Home first if not already there
+        setTimeout(() => scrollToSection(item.ref), 300); // Wait for navigation and then scroll
+      } else {
+        scrollToSection(item.ref); // Scroll directly if already on Home
+      }
+    }
+  };
 
   const NAVBAR_ITEMS = [
     { id: 7, label: "Home", link: "/", ref: "homeSection" },
-    { id: 1, label: "Videos", link: "/videos" },
+    // { id: 1, label: "Videos", link: "/video" }, // This will trigger the "Videos" dropdown
     { id: 3, label: "Time Table", ref: "timeTableSection" },
     { id: 4, label: "Membership", ref: "membershipSection" },
     { id: 6, label: "Contact Us", ref: "contactUsSection" },
   ];
+  const PROGRAMS = [
+    { id: 1, label: "Beginners", link: "beginners" },
+    { id: 2, label: "Kids", link: "/kids" },
+    { id: 3, label: "Teenagers", link: "/teenagers" },
+    { id: 4, label: "Females", link: "/femalepage" },
+    { id: 5, label: "Over 40", link: "/over40" },
+  ];
 
-  const handleClick = (item) => {
-    if (item.ref) {
-      if (isHomePage && item.label === "Home") {
-        scrollToTop(); // Scroll to top if already on the Home page and clicking Home again
-      } else if (isVideosPage && (item.label === "Home" || item.label === "Videos")) {
-        navigate(item.link); // Navigate to link if on Videos page and clicking Home or Videos
-      } else {
-        scrollToSection(item.ref); // Scroll to section for other cases
-      }
-    } else if (item.link) {
-      navigate(item.link);
-    }
+  const handleFilterChange = (e) => {
+    const { name, value } = e.target;
+    setFilter((prevFilter) => ({ ...prevFilter, [name]: value }));
   };
-
-  const navbarLinks = NAVBAR_ITEMS.map((item) => (
-    <div
-      className="app-nav-link cursor-pointer"
-      key={item.id}
-      onClick={() => handleClick(item)}
-    >
-      {item.label}
-    </div>
-  ));
 
   return (
     <NavbarContainer>
@@ -60,36 +85,168 @@ const AppNavbar = ({ scrollToSection }) => {
           onClick={() => navigate("/")}
           justifycontent="space-between"
         >
-          {/* <img src={logo} alt="" /> */}
           <h4 className="brand_text">Unison Jiu Jitsu Academy</h4>
         </FlexContainer>
-        <div className="app-navbar gap-4 d-lg-flex d-none">{navbarLinks}</div>
+
+        <div className="app-navbar gap-4 d-lg-flex d-none">
+          {/* Render Navbar Links */}
+          {NAVBAR_ITEMS.map((item) => (
+            <div
+              className="app-nav-link cursor-pointer"
+              key={item.id}
+              onClick={() => handleClick(item)}
+            >
+                          {item.label}
+            </div>
+          ))}
+
+    
+          {/* Videos Dropdown */}
+<Dropdown className="videos-dropdown-container">
+  <Dropdown.Toggle variant="link" className="videos-dropdown-toggle">
+    Videos
+  </Dropdown.Toggle>
+  <Dropdown.Menu className="videos-dropdown-menu">
+    <Dropdown.Item
+      className="videos-dropdown-item"
+      onClick={() => navigate("/video")}
+    >
+      All Videos
+    </Dropdown.Item>
+    {categories.map((category) => (
+      <Dropdown key={category.category} className="nested-dropdown">
+        <Dropdown.Toggle
+          variant="link"
+          className="nested-dropdown-toggle videos-dropdown-item"
+        >
+          {category.category}
+        </Dropdown.Toggle>
+        <Dropdown.Menu className="subcategories-dropdown-menu">
+          {category.subcategories.map((subCategory) => (
+            <Dropdown.Item
+              key={subCategory}
+              className="subcategories-dropdown-item"
+              onClick={() => navigate(`/video/${subCategory}`)}
+            >
+              {subCategory}
+            </Dropdown.Item>
+          ))}
+        </Dropdown.Menu>
+      </Dropdown>
+    ))}
+  </Dropdown.Menu>
+</Dropdown>
+ 
+ {/* Programs Dropdown */}
+ <Dropdown className="programs-dropdown-container">
+  <Dropdown.Toggle variant="link" className="programs-dropdown-toggle">
+    Programs
+  </Dropdown.Toggle>
+  <Dropdown.Menu className="programs-dropdown-menu">
+    {PROGRAMS.map((program) => (
+      <Dropdown.Item
+        key={program.id}
+        onClick={() => navigate(program.link)}
+        className="programs-dropdown-item"
+      >
+        {program.label}
+      </Dropdown.Item>
+    ))}
+  </Dropdown.Menu>
+</Dropdown>
+
+        </div>
 
         <button
-//className="app-nav-link cursor-pointer"
-onClick={handleClick}
-style={{ padding: "10px 20px", borderRadius: "10px", background:'none',fontFamily:fontFamilyRegular}}
->
-Call To Book <br />{" "}
-<span style={{ fontFamily: fontFamilyMedium }}>07846997004</span>
-</button>
+          onClick={handleClick}
+          style={{
+            padding: "10px 20px",
+            borderRadius: "10px",
+            background: "none",
+            fontFamily: fontFamilyRegular,
+          }}
+        >
+          Call To Book <br />{" "}
+          <span style={{ fontFamily: fontFamilyMedium }}>07846997004</span>
+        </button>
 
-        <Dropdown className="d-lg-none d-block">
-          <Dropdown.Toggle variant="" id="dropdown-basic">
-            <MenuOutlined />
+        {/* Videos Mobile View */}
+
+    
+
+<Dropdown className="d-lg-none d-block">
+  <Dropdown.Toggle variant="" id="dropdown-basic" className="navbar-toggle">
+    <MenuOutlined />
+  </Dropdown.Toggle>
+  <Dropdown.Menu className="navbar-dropdown-menu">
+    {NAVBAR_ITEMS.map((item) =>
+      item.label === "Videos" ? (
+        <Dropdown key={item.id} className="videos-dropdown">
+          <Dropdown.Toggle
+            variant="link"
+            className="videos-dropdown-toggle"
+          >
+            {item.label}
           </Dropdown.Toggle>
-
-          <Dropdown.Menu className="ps-3">
-            {NAVBAR_ITEMS.map((item) => (
-              <Dropdown.Item
-                key={item.id}
-                onClick={() => handleClick(item)}
-              >
-                {item.label}
-              </Dropdown.Item>
+          <Dropdown.Menu className="videos-submenu">
+            <Dropdown.Item onClick={() => navigate("/video")}>
+              All Videos
+            </Dropdown.Item>
+            {categories.map((category) => (
+              <Dropdown key={category.category} className="category-dropdown">
+                <Dropdown.Toggle
+                  variant="link"
+                  className="category-dropdown-toggle"
+                >
+                  {category.category}
+                </Dropdown.Toggle>
+                <Dropdown.Menu className="subcategory-dropdown-menu">
+                  {category.subcategories.map((subCategory) => (
+                    <Dropdown.Item
+                      key={subCategory}
+                      className="subcategory-dropdown-item"
+                      onClick={() => navigate(`/video/${subCategory}`)}
+                    >
+                      {subCategory}
+                    </Dropdown.Item>
+                  ))}
+                </Dropdown.Menu>
+              </Dropdown>
             ))}
           </Dropdown.Menu>
         </Dropdown>
+      ) : (
+        <Dropdown.Item key={item.id} onClick={() => handleClick(item)}>
+          {item.label}
+        </Dropdown.Item>
+      )
+    )}
+
+    {/* Programs Dropdown */}
+    <Dropdown className="programs-dropdown">
+      <Dropdown.Toggle
+        variant="link"
+        className="programs-dropdown-toggle"
+      >
+        Programs
+      </Dropdown.Toggle>
+      <Dropdown.Menu className="programs-submenu">
+        {PROGRAMS.map((program) => (
+          <Dropdown.Item
+            key={program.id}
+            className="programs-dropdown-item"
+            onClick={() => navigate(program.link)}
+          >
+            {program.label}
+          </Dropdown.Item>
+        ))}
+      </Dropdown.Menu>
+    </Dropdown>
+  </Dropdown.Menu>
+</Dropdown>
+
+       
+
       </FlexContainer>
     </NavbarContainer>
   );
@@ -106,9 +263,9 @@ export const scrollToSection = (sectionId) => {
   const element = document.getElementById(sectionId);
 
   if (element) {
-    var headerOffset = 120;
-    var elementPosition = element.getBoundingClientRect().top;
-    var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+    const headerOffset = 120;
+    const elementPosition = element.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
     window.scrollTo({
       top: offsetPosition,
@@ -116,63 +273,5 @@ export const scrollToSection = (sectionId) => {
     });
   }
 };
-// const AppNavbar = ({ scrollToSection }) => {
-//   const navigate = useNavigate();
-//   const NAVBAR_ITEMS = [
-//     { id: 7, label: "Home", ref: "homepage" },
-//     { id: 1, label: "Curriculum", ref: "curriculumSection" },
-//     { id: 3, label: "Time Table", ref: "timeTableSection" },
-//     { id: 4, label: "Membership", ref: "membershipSection" },
-//     { id: 6, label: "Contact Us", ref: "contactUsSection" },
-//   ];
-
-//   const handleClick = () => {};
-
-//   const navbarLinks = NAVBAR_ITEMS.map((item) => (
-//     <div
-//       className="app-nav-link cursor-pointer "
-//       key={item.id}
-//       onClick={() => scrollToSection(item.ref)}
-//     >
-//       {item.label}
-//     </div>
-//   ));
-
-//   return (
-//     <NavbarContainer>
-//       <FlexContainer
-//         className="container app-navbar-container py-2 px-0"
-//         justifycontent="space-between"
-//       >
-//         <FlexContainer
-//           className="app-logo gap-3 cursor-pointer"
-//           onClick={() => navigate("/")}
-//           justifycontent="space-between"
-//         >
-//           <img src={logo} alt="" />
-//           <h4 className="brand_text">Brighton Marina Jiu Jitsu Academy</h4>
-//         </FlexContainer>
-
-//         <div className="app-navbar gap-4 d-lg-flex d-none">{navbarLinks}</div>
-//         <button
-//           //className="app-nav-link cursor-pointer"
-//           onClick={handleClick}
-//           style={{ padding: "10px 20px", borderRadius: "10px",  background:'none',fontFamily:fontFamilyRegular}}
-//         >
-//           Call To Book <br />{" "}
-//           <span style={{ fontFamily: fontFamilyMedium }}>07846997004</span>
-//         </button>
-      
-//         <Dropdown className="d-lg-none d-block">
-//           <Dropdown.Toggle variant="" id="dropdown-basic">
-//             <MenuOutlined />
-//           </Dropdown.Toggle>
-          
-//           <Dropdown.Menu className="ps-3">{navbarLinks}</Dropdown.Menu>
-//         </Dropdown>
-//       </FlexContainer>
-//     </NavbarContainer>
-//   );
-// };
 
 export default AppNavbar;

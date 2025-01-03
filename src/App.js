@@ -31,6 +31,7 @@ import Kids from "./pages/StaticPages/Kids/Index";
 import Teenagers from "./pages/StaticPages/Teenagers/Index";
 import Leads from "./AdminPortal/Leads/Leads";
 import LeadsDetail from "./AdminPortal/Leads/LeadsDetail/LeadsDetail";
+import Videos from "./pages/Videos/Index"
 
 const tagManagerArgs = { gtmId: "GTM-TTDBW2PL" };
 TagManager.initialize(tagManagerArgs);
@@ -69,6 +70,7 @@ const App = () => {
       !token &&
       pathname !== "/" &&
       pathname !== "/videos" &&
+      pathname !== "/video" &&
       pathname !== "/femalepage" &&
       pathname !== "/over40" &&
       pathname !== "/kids" &&
@@ -114,6 +116,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/videos" element={<Classes />} />
+          <Route path="/video" element={<Videos />} />
           <Route path="/videos/:videoId" element={<VideoDetails />} />
           <Route path="/femalepage" element={<FemalePage />} />
           <Route path="/over40" element={<OverForty />} />

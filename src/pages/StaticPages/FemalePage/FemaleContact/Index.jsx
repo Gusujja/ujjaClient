@@ -39,7 +39,6 @@ const Index = () => {
       birthdate: birthdate ? birthdate.toISOString() : "", // Convert to string format
     };
     console.log(data);
-
 const formType='females'
     try {
       const response = await fetch(`${web_Url}forms/${formType}`, {

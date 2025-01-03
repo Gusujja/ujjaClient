@@ -76,8 +76,14 @@ export const FlexContainer = styled.div`
 `;
 
 export const SmallHeadingBlack = styled.h4`
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 500;
+  color: ${pureDark};
+  font-family: ${fontFamilyRegular};
+`;
+export const CardHeadingBlack = styled.h4`
+  font-size: 22px;
+  font-weight: 600;
   color: ${pureDark};
   font-family: ${fontFamilyRegular};
 `;
