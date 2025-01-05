@@ -17,9 +17,6 @@ const Videos = () => {
   const navigate = useNavigate(); // Initialize the useNavigate hook
   const [categories, setCategories] = useState([]); // You can fetch this dynamically
   const [allVideos, setAllVideos] = useState([]);
-  const [isDelete, setIsDelete] = useState(false);
-  const [isModalVisible, setModalVisible] = useState(false);
-  const [deleteId, setDeleteId] = useState(false);
 
   // Pagination states
   const [currentPage, setCurrentPage] = useState(1); // Track current page
@@ -28,6 +25,7 @@ const Videos = () => {
   const [search, setsearch] = useState("");
   const [recordsPerPage, setRecordsPerPage] = useState(10);
   const [subcategories, setSubcategories] = useState([]);
+  const [loading,setLoading]=useState(false);
 
   // Fetch the videos from the backend when the component mounts or when the page/filter changes
   useEffect(() => {
@@ -49,6 +47,7 @@ const Videos = () => {
 
   const pages = 0;
   const fetchVideos = async () => {
+    setLoading(true);
     try {
       const response = await axios.get(`${web_Url}videos/search`, {
         params: {
@@ -65,6 +64,8 @@ const Videos = () => {
       setTotalRecords(response.data.totalRecords); // Set total records
     } catch (error) {
       console.error("Error fetching videos:", error);
+    }finally{
+      setLoading(false)
     }
   };
 
@@ -78,7 +79,7 @@ const Videos = () => {
 
   useEffect(() => {
     const fetchCategories = async () => {
-      console.log("data by categories")
+     
       try {
         const response = await fetch(`${web_Url}category`); // Replace with your backend URL
         if (!response) {
@@ -211,7 +212,8 @@ const Videos = () => {
           </div>
 
           <div className={styles.videoGrid}>
-            {allVideos.length > 0 ? (
+            {loading ? <div>.....</div>:
+            (allVideos.length > 0 ? (
               allVideos?.map((video) => (
                 <div key={video._id} className={styles.videoCard}>
                   <div className={styles.videoPreview}>
@@ -242,7 +244,7 @@ const Videos = () => {
               ))
             ) : (
               <p>No videos available</p>
-            )}
+            ))}
           </div>
 
           {/* Pagination controls */}

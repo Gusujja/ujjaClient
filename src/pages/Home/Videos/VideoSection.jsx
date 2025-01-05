@@ -22,21 +22,42 @@ const VideoSection = () => {
 
   const [openFancyBox, setOpenFancyBox] = useState("");
 
-  const [videoData,setVideoData]=useState([])
+  const [allVideos, setAllVideos] = useState([]);
+  const [currentVideo, setCurrentVideo] = useState(null); // State for the currently displayed video
+  const [loading, setLoading] = useState(false);
+
+  const fetchVideos = async () => {
+    setLoading(true);
+    try {
+      const response = await fetch(`${web_Url}videos`);
+      if (!response.ok) throw new Error("Failed to fetch videos");
+      const data = await response.json();
+      setAllVideos(data.video);
+    } catch (error) {
+      console.error("Error fetching videos:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const getRandomVideo = () => {
+    if (allVideos.length > 0) {
+      const randomIndex = Math.floor(Math.random() * allVideos.length);
+      setCurrentVideo(allVideos[randomIndex]);
+    }
+  };
 
   useEffect(() => {
-    const fetchAllVideos = async () => {
-      try {
-        const response = await fetch(`${web_Url}videos`);
-        if (!response.ok) throw new Error("Failed to fetch videos");
-        const data = await response.json();
-        setVideoData(data.video);
-      } catch (err) {
-        console.error("Error fetching all videos:", err);
-      }
-    };
-    fetchAllVideos();
-  }, [web_Url]);
+    fetchVideos(); // Fetch videos on component mount
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      getRandomVideo(); // Update with a random video at each interval
+    }, 5000); // Change video every 5 seconds
+
+    return () => clearInterval(interval); // Cleanup interval on component unmount
+  }, [allVideos]); // Re-run interval setup when videos are loaded
 
   const responsive = {
     superLargeDesktop: {
@@ -90,7 +111,7 @@ const VideoSection = () => {
             openFancyBox={openFancyBox}
             setFancyboxIsActive={setOpenFancyBox}
           >
-            {videoData.map((video, index) => (
+            {allVideos.map((video, index) => (
               <a
                 id={`box-${index}`}
                 data-fancybox="gallery"
@@ -118,27 +139,31 @@ const VideoSection = () => {
             containerClass="carousel-container"
             itemClass=""
           >
-            {
-              videoData?.map((video) => (
-                <div key={video._id} className={styles.videoCard}>
-                  <div className={styles.videoPreview}>
-                    <iframe
-                      src={video.embedLink}
-                      frameBorder="0"
-                      allowFullScreen
-                      title={video.title}
-                      className={styles.iframe}
-                    ></iframe>
-                  </div>
-                  <div className={styles.videoInfo}>
-                    <h6>{video.title.slice(0, 30) + "..."}</h6>
-                    <p>{video.smallDescription.slice(0, 40) + "..."}</p>
-                   
-                  </div>
-                </div>
-              ))
             
-            }
+             {loading ? (
+        <div className="loader">Loading...</div>
+      ) : currentVideo ? (
+        allVideos?.map((video) => (
+          <div key={video._id} className={styles.videoCard}>
+            <div className={styles.videoPreview}>
+              <iframe
+                src={video.embedLink}
+                frameBorder="0"
+                allowFullScreen
+                title={video.title}
+                className={styles.iframe}
+              ></iframe>
+            </div>
+            <div className={styles.videoInfo}>
+              <h6>{video.title.slice(0, 30) + "..."}</h6>
+              <p>{video.smallDescription.slice(0, 40) + "..."}</p>
+             
+            </div>
+          </div>
+        ))
+      ) : (
+        <div>No videos available</div>
+      )}
           </Carousel>
         )}
         <div className="mt-4"></div>
