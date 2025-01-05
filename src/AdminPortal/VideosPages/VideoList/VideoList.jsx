@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { FiEye, FiEdit, FiTrash } from "react-icons/fi";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styles from "./VideoList.module.css";
 import Sidebar from "../../Sidebar/Sidebar";
 import Navbar from "../../Navbar/Navbar";
@@ -8,7 +8,6 @@ import axios from "axios";
 import CustomModal from "../../CustomModal/CustomModal";
 import SearchDropdown from "./SearchDropdown/Index";
 import SearchDropdownByNums from "./SerachDropdownByNums/Index";
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 const VideoList = () => {
   const web_Url =
@@ -32,6 +31,7 @@ const VideoList = () => {
   const [search,setsearch]=useState("")
   const [recordsPerPage,setRecordsPerPage]=useState(10)
   const [subcategories, setSubcategories] = useState([]);
+  const [loading, setLoading] = useState(false); // Loader state
   
   // Fetch the videos from the backend when the component mounts or when the page/filter changes
   useEffect(() => {
@@ -53,12 +53,13 @@ setRecordsPerPage(option)
 
   const pages = 0;
   const fetchVideos = async () => {
+    setLoading(true); // Start loader
     try {
       const response = await axios.get(`${web_Url}videos/search`, {
         params: {
           page: currentPage, // Adjust for zero-based index
           recordsPerPage: recordsPerPage, // Fetch 10 records per page
-          sortOrder:search,
+          sortOrder: search,
           category: filter.category,
           subCategory: filter.subCategory,
         },
@@ -69,6 +70,8 @@ setRecordsPerPage(option)
       setTotalRecords(response.data.totalRecords); // Set total records
     } catch (error) {
       console.error("Error fetching videos:", error);
+    } finally {
+      setLoading(false); // Stop loader
     }
   };
 
@@ -148,7 +151,7 @@ setRecordsPerPage(option)
     setFilter((prev) => ({ ...prev, [name]: value }));
   };
 
-
+console.log("loading  is true",loading)
   return (
     <>
       <CustomModal
@@ -225,38 +228,41 @@ setRecordsPerPage(option)
 
 
           <div className={styles.videoGrid}>
-            {allVideos.length > 0 ? (
-              allVideos?.map((video) => (
-                <div key={video._id} className={styles.videoCard}>
-                  <div className={styles.videoPreview}>
-                    <iframe
-                      src={video.embedLink}
-                      frameBorder="0"
-                      allowFullScreen
-                      title={video.title}
-                      className={styles.iframe}
-                    ></iframe>
-                  </div>
-                  <div className={styles.videoInfo}>
-                    <h6>{video.title.slice(0, 30) + "..."}</h6>
-                    <p>{video.smallDescription.slice(0, 40) + "..."}</p>
-                    <div className={styles.actions}>
-                      <div onClick={() => handleView(video._id)}>
-                        <FiEye /> View
-                      </div>
-                      <div onClick={() => handleEdit(video._id)}>
-                        <FiEdit /> Edit
-                      </div>
-                      <div onClick={() => handleDelete(video._id)}>
-                        <FiTrash /> Delete
-                      </div>
-                    </div>
-                  </div>
+          {loading ? (
+        <div className="loader">Loading...</div> // Replace with your loader component or animation
+      ) : 
+      ( allVideos.length > 0 ? (
+        allVideos?.map((video) => (
+          <div key={video._id} className={styles.videoCard}>
+            <div className={styles.videoPreview}>
+              <iframe
+                src={video.embedLink}
+                frameBorder="0"
+                allowFullScreen
+                title={video.title}
+                className={styles.iframe}
+              ></iframe>
+            </div>
+            <div className={styles.videoInfo}>
+              <h6>{video.title.slice(0, 30) + "..."}</h6>
+              <p>{video.smallDescription.slice(0, 40) + "..."}</p>
+              <div className={styles.actions}>
+                <div onClick={() => handleView(video._id)}>
+                  <FiEye /> View
                 </div>
-              ))
-            ) : (
-              <p>No videos available</p>
-            )}
+                <div onClick={() => handleEdit(video._id)}>
+                  <FiEdit /> Edit
+                </div>
+                <div onClick={() => handleDelete(video._id)}>
+                  <FiTrash /> Delete
+                </div>
+              </div>
+            </div>
+          </div>
+        ))
+      ) : (
+        <p>No videos available</p>
+      ))}
           </div>
 
           {/* Pagination controls */}

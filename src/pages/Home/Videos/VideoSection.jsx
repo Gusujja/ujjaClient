@@ -1,51 +1,19 @@
 import React, { useState, useEffect, useRef } from "react";
 import { VideoSectionStyled } from "./styles";
-import HeadingWithLine from "../Headings/HeadingWithLine";
-import thumbnail from "../../../assets/images/Group 427321431.png";
-import thumbnail2 from "../../../assets/images/Background.png";
-import thumbnail3 from "../../../assets/images/Background (1).png";
-import thumbnail4 from "../../../assets/images/Background (2).png";
-import { SmallHeadingBlack } from "../../../components/GlobalStyle";
+import styles from "../../Videos/style.module.css";
 import { Container } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import Carousel from "react-multi-carousel";
-import { Rate } from "antd";
+import { CgPlayButtonO } from "react-icons/cg";
 import Fancybox from "../../../components/common/FancyBox";
 
-const videoData = [
-  {id:1,
-    image: thumbnail,
-    heading: "Single-Hand Guard Pass",
-    description:
-      "A technique in Brazilian Jiu-Jitsu where the practitioner uses one hand to control the opponent's leg or hip while passing their guard, enabling them to establish a dominant position.",
-    videoId: "https://youtu.be/lvBHGGK_WcQ",
-  },
-  {id:2,
-    image: thumbnail2,
-    heading: "Double Hand Guard pass",
-    description:
-      " Using both hands to control the opponent's legs, enabling passage of their guard",
-    rating: 4,
-    videoId: "https://youtu.be/H9qe1vdj_Oc",
-  },
-  {id:3,
-    image: thumbnail3,
-    heading: "Side Control Fundamental",
-    description: "Essential position in Jiu Jitsu for control and submissions",
-    rating: 4,
-    videoId: "https://youtu.be/fd1xC1YsPUg",
-  },
-  {id:4,
-    image: thumbnail4,
-    heading: "Americana from Mount Fundamental",
-    description:
-      "The Americana from Mount: A fundamental Jiu Jitsu technique leveraging arm pressure for a submission from mount position",
-    rating: 4,
-    videoId: "https://youtu.be/jhh9qHQ8LlA",
-  },
-];
+
 
 const VideoSection = () => {
+  const web_Url =
+  process.env.NODE_ENV === "production"
+    ? process.env.REACT_APP_PRODUCTION_URL
+    : process.env.REACT_APP_DEVELOPMENT_URL;
   const navigate = useNavigate();
 
   const handleVideoDetail = () => {
@@ -53,6 +21,22 @@ const VideoSection = () => {
   };
 
   const [openFancyBox, setOpenFancyBox] = useState("");
+
+  const [videoData,setVideoData]=useState([])
+
+  useEffect(() => {
+    const fetchAllVideos = async () => {
+      try {
+        const response = await fetch(`${web_Url}videos`);
+        if (!response.ok) throw new Error("Failed to fetch videos");
+        const data = await response.json();
+        setVideoData(data.video);
+      } catch (err) {
+        console.error("Error fetching all videos:", err);
+      }
+    };
+    fetchAllVideos();
+  }, [web_Url]);
 
   const responsive = {
     superLargeDesktop: {
@@ -75,6 +59,14 @@ const VideoSection = () => {
       items: 1,
       partialVisibilityGutter: 30,
     },
+  };
+  const handleClose = () => {
+    // setMenuVisible(null);
+  };
+
+  const handleView = (videoId) => {
+    navigate(`/videos/${videoId}`); // Navigate to the video detail page
+    handleClose();
   };
 
   return (
@@ -126,30 +118,27 @@ const VideoSection = () => {
             containerClass="carousel-container"
             itemClass=""
           >
-            {videoData.map((c, index) => (
-              <div
-                onClick={() => setOpenFancyBox(`box-${index}`)}
-                className="video-card"
-                key={c}
-              >
-                <div className="thumbnail">
-                  <div className="thumbnail-image">
-                    <img src={c.image} alt="" />
+            {
+              videoData?.map((video) => (
+                <div key={video._id} className={styles.videoCard}>
+                  <div className={styles.videoPreview}>
+                    <iframe
+                      src={video.embedLink}
+                      frameBorder="0"
+                      allowFullScreen
+                      title={video.title}
+                      className={styles.iframe}
+                    ></iframe>
+                  </div>
+                  <div className={styles.videoInfo}>
+                    <h6>{video.title.slice(0, 30) + "..."}</h6>
+                    <p>{video.smallDescription.slice(0, 40) + "..."}</p>
+                   
                   </div>
                 </div>
-                <div className="body">
-                  <div className="title mb-2">
-                    <SmallHeadingBlack>{c.heading}</SmallHeadingBlack>
-                  </div>
-                  <p className="description mb-2">
-                    {c.description.substring(0, 70).concat("...")}
-                  </p>
-                  <div className="d-flex justify-content-end learn-more">
-                    <Link to={`/videos/${c.id}`}>Learn more</Link>
-                  </div>
-                </div>
-              </div>
-            ))}
+              ))
+            
+            }
           </Carousel>
         )}
         <div className="mt-4"></div>

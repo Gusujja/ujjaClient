@@ -48,7 +48,7 @@ export const NavbarContainer = styled.div`
   border: none;
   background: none;
   cursor: pointer;
-  // display: block;
+  display: block;
   width: 100%; /* Make it take up the full width */
   text-align: left; /* Align text to the left */
   margin-top: -6px;

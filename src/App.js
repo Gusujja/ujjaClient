@@ -9,6 +9,7 @@ import "./utility_classes.css";
 import "./App.css";
 import "./components/GlobalStyle";
 import VideoDetails from "./pages/Classes/VideoDetails/VideoDetails";
+import SerachByCategory from "./components/AppNavbar/VideosBySearch/videosByCategory";
 import Footer from "./components/Footer/Footer";
 import ScrollToTopButton from "./components/common/Button/ScrollToTopButton";
 import { scrollToSection, scrollToTop } from "./utils/helper";
@@ -71,6 +72,7 @@ const App = () => {
       pathname !== "/" &&
       pathname !== "/videos" &&
       pathname !== "/video" &&
+      pathname !== "/video/:subcategory" &&
       pathname !== "/femalepage" &&
       pathname !== "/over40" &&
       pathname !== "/kids" &&
@@ -123,7 +125,7 @@ const App = () => {
           <Route path="/kids" element={<Kids />} />
           <Route path="/beginners" element={<Beginners />} />
           <Route path="/teenagers" element={<Teenagers />} />
-         
+         <Route path="/video/:category/:subcategory" element={<SerachByCategory/>}/>
 
           <Route path="/leads" element={<Leads />} />
           <Route path="/leads/:category" element={<LeadsDetail />} />

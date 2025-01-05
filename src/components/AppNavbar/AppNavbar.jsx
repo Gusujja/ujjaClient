@@ -16,7 +16,7 @@ const AppNavbar = ({ scrollToSection }) => {
 
   const navigate = useNavigate();
   const location = useLocation();
-
+console.log("filter categories",filter.category,filter.subCategory)
   useEffect(() => {
     const fetchCategories = async () => {
       try {
@@ -126,7 +126,7 @@ const AppNavbar = ({ scrollToSection }) => {
             <Dropdown.Item
               key={subCategory}
               className="subcategories-dropdown-item"
-              onClick={() => navigate(`/video/${subCategory}`)}
+              onClick={() => navigate(`/video/${category.category}/${subCategory}`)}
             >
               {subCategory}
             </Dropdown.Item>
@@ -205,7 +205,7 @@ const AppNavbar = ({ scrollToSection }) => {
                     <Dropdown.Item
                       key={subCategory}
                       className="subcategory-dropdown-item"
-                      onClick={() => navigate(`/video/${subCategory}`)}
+                      onClick={() => navigate(`/video/${category.category}/${subCategory}`)}
                     >
                       {subCategory}
                     </Dropdown.Item>

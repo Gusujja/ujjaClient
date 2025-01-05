@@ -78,6 +78,7 @@ const Videos = () => {
 
   useEffect(() => {
     const fetchCategories = async () => {
+      console.log("data by categories")
       try {
         const response = await fetch(`${web_Url}category`); // Replace with your backend URL
         if (!response) {
