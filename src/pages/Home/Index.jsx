@@ -3,7 +3,7 @@ import Banner from "./Banner/Banner";
 // import Explore from "./Explore/Explore";
 import Joining from "./Joining/Joining";
 import CardGrid from "./Cards/CardGrid";
-import VideoSection from "./Videos/VideoSection";
+import VideoSection from "./VideosSection/VideoSection";
 // import Subscription from "./Subscription/Subscription";
 import TimeTable from "./TimeTable/TimeTable";
 import Location from "./Location/Location";

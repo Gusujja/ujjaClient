@@ -222,7 +222,8 @@
 // export default VideoSection;
 import React, { useState, useEffect } from "react";
 import { VideoSectionStyled } from "./styles";
-import styles from "../../Videos/style.module.css";
+// import styles from "../../Videos/style.module.css";
+import styles from "./VideoSection.module.css"
 import { Container } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import Carousel from "react-multi-carousel";
@@ -288,12 +289,28 @@ const VideoSection = () => {
           <div className="loader">Loading...</div>
         ) : allVideos.length > 0 ? (
           <Carousel
+            // swipeable
+            // responsive={responsive}
+            // autoPlaySpeed={3000}
+            // infinite
+            // transitionDuration={500}
+            // containerClass="carousel-container"
+
+              slidesToSlide={1}
             swipeable
             responsive={responsive}
+            additionalTransfrom={0}
+            arrows
             autoPlaySpeed={3000}
+            centerMode={false}
+            draggable
+            focusOnSelect={false}
             infinite
+            minimumTouchDrag={80}
+            // customTransition="all .5"
             transitionDuration={500}
             containerClass="carousel-container"
+            itemClass=""
           >
             {allVideos.map((video) => (
               <div key={video._id} className={styles.videoCard}>
@@ -307,7 +324,7 @@ const VideoSection = () => {
                   ></iframe>
                 </div>
                 <div className={styles.videoInfo}>
-                  <h6>{video.title.slice(0, 30) + "..."}</h6>
+                  <h6>{video.title.slice(0, 25) + "..."}</h6>
                   <p>{video.smallDescription.slice(0, 40) + "..."}</p>
                 </div>
               </div>

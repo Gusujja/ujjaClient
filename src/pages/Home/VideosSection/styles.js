@@ -4,6 +4,10 @@ import { mediaDeviceMax } from "../../../components/GlobalStyle";
 export const VideoSectionStyled = styled.div`
 
 margin-top:50px;
+.cards{
+display:flex;
+gap:20px;
+}
 
 .carousel-container {
   display: flex;
@@ -69,7 +73,7 @@ font-weight:600;
       }
     }
     .body {
-      padding: 10px;
+      // padding: 10px;
 
       .title {
         h4 {
