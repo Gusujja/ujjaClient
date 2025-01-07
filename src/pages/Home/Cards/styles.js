@@ -50,7 +50,6 @@ font-size: 22px;
 
 .rowTeens{
 margin-top: 35px;
-background-image:linear-gradient(180deg, white, white, #F0FCFF, #F0FCFF, #F0FCFF, #F0FCFF, #F0FCFF, #C9F3FF);
 }
 
 .rowTeens p{
@@ -102,7 +101,6 @@ font-size: 22px;
   text-align: justify;
   text-justify: inter-word;
 margin: 0px 0px 30px 50px;
-background-image:linear-gradient(180deg, white, white, #FFF0FF, #FFF0FF, #FFF0FF, #FFF0FF, #FFF0FF);
 
 }
 
