@@ -113,6 +113,10 @@
     height: 100%;
     border-radius: 8px 8px 0px 0px;
   }
+
+  .videoInfo h6{
+    cursor: pointer;
+  }
   
   .videoInfo {
     padding: 15px;

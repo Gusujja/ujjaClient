@@ -226,7 +226,7 @@ const Videos = () => {
                     ></iframe>
                   </div>
                   <div className={styles.videoInfo}>
-                    <h6>{video.title.slice(0, 30) + "..."}</h6>
+                    <h6 onClick={() => handleView(video._id)}>{video.title.slice(0, 30) + "..."}</h6>
                     <p>{video.smallDescription.slice(0, 40) + "..."}</p>
                     <div className={styles.actions}>
                       <div onClick={() => handleView(video._id)}>
