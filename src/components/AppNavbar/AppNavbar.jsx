@@ -4,7 +4,7 @@ import Dropdown from "react-bootstrap/Dropdown";
 import { NavbarContainer } from "./styles";
 import { FlexContainer, fontFamilyMedium, fontFamilyRegular } from "../GlobalStyle";
 import { useNavigate, useLocation } from "react-router-dom";
-
+import ujjalogo from "../../assets/images/ujjalogo.jpg"
 const AppNavbar = ({ scrollToSection }) => {
   const web_Url =
     process.env.NODE_ENV === "production"
@@ -85,7 +85,8 @@ console.log("filter categories",filter.category,filter.subCategory)
           onClick={() => navigate("/")}
           justifycontent="space-between"
         >
-          <h4 className="brand_text">Unison Jiu Jitsu Academy</h4>
+          <img style={{height:"90px"}} src={ujjalogo} alt="" />
+          {/* <h4 className="brand_text">Unison Jiu Jitsu Academy</h4> */}
         </FlexContainer>
 
         <div className="app-navbar gap-4 d-lg-flex d-none">

@@ -22,9 +22,15 @@ body {
   flex-wrap: wrap;
 }
 .navbar-logo {
+
   display: flex;
   align-items: center;
 }
+.navbar-logo img {
+  height: 65px !important;
+}
+
+
 .navbar-logo p {
   font-size: 18px;
   color: #1f3340;

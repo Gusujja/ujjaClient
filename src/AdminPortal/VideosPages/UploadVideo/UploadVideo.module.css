@@ -2,6 +2,9 @@ input{
   font-size: 12px;
 }
 
+.ql-editor {
+  font-family: 'EnnVisions', sans-serif !important;
+}
 
 .pageLayout {
   display: flex;

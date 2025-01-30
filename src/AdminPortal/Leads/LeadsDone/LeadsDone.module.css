@@ -1,0 +1,196 @@
+/* Layout Styling */
+.pageLayout {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f4f4f8;
+  }
+  
+  .sidebar {
+    width: 250px;
+    background-color: #ffffff;
+    box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .mainContent {
+    flex: 1;
+    padding: 30px;
+    background-color: #f4f4f8;
+  }
+  
+  .mainContent h6 {
+    font-size: 18px;
+  }
+  
+  /* Title Styling */
+  .title {
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Table Container */
+  .tableContainer {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Ant Design Table Customization */
+  .customTable .ant-table {
+    background-color: #fff;
+    border-radius: 8px;
+  }
+  
+  .customTable .ant-table-thead > tr > th {
+    background-color: #405f74;
+    color: white;
+    text-align: center;
+    font-weight: 600;
+    border: none;
+  }
+  
+  .customTable .ant-table-tbody > tr > td {
+    text-align: center;
+    padding: 16px;
+    font-size: 12px;
+    color: #555;
+  }
+  
+  .customTable .ant-table-tbody > tr:hover {
+    background-color: #f1f7ff;
+  }
+  
+  .customTable .ant-pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .customTable .ant-pagination-item-active {
+    background-color: #405f74;
+    border-color: #405f74;
+  }
+  
+  .customTable .ant-pagination-item-active a {
+    color: white;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .mainContent {
+      padding: 15px;
+    }
+  
+    .title {
+      font-size: 1.5rem;
+    }
+  
+    .tableContainer {
+      padding: 10px;
+    }
+  }
+  
+  /* Pagination Styling */
+  .customTable .ant-pagination-item {
+    background-color: #f4f4f8; /* Default background color */
+    border: #405f74; /* Default text color */
+  }
+  
+  .customTable .ant-pagination-item a {
+    color: #405f74; /* Link color for pagination buttons */
+  }
+  
+  .customTable .ant-pagination-item:hover {
+    background-color: #405f74; /* Background color on hover */
+    border-color: #405f74;
+  }
+  
+  .customTable .ant-pagination-item:hover a {
+    color: #ffffff; /* Text color on hover */
+  }
+  
+  .customTable .ant-pagination-item-active {
+    background-color: #405f74; /* Background color for active button */
+    border-color: #405f74;
+  }
+  
+  .customTable .ant-pagination-item-active a {
+    color: #ffffff; /* Text color for active button */
+  }
+  
+  .customTable .ant-pagination-next,
+  .customTable .ant-pagination-prev {
+    color: #405f74; /* Arrow buttons color */
+  }
+  
+  .customTable .ant-pagination-next:hover,
+  .customTable .ant-pagination-prev:hover {
+    color: #ffffff;
+    background-color: #405f74;
+    border-color: #405f74;
+  }
+  
+  .notesButton {
+    font-size: 12px;
+    background-color: white; /* Default button color */
+    color: black;
+    border: 1px solid #405f74;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .notesButton:hover {
+    background-color: #405f74; /* Hover color */
+    color: #405f74 !important;
+    border: 1px solid #405f74 !important;
+  }
+  
+  .customSaveButton {
+    background-color: #405f74 !important; /* Green background */
+    color: white !important; /* White text */
+    border: none !important;
+  }
+  
+  .customSaveButton:hover {
+    background-color: #c8d7dd !important; /* Darker green on hover */
+    color: black !important;
+  }
+  
+  .customSaveButton:focus {
+    background-color: #c8d7dd !important; /* Even darker green on focus */
+    outline: none !important;
+  }
+  
+  .actionButtons Button {
+    height: 90%;
+    min-width: 60%;
+    display:inline-flex;
+    justify-content: flex-start; 
+    gap: 10px;  /* Adds space between the buttons */
+    align-items: center;
+    padding: 0px 5px;
+    font-size: 12px;
+    margin: 3px;
+  }
+  .doneButton{
+    border: 1px solid black;
+  }
+  .doneButton:hover{
+    color: black !important;
+    border: 1px solid #c8d7dd !important;
+  }
+  .customCalledButton{
+    border: 1px solid black;
+  }
+  
+  .customCalledButton:hover{
+    border: 1px solid #c8d7dd !important;
+  }
+  
+  
+  

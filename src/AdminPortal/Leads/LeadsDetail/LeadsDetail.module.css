@@ -10,6 +10,17 @@
   background-color: #ffffff;
   box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1);
 }
+.mainContainer{
+ width: 100vw;
+  min-height: 100vh;
+}
+
+.header{
+  display:flex;
+  justify-content:space-between;
+  align-items: center;
+  padding: 10px;
+}
 
 .mainContent {
   flex: 1;
@@ -18,14 +29,14 @@
 }
 
 .mainContent h6 {
-font-size: 18px;
+  font-size: 18px;
 }
 
 /* Title Styling */
 .title {
   text-align: center;
-  font-size: 2rem;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 400;
   color: #333;
   margin-bottom: 20px;
 }
@@ -45,7 +56,7 @@ font-size: 18px;
 }
 
 .customTable .ant-table-thead > tr > th {
-  background-color:  #405f74;
+  background-color: #405f74;
   color: white;
   text-align: center;
   font-weight: 600;
@@ -55,7 +66,7 @@ font-size: 18px;
 .customTable .ant-table-tbody > tr > td {
   text-align: center;
   padding: 16px;
-  font-size: 1rem;
+  font-size: 12px;
   color: #555;
 }
 
@@ -70,8 +81,8 @@ font-size: 18px;
 }
 
 .customTable .ant-pagination-item-active {
-  background-color:  #405f74;
-  border-color:  #405f74;
+  background-color: #405f74;
+  border-color: #405f74;
 }
 
 .customTable .ant-pagination-item-active a {
@@ -114,7 +125,7 @@ font-size: 18px;
 
 .customTable .ant-pagination-item-active {
   background-color: #405f74; /* Background color for active button */
-  border-color:#405f74;
+  border-color: #405f74;
 }
 
 .customTable .ant-pagination-item-active a {
@@ -132,3 +143,64 @@ font-size: 18px;
   background-color: #405f74;
   border-color: #405f74;
 }
+
+.notesButton {
+  font-size: 12px;
+  background-color: white; /* Default button color */
+  color: black;
+  border: 1px solid #405f74;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+}
+
+.notesButton:hover {
+  background-color: #405f74; /* Hover color */
+  color: #405f74 !important;
+  border: 1px solid #405f74 !important;
+}
+
+.customSaveButton {
+  background-color: #405f74 !important; /* Green background */
+  color: white !important; /* White text */
+  border: none !important;
+}
+
+.customSaveButton:hover {
+  background-color: #c8d7dd !important; /* Darker green on hover */
+  color: black !important;
+}
+
+.customSaveButton:focus {
+  background-color: #c8d7dd !important; /* Even darker green on focus */
+  outline: none !important;
+}
+
+.actionButtons Button {
+  height: 90%;
+  min-width: 60%;
+  display:inline-flex;
+  justify-content: flex-start; 
+  gap: 10px;  /* Adds space between the buttons */
+  align-items: center;
+  padding: 0px 5px;
+  font-size: 12px;
+  margin: 3px;
+}
+.doneButton{
+  border: 1px solid black;
+}
+.doneButton:hover{
+  color: black !important;
+  border: 1px solid #c8d7dd !important;
+}
+.customCalledButton{
+  border: 1px solid black;
+}
+
+.customCalledButton:hover{
+  border: 1px solid #c8d7dd !important;
+}
+
+

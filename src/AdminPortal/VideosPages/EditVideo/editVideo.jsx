@@ -368,6 +368,8 @@ console.log("formik values",formik.values)
                   value={description }
                   onChange={setDescription}
                   theme="snow"
+                  style={{ backgroundColor: "white", fontFamily: "'EnnVisions', sans-serif"  }}
+
                   modules={{
                     toolbar: [
                       [{ header: [1, 2, false] }],

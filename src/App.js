@@ -33,6 +33,7 @@ import Teenagers from "./pages/StaticPages/Teenagers/Index";
 import Leads from "./AdminPortal/Leads/Leads";
 import LeadsDetail from "./AdminPortal/Leads/LeadsDetail/LeadsDetail";
 import Videos from "./pages/Videos/Index"
+import LeadsDone from "./AdminPortal/Leads/LeadsDone/LeadsDone";
 
 const tagManagerArgs = { gtmId: "GTM-TTDBW2PL" };
 TagManager.initialize(tagManagerArgs);
@@ -104,6 +105,7 @@ const App = () => {
     "/leads/teenagers",
     "/leads/over40",
     "/leads/beginners",
+    "/leadsdone",
   ];
 
   const shouldShowNavAndFooter = !noNavFooterRoutes.includes(pathname);
@@ -128,6 +130,7 @@ const App = () => {
          <Route path="/video/:category/:subcategory" element={<SerachByCategory/>}/>
 
           <Route path="/leads" element={<Leads />} />
+          <Route path="/leadsdone/:category" element={<LeadsDone />} />
           <Route path="/leads/:category" element={<LeadsDetail />} />
 
           <Route path="/admin" element={<AdminPortal />} />
