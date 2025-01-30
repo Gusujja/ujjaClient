@@ -1,17 +1,14 @@
-
-
 import React, { useState } from "react";
 import "./Navbar.css";
 import logo from "../../assets/images/ujjalogo.jpg";
 import icon from "../../assets/images/icoimage.svg";
-import { CiBellOn } from "react-icons/ci"
+import { CiBellOn } from "react-icons/ci";
 import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const navigate = useNavigate();
-
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!isMobileMenuOpen);
@@ -24,11 +21,9 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       {/* Brand Logo */}
-      <div   onClick={() => navigate("/")}className="navbar-logo" style={{height:"40px"}}>
-       
-          <img src={logo} alt="" />
-          
-      
+      <div onClick={() => navigate("/")} className="navbar-logo">
+        <img src={logo} alt="" />
+
         {/* <p>Unison Jiu Jitsu Academy</p> */}
       </div>
 
