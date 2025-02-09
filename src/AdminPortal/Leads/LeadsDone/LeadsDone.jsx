@@ -8,6 +8,7 @@ import styles from "./LeadsDone.module.css";
 import Sidebar from "../../Sidebar/Sidebar";
 import Navbar from "../../Navbar/Navbar";
 import { useNavigate, useParams } from "react-router-dom";
+import LeadsMain from "../LeadsMain";
 
 const LeadsDone = () => {
   const web_Url =
@@ -114,8 +115,10 @@ const LeadsDone = () => {
         <aside className={styles.sidebar}>
           <Sidebar />
         </aside>
+        <div style={{marginTop:"30px"}}>
+        <LeadsMain/>
         <main className={styles.mainContent}>
-          <h6 className={styles.title}>Leads Done</h6>
+          <h6 style={{marginTop:"20px"}} className={styles.title}> {category} Leads Done</h6>
           <div className={styles.tableContainer}>
             <Table
               columns={columns}
@@ -127,6 +130,7 @@ const LeadsDone = () => {
             />
           </div>
         </main>
+        </div>
       </div>
     </>
   );
