@@ -276,7 +276,7 @@ const VideoSection = () => {
     <VideoSectionStyled className="mb-4" id="curriculumSection">
       <Container>
         <div className="videoSectionHeading">
-          <h4>Unison Jiu Jitsu Academy Videos</h4>
+          <h4>Valour Brighton Videos</h4>
           <p
             onClick={() => navigate("/video")}
             style={{ cursor: "pointer" }}

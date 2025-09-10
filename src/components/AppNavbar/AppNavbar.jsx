@@ -4,7 +4,7 @@ import Dropdown from "react-bootstrap/Dropdown";
 import { NavbarContainer } from "./styles";
 import { FlexContainer, fontFamilyMedium, fontFamilyRegular } from "../GlobalStyle";
 import { useNavigate, useLocation } from "react-router-dom";
-import ujjalogo from "../../assets/images/ujjalogo.jpg"
+import logo from "../../assets/images/VB logo.png"
 const AppNavbar = ({ scrollToSection }) => {
   const web_Url =
     process.env.NODE_ENV === "production"
@@ -77,17 +77,32 @@ console.log("filter categories",filter.category,filter.subCategory)
   return (
     <NavbarContainer>
       <FlexContainer
-        className="container app-navbar-container py-2 px-0"
+        className="container app-navbar-container  px-0"
         justifycontent="space-between"
       >
-        <FlexContainer
+        {/* <FlexContainer
           className="app-logo gap-3 cursor-pointer"
           onClick={() => navigate("/")}
           justifycontent="space-between"
         >
-          <img style={{height:"90px"}} src={ujjalogo} alt="" />
-          {/* <h4 className="brand_text">Unison Jiu Jitsu Academy</h4> */}
-        </FlexContainer>
+          <img style={{height:"80px" }} src={logo} alt="" />
+        </FlexContainer> */}
+<FlexContainer
+  className="app-logo gap-3 cursor-pointer"
+  onClick={() => navigate("/")}
+  justifycontent="space-between"
+  style={{ height: "80px" }} // fixed navbar height
+>
+  <img
+    src={logo}
+    alt="Logo"
+    style={{
+      maxHeight: "200%", // keeps it inside container
+      width: "auto",
+      objectFit: "contain",
+    }}
+  />
+</FlexContainer>
 
         <div className="app-navbar gap-4 d-lg-flex d-none">
           {/* Render Navbar Links */}

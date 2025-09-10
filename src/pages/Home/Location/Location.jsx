@@ -50,12 +50,11 @@ const Location = () => {
       </HeadingWithLine> */}
         <div style={{ margin: "0px 0px 35px 50px"}}>
           <h4 style={{fontWeight:"600"}}>
-          Unison Jiu Jitsu Academy Location
+          Valour Brighton Location
           </h4>
       
         <p className="mt-2">
-          27 The Waterfront, Marina Way, Brighton Marina, Brighton and Hove,
-          Brighton BN2 5WA
+         Kings gym 78-81 Queens Rd, Brighton and Hove, Brighton BN1 3XE
         </p> 
          </div>
       <div className=" mt-4">{renderMap}</div>

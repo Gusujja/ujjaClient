@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Navbar.css";
-import logo from "../../assets/images/ujjalogo.jpg";
+import logo from "../../assets/images/VB logo.png";
 import icon from "../../assets/images/icoimage.svg";
 import { CiBellOn } from "react-icons/ci";
 import { useNavigate } from "react-router-dom";
@@ -24,7 +24,7 @@ const Navbar = () => {
       <div onClick={() => navigate("/")} className="navbar-logo">
         <img src={logo} alt="" />
 
-        {/* <p>Unison Jiu Jitsu Academy</p> */}
+        
       </div>
 
       {/* Search Bar */}

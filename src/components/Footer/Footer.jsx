@@ -30,8 +30,7 @@ const Footer = () => {
               </div>
               <div className="address d-block d-lg-none">
                 <p>
-                  27 The Waterfront, Marina Way, Brighton Marina, Brighton and
-                  Hove, Brighton BN2 5WA
+                 Kings gym 78-81 Queens Rd, Brighton and Hove, Brighton BN1 3XE
                 </p>
               </div>
             </div>
@@ -42,8 +41,7 @@ const Footer = () => {
           </div>
           <div className="address d-lg-block d-none position-absolute address-at-bottom">
             <p>
-              27 The Waterfront, Marina Way, Brighton Marina, Brighton and Hove,
-              Brighton BN2 5WA
+            Kings gym 78-81 Queens Rd, Brighton and Hove, Brighton BN1 3XE
             </p>
           </div>
         </div>
@@ -51,7 +49,7 @@ const Footer = () => {
         <div className="social-media-row d-flex align-items-center justify-content-center gap-5 mt-5 flex-wrap">
           <div className="rights-reserved">
             <p>
-              ©2024 Unison Jiu Jitsu Academy. All rights reserved.{" "}
+              ©2024 Valour Brighton. All rights reserved.{" "}
             </p>
           </div>
           <div className="social-media-icons d-flex gap-3">

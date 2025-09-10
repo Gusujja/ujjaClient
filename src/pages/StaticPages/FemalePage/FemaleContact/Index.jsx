@@ -52,6 +52,19 @@ const formType='females'
 
 
       if (response.ok) {
+        // ✅ Push user data to Google Tag Manager for Enhanced Conversions
+        if (window && window.dataLayer) {
+          console.log('✅ Enhanced Conversion Pushed');
+        
+          window.dataLayer.push({
+            event: 'enhanced_conversion',
+            enhanced_conversion_data: {
+              email: data.email,
+              phone_number: data.phone
+            }
+          });
+        }
+
         setMessage("Form submitted successfully!");
         setError(false);
         setSubmitted(true);

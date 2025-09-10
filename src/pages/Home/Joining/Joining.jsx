@@ -52,7 +52,7 @@ const Joining = () => {
               className={"mb-5"}
               id="MaleJiu"
             >
-              <h2>Unison Jiu Jitsu Academy</h2>
+              <h2>Valour Brighton</h2>
               <p>
                 Provides a challenging yet safe and caring environment for all
                 our members, no matter your age or ability. An environment where
