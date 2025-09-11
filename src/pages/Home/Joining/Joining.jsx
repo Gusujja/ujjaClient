@@ -8,7 +8,7 @@ import {
 } from "../../../components/GlobalStyle";
 import iconTick from "../../../assets/icons/ic_tick.png";
 import Button from "../../../components/common/Button/Button";
-import ourMissionImg from "../../../assets/images/MISSIONIMG.jpg";
+import ourMissionImg from "../../../assets/images/mission image.jpg";
 import TextCard from "../Cards/TextCard";
 
 const Joining = () => {
@@ -101,13 +101,13 @@ const Joining = () => {
       </div>
       <div className="our-mission-section">
         <FlexContainer className="py-lg-0 py-5">
-          <Container>
+          {/* <Container>
             <div className="text text-white" >
               Our mission is to help to preserve the <br /> foundations and
               principles of Jiu-jitsu whilst <br />
               embracing a modern approach to learning.
             </div>
-          </Container>
+          </Container> */}
           <div className="image d-lg-block d-none">
             <img src={ourMissionImg} alt="Our mission banner" />
           </div>
