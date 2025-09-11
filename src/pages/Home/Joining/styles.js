@@ -113,4 +113,50 @@ width:120%;
       }
     }
   }
+    .our-mission-section .image {
+  width: 100%;
+  height: 100vh;                 /* desktop = hero */
+  background-size: cover;        
+  background-position: center;   
+  background-repeat: no-repeat;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* ✨ Smooth transition */
+  transition: height 0.6s ease-in-out, background-position 0.6s ease-in-out;
+}
+
+.our-mission-section .image::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.overlay-content {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* 📱 Tablet & Mobile */
+@media (max-width: 991px) {
+  .our-mission-section .image {
+    height: 50vh;                     /* shrink smoothly */
+    background-position: top center;  /* crop top part */
+  }
+
+  .overlay-content h1 {
+    font-size: 1.6rem;
+  }
+
+  .overlay-content p {
+    font-size: 0.95rem;
+  }
+}
+
 `;

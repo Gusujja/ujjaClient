@@ -8,7 +8,7 @@ import {
 } from "../../../components/GlobalStyle";
 import iconTick from "../../../assets/icons/ic_tick.png";
 import Button from "../../../components/common/Button/Button";
-import ourMissionImg from "../../../assets/images/mission image.jpg";
+import ourMissionImg from "../../../assets/images/ourMissionImg.jpg";
 import TextCard from "../Cards/TextCard";
 
 const Joining = () => {
@@ -99,21 +99,29 @@ const Joining = () => {
           {/* </TextCard> */}
         </Container>
       </div>
-      <div className="our-mission-section">
+      {/* <div className="our-mission-section">
         <FlexContainer className="py-lg-0 py-5">
-          {/* <Container>
-            <div className="text text-white" >
-              Our mission is to help to preserve the <br /> foundations and
-              principles of Jiu-jitsu whilst <br />
-              embracing a modern approach to learning.
-            </div>
-          </Container> */}
+          
           <div className="image d-lg-block d-none">
             <img src={ourMissionImg} alt="Our mission banner" />
           </div>
         </FlexContainer>
          
-      </div>
+      </div> */}
+      <div className="our-mission-section">
+  <FlexContainer className="py-lg-0 py-5">
+    <div
+      className="image"
+      style={{ backgroundImage: `url(${ourMissionImg})` }}
+    >
+      {/* <div className="overlay-content">
+        <h1>Our Mission</h1>
+        <p>Making a difference with every step.</p>
+      </div> */}
+    </div>
+  </FlexContainer>
+</div>
+
     </JoiningContainer>
   );
 };
