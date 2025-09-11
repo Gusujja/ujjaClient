@@ -8,7 +8,7 @@ import {
 } from "../../../components/GlobalStyle";
 import iconTick from "../../../assets/icons/ic_tick.png";
 import Button from "../../../components/common/Button/Button";
-import ourMissionImg from "../../../assets/images/jiu_jitsu_banner.png";
+import ourMissionImg from "../../../assets/images/MISSIONIMG.jpg";
 import TextCard from "../Cards/TextCard";
 
 const Joining = () => {
@@ -37,28 +37,30 @@ const Joining = () => {
   const handleClick = () => {
     // Redirect to the provided link
     window.open(
-      "https://bmjja.kicksite.net/bizbuilders/landing_pages/eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjoibGRwZ18xODM0MCJ9.vjzzVqNuFBI-iJ2qMq_QsceUGlHumi4MSmEo22X_6vw",
+      "https://bmjja.kicksite.net/public/landing_pages/5749825c-38e8-4280-adee-cb9240cfa9ea/submission/new ",
       "_blank"
     );
   };
 
   return (
     <JoiningContainer className="mt-3">
+      
       <div className="bg-image py-6 bookContainer">
         <Container>
           <div style={{ marginLeft: "-14px" }}>
             <TextCard
               // background="#ffffffa6"
-              className={"mb-5"}
+              // className={"mb-5"}
               id="MaleJiu"
             >
+              <div>
               <h2>Valour Brighton</h2>
               <p>
                 Provides a challenging yet safe and caring environment for all
                 our members, no matter your age or ability. An environment where
                 children, teenagers and adults can grow in their skills towards
                 a rewarding life on and off the mats.
-              </p>
+              </p></div>
             </TextCard>
           </div>
           <div className="secondPassage" >
@@ -110,6 +112,7 @@ const Joining = () => {
             <img src={ourMissionImg} alt="Our mission banner" />
           </div>
         </FlexContainer>
+         
       </div>
     </JoiningContainer>
   );

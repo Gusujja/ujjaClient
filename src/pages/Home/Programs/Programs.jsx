@@ -10,7 +10,7 @@ import styles from './Programs.module.css';
 const Programs = () => {
   // const navigate = useNavigate();
   const handleFreeTrial = () => {
-   window.open("https://bmjja.kicksite.net/public/landing_pages/99214936-e750-4eac-aafb-53667f7d8494/submission/new", "_blank");
+   window.open("https://bmjja.kicksite.net/public/landing_pages/5749825c-38e8-4280-adee-cb9240cfa9ea/submission/new", "_blank");
   };
   // const imageLinks = [
   //   { src: femalejiujitsu, alt: 'femalejiujitsu', link: '/femalepage' },

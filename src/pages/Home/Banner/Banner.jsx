@@ -17,7 +17,7 @@ import styles from './Banner.module.css';
 const Banner = () => {
   const handleClick = () => {
     // Redirect to the provided link
-    window.open("https://kick.site/bkpqrm1i", "_blank");
+    window.open("https://bmjja.kicksite.net/public/landing_pages/5749825c-38e8-4280-adee-cb9240cfa9ea/submission/new ", "_blank");
   };
 
   return (

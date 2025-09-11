@@ -4,7 +4,7 @@ import { ImageCardStyled } from "./styles";
 const ImageCard = ({
   id,
   btnBackground,
-  image,
+  // image,
   btnLabel,
   width,
   handleClick,
@@ -16,9 +16,9 @@ const ImageCard = ({
       btnbackground={btnBackground}
       width={width}
     >
-      <div className="image">
+      {/* <div className="image">
         <img src={image} alt="" />
-      </div>
+      </div> */}
       <button
         onClick={handleClick}
         className={`button text-white text-center cursor-pointer w-100`}

@@ -1,12 +1,12 @@
 import { Container } from "react-bootstrap";
 import { CardGridStyled } from "./styles";
 import TextCard from "./TextCard";
-import teenagers from "../../../assets/images/teenagers.jpg";
-import over40 from "../../../assets/images/Over40.jpg";
-import female from "../../../assets/images/femalejiujitsuimg.jpg";
+import teenagers from "../../../assets/images/white img.jpg";
+import over40 from "../../../assets/images/white img.jpg";
+import female from "../../../assets/images/white img.jpg";
 import imgCard2 from "../../../assets/images/MAP45THUMB-1 (1).png";
 import imgCard3 from "../../../assets/images/homepage img.d7b4199edb7c179f5e40.jpg";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import { SiTicktick } from "react-icons/si";
 
 import ImageCard from "./ImageCard";
@@ -17,24 +17,21 @@ import {
   pureDark5,
 } from "../../../components/GlobalStyle";
 
-
-
-
-
 const handleClickfemale = () => {
   // Redirect to the provided link
-  window.open(
-    "/femalepage"
-  );
+  window.open("/femalepage");
 };
 
 const Row1 = () => {
   const navigate = useNavigate();
   const handleClickteenagers = () => {
-    navigate("/teenagers");
+    window.open(
+      "https://bmjja.kicksite.net/public/landing_pages/5749825c-38e8-4280-adee-cb9240cfa9ea/submission/new",
+      "_blank"
+    );
   };
   return (
-    <div className="d-flex flex-lg-row flex-column gap-5">
+    <div className="d-flex flex-row flex-column gap-5">
       <TextCard id={"KidsAndTeens"}>
         <div className="contentTeens">
           <h4>Jiu Jitsu For Kids & Teenagers</h4>
@@ -122,43 +119,46 @@ const Row2 = () => {
 const Row3 = () => {
   const navigate = useNavigate();
   const handleClickover40 = () => {
-    navigate("/over40");
+    window.open(
+      "https://bmjja.kicksite.net/public/landing_pages/5749825c-38e8-4280-adee-cb9240cfa9ea/submission/new",
+      "_blank"
+    );
   };
   return (
     <div
-      className="d-flex justify-content-between flex-lg-row flex-column gap-5"
+      className="d-flex justify-content-between flex-row flex-column gap-5"
       id="JiuJitsuLife"
     >
-      <ImageCard
+     
+
+      <TextCard>
+        <div className="overforty">
+          <h4>Beginners Jiu Jitsu </h4>
+          <div className="d-flex align-items-center gap-2 mb-5">
+            <p className="mb-0">
+              {" "}
+              <SiTicktick style={{ marginRight: "8px", color: "#87CEEB" }} />
+              Teenager’s & Adult’s ( 16+)
+            </p>
+          </div>
+          {/* <SmallHeadingBlack>Unlock a Fountain of Youth:</SmallHeadingBlack> */}
+          <p style={{ marginTop: "30px" }}>
+            Discover the transformative power of Jiu Jitsu in maintaining and
+            even rejuvenating your physical well-being. Our jiu jitsu Academy
+            delves into how Jiu Jitsu can be tailored to suit the needs of
+            individuals over 16, promoting flexibility, balance, and overall
+            fitness. Learn how this dynamic martial art becomes a key ally in
+            your journey to stay active and agile well into your golden years.
+          </p>
+        </div>
+      </TextCard>
+       <ImageCard
         id={1}
         btnBackground="#CEB290"
         image={over40}
         btnLabel={"SIGN UP NOW LIMITED SPACES"}
         handleClick={handleClickover40}
       />
-
-      <TextCard>
-        <div className="overforty">
-          <h4>Jiu Jitsu Life Beyond 40</h4>
-          <div className="d-flex align-items-center gap-2 mb-5">
-            <p className="mb-0">
-              {" "}
-              <SiTicktick style={{ marginRight: "8px", color: "#87CEEB" }} />
-              Beyond 40 ( 40+)
-            </p>
-          </div>
-          <SmallHeadingBlack>Unlock a Fountain of Youth:</SmallHeadingBlack>
-          <p style={{ marginTop: "30px" }}>
-            Discover the transformative power of Jiu Jitsu in maintaining and
-            even rejuvenating your physical well-being. Contrary to common
-            misconceptions, age is not a barrier to entry. Our jiu jitsu Academy
-            delves into how Jiu Jitsu can be tailored to suit the needs of
-            individuals over 40, promoting flexibility, balance, and overall
-            fitness. Learn how this dynamic martial art becomes a key ally in
-            your journey to stay active and agile well into your golden years.
-          </p>
-        </div>
-      </TextCard>
     </div>
   );
 };
@@ -212,21 +212,27 @@ const Row4 = () => {
 };
 
 const Row5 = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const handleClickfemale = () => {
-    navigate("/femalepage");
-  }
+    window.open(
+      "https://bmjja.kicksite.net/public/landing_pages/5749825c-38e8-4280-adee-cb9240cfa9ea/submission/new",
+      "_blank"
+    );
+  };
   return (
     <div
-      className="d-flex justify-content-between my-5 flex-lg-row flex-column gap-3 rowFemale"
+      className="d-flex justify-content-between my-5 flex-row flex-column gap-3 rowFemale"
       id="femaleJiuJitsu"
     >
       <TextCard>
         <div className="rowFemaleDiv">
           <h4> Jiu Jitsu For Female</h4>
           <div className="d-flex align-items-center gap-2 mb-3">
-          
-            <p className="mb-0">  <SiTicktick style={{ marginRight: "8px", color: "#87CEEB" }} />Female Jiu Jitsu (16+ years old)</p>
+            <p className="mb-0">
+              {" "}
+              <SiTicktick style={{ marginRight: "8px", color: "#87CEEB" }} />
+              Female Jiu Jitsu (16+ years old)
+            </p>
           </div>
           <p>
             Welcome to <strong> "EmpowerHer Jiu-Jitsu" – </strong> Embark on a

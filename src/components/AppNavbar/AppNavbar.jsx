@@ -58,16 +58,16 @@ console.log("filter categories",filter.category,filter.subCategory)
     { id: 7, label: "Home", link: "/", ref: "homeSection" },
     // { id: 1, label: "Videos", link: "/video" }, // This will trigger the "Videos" dropdown
     { id: 3, label: "Time Table", ref: "timeTableSection" },
-    { id: 4, label: "Membership", ref: "membershipSection" },
+    // { id: 4, label: "Membership", ref: "membershipSection" },
     { id: 6, label: "Contact Us", ref: "contactUsSection" },
   ];
-  const PROGRAMS = [
-    { id: 1, label: "Beginners", link: "beginners" },
-    { id: 2, label: "Kids", link: "/kids" },
-    { id: 3, label: "Teenagers", link: "/teenagers" },
-    { id: 4, label: "Females", link: "/femalepage" },
-    { id: 5, label: "Over 40", link: "/over40" },
-  ];
+  // const PROGRAMS = [
+  //   { id: 1, label: "Beginners", link: "beginners" },
+  //   { id: 2, label: "Kids", link: "/kids" },
+  //   { id: 3, label: "Teenagers", link: "/teenagers" },
+  //   { id: 4, label: "Females", link: "/femalepage" },
+  //   { id: 5, label: "Over 40", link: "/over40" },
+  // ];
 
   const handleFilterChange = (e) => {
     const { name, value } = e.target;
@@ -154,7 +154,7 @@ console.log("filter categories",filter.category,filter.subCategory)
 </Dropdown>
  
  {/* Programs Dropdown */}
- <Dropdown className="programs-dropdown-container">
+ {/* <Dropdown className="programs-dropdown-container">
   <Dropdown.Toggle variant="link" className="programs-dropdown-toggle">
     Programs
   </Dropdown.Toggle>
@@ -169,7 +169,7 @@ console.log("filter categories",filter.category,filter.subCategory)
       </Dropdown.Item>
     ))}
   </Dropdown.Menu>
-</Dropdown>
+</Dropdown> */}
 
         </div>
 
@@ -239,7 +239,7 @@ console.log("filter categories",filter.category,filter.subCategory)
     )}
 
     {/* Programs Dropdown */}
-    <Dropdown className="programs-dropdown">
+    {/* <Dropdown className="programs-dropdown">
       <Dropdown.Toggle
         variant="link"
         className="programs-dropdown-toggle"
@@ -257,7 +257,7 @@ console.log("filter categories",filter.category,filter.subCategory)
           </Dropdown.Item>
         ))}
       </Dropdown.Menu>
-    </Dropdown>
+    </Dropdown> */}
   </Dropdown.Menu>
 </Dropdown>
 
