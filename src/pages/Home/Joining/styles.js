@@ -132,7 +132,7 @@ padding-bottom: 20px;
 /* 📱 Mobile & Tablet: show full image */
 @media (max-width: 991px) {
   .hero-img {
-    object-fit: contain;   /* full image visible */
+    object-fit: cover;   /* full image visible */
     background-color: #000; /* optional to avoid white gaps */
   }
 }
