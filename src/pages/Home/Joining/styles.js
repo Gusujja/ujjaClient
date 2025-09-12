@@ -15,7 +15,7 @@ font-size:20px;
 font-weight:bold;
 }
 .secondPassage{
-margin-top:30px;
+margin-top:0px;
 padding-bottom: 20px;
 
 }
@@ -89,10 +89,10 @@ padding-bottom: 20px;
     }
   }
   .our-mission-section {
-    background: ${pureDark3};
-.image{
-width:120%;
-}
+ 
+// .image{
+// width:100%;
+// }
     .text {
     color:white;
       font-size: 26px;
@@ -113,50 +113,39 @@ width:120%;
       }
     }
   }
-    .our-mission-section .image {
-  width: 100%;
-  height: 100vh;                 /* desktop = hero */
-  background-size: cover;        
-  background-position: center;   
-  background-repeat: no-repeat;
+   .our-mission-section .image {
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  height: 100vh;        /* always full screen */
+  width: 100%;
+  overflow: hidden;
+ 
 
-  /* ✨ Smooth transition */
-  transition: height 0.6s ease-in-out, background-position 0.6s ease-in-out;
+.hero-img {
+
+  height: 100%;
+  width: 100%;
+  object-fit: contain;     /* default = hero look */
+  object-position: center;
+  transition: object-fit 0.5s ease-in-out; /* smooth switch */
 }
 
-.our-mission-section .image::after {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0, 0, 0, 0.4);
+/* 📱 Mobile & Tablet: show full image */
+@media (max-width: 991px) {
+  .hero-img {
+    object-fit: contain;   /* full image visible */
+    background-color: #000; /* optional to avoid white gaps */
+  }
 }
 
 .overlay-content {
-  position: relative;
-  z-index: 1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   color: #fff;
   text-align: center;
-  padding: 1rem;
+  z-index: 1;
 }
 
-/* 📱 Tablet & Mobile */
-@media (max-width: 991px) {
-  .our-mission-section .image {
-    height: 50vh;                     /* shrink smoothly */
-    background-position: top center;  /* crop top part */
-  }
-
-  .overlay-content h1 {
-    font-size: 1.6rem;
-  }
-
-  .overlay-content p {
-    font-size: 0.95rem;
-  }
-}
 
 `;

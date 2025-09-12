@@ -47,7 +47,7 @@ const Joining = () => {
       
       <div className="bg-image py-6 bookContainer">
         <Container>
-          <div style={{ marginLeft: "-14px" }}>
+          <div style={{ marginLeft: "-14px"}}>
             <TextCard
               // background="#ffffffa6"
               // className={"mb-5"}
@@ -108,18 +108,28 @@ const Joining = () => {
         </FlexContainer>
          
       </div> */}
-      <div className="our-mission-section">
-  <FlexContainer className="py-lg-0 py-5">
+    {/* <div className="our-mission-section">
+  <FlexContainer >
     <div
       className="image"
       style={{ backgroundImage: `url(${ourMissionImg})` }}
     >
-      {/* <div className="overlay-content">
+      <div className="overlay-content">
         <h1>Our Mission</h1>
         <p>Making a difference with every step.</p>
-      </div> */}
+      </div>
     </div>
   </FlexContainer>
+</div> */}
+
+<div >
+  <div className="image">
+    <img  src={ourMissionImg} alt="Our mission banner" className="hero-img" />
+    {/* <div className="overlay-content">
+      <h1>Our Mission</h1>
+      <p>Making a difference with every step.</p>
+    </div> */}
+  </div>
 </div>
 
     </JoiningContainer>
