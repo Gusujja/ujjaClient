@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import bgImg from "../../../assets/images/joining_bg.png";
-import missionImg from "../../../assets/images/missionImage.jpg"
+import missionImg from "../../../assets/images/missionImage.jpg";
 import {
   fontFamilyRegular,
   mediaDeviceMax,
@@ -50,6 +50,13 @@ padding-bottom: 20px;
     background-position: center;
     background-size: cover;
 }
+.full-img {
+  width: 100%;
+
+  object-fit: contain;  /* ensures full image is visible */
+ 
+}
+ 
 
   .bg-image {
     background: url(${bgImg}) no-repeat;
