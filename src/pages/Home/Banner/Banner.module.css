@@ -41,7 +41,7 @@
     .bannerButton {
       font-size: 18px; /* Slightly larger button text */
       padding: 10px 28px; /* Increased padding for bigger screens */
-      bottom: 25px; /* Adjusted position */
+      bottom: -30px; /* Adjusted position */
       right: 25px; /* Adjusted position */
     }
   }
