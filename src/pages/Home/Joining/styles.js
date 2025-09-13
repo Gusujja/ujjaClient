@@ -45,16 +45,23 @@ padding-bottom: 20px;
   }
   
 
-.image{
-    background: url(${missionImg}) no-repeat;
-    background-position: center;
-    background-size: cover;
-}
+
+// .full-img {
+//   width: 100%;
+//   object-fit: contain;  /* ensures full image is visible */
+//  }
+
 .full-img {
   width: 100%;
-
-  object-fit: contain;  /* ensures full image is visible */
- 
+  height: auto;   /* keep aspect ratio */
+  display: block; /* remove inline spacing issues */
+}
+@media (max-width: 768px) {
+  .full-img {
+    height: 70vh;         /* make it taller (70% of screen height, adjust as needed) */
+    object-fit: cover;    /* fills space while keeping center focus */
+    object-position: center; /* focus on the middle */
+  }
 }
  
 
