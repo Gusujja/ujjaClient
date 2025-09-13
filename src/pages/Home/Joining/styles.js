@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import bgImg from "../../../assets/images/joining_bg.png";
+import missionImg from "../../../assets/images/missionImage.jpg"
 import {
   fontFamilyRegular,
   mediaDeviceMax,
@@ -44,7 +45,11 @@ padding-bottom: 20px;
   }
   
 
-
+.image{
+    background: url(${missionImg}) no-repeat;
+    background-position: center;
+    background-size: cover;
+}
 
   .bg-image {
     background: url(${bgImg}) no-repeat;
@@ -90,9 +95,9 @@ padding-bottom: 20px;
   }
   .our-mission-section {
  
-// .image{
-// width:100%;
-// }
+.image{
+width:100%;
+}
     .text {
     color:white;
       font-size: 26px;
@@ -137,15 +142,7 @@ padding-bottom: 20px;
   }
 }
 
-.overlay-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #fff;
-  text-align: center;
-  z-index: 1;
-}
+
 
 
 `;

@@ -99,38 +99,22 @@ const Joining = () => {
           {/* </TextCard> */}
         </Container>
       </div>
-      {/* <div className="our-mission-section">
-        <FlexContainer className="py-lg-0 py-5">
-          
-          <div className="image d-lg-block d-none">
-            <img src={ourMissionImg} alt="Our mission banner" />
-          </div>
-        </FlexContainer>
-         
-      </div> */}
-    {/* <div className="our-mission-section">
+      
+    <div className="our-mission-section">
   <FlexContainer >
     <div
       className="image"
-      style={{ backgroundImage: `url(${ourMissionImg})` }}
+      // style={{ backgroundImage: `url(${ourMissionImg})` }}
     >
-      <div className="overlay-content">
+      {/* <div className="overlay-content">
         <h1>Our Mission</h1>
         <p>Making a difference with every step.</p>
-      </div>
+      </div> */}
     </div>
   </FlexContainer>
-</div> */}
-
-<div >
-  <div className="image">
-    <img  src={ourMissionImg} alt="Our mission banner" className="hero-img" />
-    {/* <div className="overlay-content">
-      <h1>Our Mission</h1>
-      <p>Making a difference with every step.</p>
-    </div> */}
-  </div>
 </div>
+
+
 
     </JoiningContainer>
   );
