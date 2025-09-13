@@ -8,7 +8,7 @@ import {
 } from "../../../components/GlobalStyle";
 import iconTick from "../../../assets/icons/ic_tick.png";
 import Button from "../../../components/common/Button/Button";
-import ourMissionImg from "../../../assets/images/ourMissionImg.jpg";
+import ourMissionImg from "../../../assets/images/newMissionImg.jpg";
 import TextCard from "../Cards/TextCard";
 
 const Joining = () => {
@@ -100,19 +100,7 @@ const Joining = () => {
         </Container>
       </div>
       
-    <div className="our-mission-section">
-  <FlexContainer >
-    <div
-      className="image"
-      // style={{ backgroundImage: `url(${ourMissionImg})` }}
-    >
-      {/* <div className="overlay-content">
-        <h1>Our Mission</h1>
-        <p>Making a difference with every step.</p>
-      </div> */}
-    </div>
-  </FlexContainer>
-</div>
+   
 
 <img 
   src={ourMissionImg}
