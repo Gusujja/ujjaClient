@@ -92,6 +92,8 @@ export const FooterStyled = styled.div`
       }
       .contact-form-section {
         width: 360px;
+      margin-bottom: 120px;
+       
         @media screen and (max-width: 1210px) {
           width: 400px;
         }

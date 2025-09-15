@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import bgImg from "../../../assets/images/joining_bg.png";
-import missionImg from "../../../assets/images/missionImage.jpg";
 import {
   fontFamilyRegular,
   mediaDeviceMax,
@@ -20,7 +19,13 @@ margin-top:0px;
 padding-bottom: 20px;
 
 }
-
+.qrCode{
+ position: absolute;
+    bottom: 85px; 
+    right: 40px; 
+    width: 150px;
+    height:150px;
+}
 
   .bookButton{
     position: absolute;
@@ -28,7 +33,8 @@ padding-bottom: 20px;
     right: 40px; 
     padding: 10px 20px;
     font-size: 14px;
-    background-color: #1F3340; 
+    // background-color: #1F3340; 
+    background-color: #405F74; 
     color: #fff;
     border: none;
     /* border-radius: 5px; */
@@ -43,18 +49,54 @@ padding-bottom: 20px;
     background-color: white; /* Hover state */
  
   }
-  
+  @media (max-width: 768px) {
+  .qrCode,
+  .bookButton {
+    position: static;   /* remove absolute positioning */
+    display: block;     /* stack them vertically */
+    margin: 15px auto 0; /* center them with margin */
+    text-align: center; /* ensure button text stays centered */
+  }
+
+  .qrCode {
+    width: 120px;   /* slightly smaller for mobile */
+    height: 120px;
+  }
+
+  .bookButton {
+    font-size: 16px; /* slightly larger tap target */
+    padding: 12px 10px;;
+  }
+}
+/* Tablet + Mobile */
+@media (max-width: 991px) {
+  .qrCode,
+  .bookButton {
+    position: static;        /* remove absolute positioning */
+    display: block;          /* stack vertically */
+    margin: 15px auto 0;     /* center them */
+    text-align: center;
+  }
+
+  .qrCode {
+    width: 120px;
+    height: 120px;
+  }
+
+  .bookButton {
+    font-size: 16px;
+    padding: 12px 10px;
+  }
+}
 
 
-// .full-img {
-//   width: 100%;
-//   object-fit: contain;  /* ensures full image is visible */
-//  }
+
 
 .full-img {
   width: 100%;
   height: auto;   /* keep aspect ratio */
   display: block; /* remove inline spacing issues */
+  margin-top: 0px;
 }
 @media (max-width: 768px) {
   .full-img {
@@ -71,7 +113,7 @@ padding-bottom: 20px;
     background-size: cover;
 
     .text-card {
-      width: 445px;
+      width: 560px;
 
     
 
@@ -87,7 +129,7 @@ padding-bottom: 20px;
     }
     .description {
       margin-top: 10px;
-      margin-bottom:10px;
+      margin-bottom: -20px;
       .content {
         margin-top: 0;
       }

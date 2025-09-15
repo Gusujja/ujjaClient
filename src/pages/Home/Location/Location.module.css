@@ -1,0 +1,19 @@
+
+
+.mapImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;   
+  object-position: center;
+  margin-top: -60px;
+}
+
+/* Tablet + Mobile */
+@media (max-width: 991px) {
+  .mapImage {
+    height: 70vh;         
+    object-fit: cover;   
+    object-position: center; 
+  }
+}

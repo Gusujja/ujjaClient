@@ -9,6 +9,8 @@ import {
 import iconTick from "../../../assets/icons/ic_tick.png";
 import Button from "../../../components/common/Button/Button";
 import ourMissionImg from "../../../assets/images/newMissionImg.jpg";
+import VBQR from "../../../assets/images/VB QR.png";
+
 import TextCard from "../Cards/TextCard";
 
 const Joining = () => {
@@ -35,7 +37,6 @@ const Joining = () => {
   // }
 
   const handleClick = () => {
-    // Redirect to the provided link
     window.open(
       "https://bmjja.kicksite.net/public/landing_pages/5749825c-38e8-4280-adee-cb9240cfa9ea/submission/new ",
       "_blank"
@@ -44,31 +45,31 @@ const Joining = () => {
 
   return (
     <JoiningContainer className="mt-3">
-      
       <div className="bg-image py-6 bookContainer">
         <Container>
-          <div style={{ marginLeft: "-14px"}}>
+          <div style={{ marginLeft: "-14px" }}>
             <TextCard
               // background="#ffffffa6"
               // className={"mb-5"}
               id="MaleJiu"
             >
               <div>
-              <h2>Valour Brighton</h2>
-              <p>
-                Provides a challenging yet safe and caring environment for all
-                our members, no matter your age or ability. An environment where
-                children, teenagers and adults can grow in their skills towards
-                a rewarding life on and off the mats.
-              </p></div>
+                <h2>Valour Brighton</h2>
+                <p>
+                  Provides a challenging yet safe and caring environment for all
+                  our members, no matter your age or ability. An environment
+                  where children, teenagers and adults can grow in their skills
+                  towards a rewarding life on and off the mats.
+                </p>
+              </div>
             </TextCard>
           </div>
-          <div className="secondPassage" >
+          <div className="secondPassage">
             <h2>The Benefit of Joining our Jiu Jitsu Program</h2>
             <TextCard
               className="description"
               width="500px"
-              background={"#405f74"}
+              background={"#405F74"}
             >
               <ul>
                 {Array.map((c) => (
@@ -80,7 +81,8 @@ const Joining = () => {
               </ul>
             </TextCard>
           </div>
-          {/* <TextCard className="book-class text-center" width={"445px"}> */}
+          <img className="qrCode" src={VBQR} alt="Valour Brighton QR Code" />
+
           <Button
             bgColor={pureDark3}
             borderColor={pureDark3}
@@ -99,19 +101,8 @@ const Joining = () => {
           {/* </TextCard> */}
         </Container>
       </div>
-      
-   
 
-<img 
-  src={ourMissionImg}
-  alt="Responsive" 
-  className="full-img" 
-/>
-
-
-
-
-
+      <img src={ourMissionImg} alt="Responsive" className="full-img" />
     </JoiningContainer>
   );
 };

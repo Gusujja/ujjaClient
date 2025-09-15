@@ -2,14 +2,16 @@ import React from "react";
 import Banner from "./Banner/Banner";
 // import Explore from "./Explore/Explore";
 import Joining from "./Joining/Joining";
-import CardGrid from "./Cards/CardGrid";
-import VideoSection from "./VideosSection/VideoSection";
+// import CardGrid from "./Cards/CardGrid";
+// import VideoSection from "./VideosSection/VideoSection";
 // import Subscription from "./Subscription/Subscription";
 import TimeTable from "./TimeTable/TimeTable";
 import Location from "./Location/Location";
 
 import "./styles.css";
 import Programs from "./Programs/Programs";
+import CenteredLogoSection from "./CenteredLogoSection";
+import ProgramImages from "./ProgramImages";
 
 const Index = () => {
   return (
@@ -18,12 +20,14 @@ const Index = () => {
       <Programs />
       {/* <Explore /> */}
       <Joining />
-      <CardGrid />
-      <VideoSection />
+      {/* <CardGrid /> */}
+      {/* <VideoSection /> */}
       {/* <Subscription /> */}
-      <TimeTable />
+    <CenteredLogoSection/>
+    {/* <ProgramImages/> */}
       <Location />
-      <div className="signature-section">
+      <TimeTable />
+      {/* <div className="signature-section">
         <div className="container">
           <div className="d-flex align-items-end justify-content-end flex-column">
             <div className="text">
@@ -37,7 +41,7 @@ const Index = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
