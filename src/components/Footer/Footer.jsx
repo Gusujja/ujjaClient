@@ -280,7 +280,10 @@ export default function Footer() {
 
       {/* Floating Contact Form */}
       <RightSection>
-        <ContactUs />
+        <div className="contact-form-section">
+//               <ContactUs />
+               {/* <ContactForm /> */}
+            </div>
       </RightSection>
     </FooterWrapper>
   );

@@ -11,7 +11,7 @@ import Location from "./Location/Location";
 import "./styles.css";
 import Programs from "./Programs/Programs";
 import CenteredLogoSection from "./CenteredLogoSection";
-import ProgramImages from "./ProgramImages";
+import DualImageSection from "./DualImageSection";
 
 const Index = () => {
   return (
@@ -24,7 +24,7 @@ const Index = () => {
       {/* <VideoSection /> */}
       {/* <Subscription /> */}
     <CenteredLogoSection/>
-    {/* <ProgramImages/> */}
+    <DualImageSection/>
       <Location />
       <TimeTable />
       {/* <div className="signature-section">
