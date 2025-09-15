@@ -61,7 +61,7 @@ const handleMapClick = () => {
        Valour Brighton Academy Location
           </h4>
       
-        <p className="mt-2" onClick={handleMapClick} style={{cursor:"pointer"}}>
+        <p className="mt-2" onClick={handleMapClick} style={{cursor:"pointer", fontSize:"16px"}}>
          Kings gym 78-81 Queens Rd, Brighton and Hove, Brighton BN1 3XE
         </p> 
          </div>

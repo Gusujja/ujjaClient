@@ -1,6 +1,6 @@
 
 import styled from "styled-components";
-import logo from "../../../assets/images/VB-Logo-White.png"; 
+import logo from "../../../assets/images/VB-white.png"; 
 
 const Section = styled.section`
   background-color: #076A99; 
@@ -11,10 +11,10 @@ const Section = styled.section`
   justify-content: center;
   text-align: center;
   padding: 40px 20px; 
-  min-height: 50vh; 
+  min-height: 60vh; 
 
   img {
-    width: 100px;
+    width: 200px;
     height: auto;
     margin-bottom: 20px;
     

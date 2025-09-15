@@ -1,71 +1,3 @@
-// import React from "react";
-// import { FooterStyled } from "./styles";
-// import { Container } from "react-bootstrap";
-
-// import footerBg from "../../assets/images/footer-bg.png";
-// import fbIcon from "../../assets/icons/ic_fb.png";
-// import instaIcon from "../../assets/icons/ic_insta.png";
-// import twitterIcon from "../../assets/icons/ic_twitter.png";
-// import ContactUs from "./ContactUs";
-// // import ContactForm from "./ContactForm";
-// const Footer = () => {
-//   return (
-//     <FooterStyled className="mt-5 mb-3" id="contactUsSection">
-//       <Container>
-//         <div className="footer-wrapper py-2">
-//           <div className="bg_img">
-//             <img src={footerBg} alt="" />
-//           </div>
-//           <div className="contact d-flex justify-content-between flex-wrap  ">
-//             <div className="contact-text-section">
-//               <div className="heading">
-//                 <h3>Contact Us</h3>
-//                 <h5>for more information</h5>
-//                 <p>
-//                   Our friendly team members will reach out to you either via
-//                   email <br /> or phone, whichever method you prefer. Kindly
-//                   inform us of the most <br /> convenient time for us to contact
-//                   you.
-//                 </p>
-//               </div>
-//               <div className="address d-block d-lg-none">
-//                 <p>
-//                  Kings gym 78-81 Queens Rd, Brighton and Hove, Brighton BN1 3XE
-//                 </p>
-//               </div>
-//             </div>
-//             <div className="contact-form-section">
-//               <ContactUs />
-//               {/* <ContactForm /> */}
-//             </div>
-//           </div>
-//           <div className="address d-lg-block d-none position-absolute address-at-bottom">
-//             <p>
-//             Kings gym 78-81 Queens Rd, Brighton and Hove, Brighton BN1 3XE
-//             </p>
-//           </div>
-//         </div>
-//         {/* <div style={{ paddingTop: "100px" }}></div> */}
-//         <div className="social-media-row d-flex align-items-center justify-content-center gap-5 mt-5 flex-wrap">
-//           <div className="rights-reserved">
-//             <p>
-//               ©2024 Valour Brighton. All rights reserved.{" "}
-//             </p>
-//           </div>
-//           <div className="social-media-icons d-flex gap-3">
-//             <img src={fbIcon} alt="" />
-//             <img src={instaIcon} alt="" />
-//             <img src={twitterIcon} alt="" />
-//           </div>
-//         </div>
-//       </Container>
-//     </FooterStyled>
-//   );
-// };
-
-// export default Footer;
-// Footer.jsx
-// Footer.jsx
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
@@ -75,28 +7,26 @@ import { FaWhatsapp, FaInstagram, FaYoutube } from "react-icons/fa";
 import { PiThreadsLogo } from "react-icons/pi";
 
 // MAIN FOOTER
-// FOOTER WRAPPER
 const FooterWrapper = styled.footer`
   margin-top: 100px;
-  background: #076A99;
+  background: #076a99;
   color: #fff;
   position: relative;
-  padding: 80px 160px;
+  padding: 50px 160px 5px; /* add bottom padding for copyright */
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  min-height: 60vh;
+  flex-direction: column; /* change to column so bottom copyright stays */
+  min-height: 40vh;
 
   @media (max-width: 1200px) {
-    padding: 60px 80px;
+    padding: 40px 80px 5px;
   }
 
   @media (max-width: 992px) {
-    flex-direction: column;
+    padding: 20px 20px 5px;
     align-items: center;
     text-align: center;
-    padding: 40px 20px;
-    min-height: auto; /* allow footer to grow naturally */
   }
 `;
 
@@ -105,13 +35,12 @@ const LeftSection = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 50px;
-  flex: 4;
+  width: 100%;
   z-index: 2;
 
   @media (max-width: 992px) {
     grid-template-columns: 1fr;
     gap: 30px;
-    width: 100%;
     justify-items: center; /* centers children inside */
     text-align: center;
   }
@@ -130,11 +59,11 @@ const Column = styled.div`
   }
 
   a {
-    font-size: 12px;
+    font-size: 16px;
     margin: 6px 0;
     color: white;
     text-decoration: none;
-        line-height: 0.5rem;
+    line-height: 0.5rem;
 
     &:hover {
       color: #ddd;
@@ -143,7 +72,7 @@ const Column = styled.div`
 
   p {
     color: white;
-    font-size: 12px;
+    font-size: 16px;
     margin: 4px 0;
     line-height: 0.7rem;
   }
@@ -155,6 +84,7 @@ const Column = styled.div`
 
     @media (max-width: 992px) {
       width: 200px;
+      margin-right: 0;
     }
 
     @media (max-width: 576px) {
@@ -189,6 +119,7 @@ const SocialIcons = styled.div`
   @media (max-width: 992px) {
     justify-content: center;
     margin-top: 10px;
+    margin-left: 0;
     margin-right: 0;
   }
 `;
@@ -222,7 +153,7 @@ const RightSection = styled.div`
 
 // NAV LINKS
 const NavLink = styled(Link)`
-  font-size: 12px;
+  font-size: 14px;
   margin: 6px 0;
   color: white;
   text-decoration: none;
@@ -232,6 +163,17 @@ const NavLink = styled(Link)`
   }
 `;
 
+// COPYRIGHT TEXT
+const Copyright = styled.div`
+  width: 100%;
+  text-align: center;
+  margin-top: 60px;
+  font-size: 16px;
+
+  @media (max-width: 992px) {
+    margin-top: 40px;
+  }
+`;
 
 export default function Footer() {
   return (
@@ -242,7 +184,11 @@ export default function Footer() {
         <Column>
           <img className="logoImg" src={logo} alt="Valour Brighton" />
           <SocialIcons>
-            <a href="https://wa.me/07846997004" target="_blank" rel="noreferrer">
+            <a
+              href="https://wa.me/07846997004"
+              target="_blank"
+              rel="noreferrer"
+            >
               <FaWhatsapp />
             </a>
             <a href="https://instagram.com" target="_blank" rel="noreferrer">
@@ -281,10 +227,12 @@ export default function Footer() {
       {/* Floating Contact Form */}
       <RightSection>
         <div className="contact-form-section">
-//               <ContactUs />
-               {/* <ContactForm /> */}
-            </div>
+          <ContactUs />
+        </div>
       </RightSection>
+
+      {/* COPYRIGHT */}
+      <Copyright >©2024 Valour Brighton. All rights reserved.</Copyright>
     </FooterWrapper>
   );
 }

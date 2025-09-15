@@ -9,6 +9,7 @@ export const JoiningContainer = styled.div`
 .bookContainer{
 position:relative;
 top:0;
+ min-height: 60vh; !important
 }
 h2{
 font-size:20px;
@@ -97,12 +98,14 @@ padding-bottom: 20px;
   height: auto;   /* keep aspect ratio */
   display: block; /* remove inline spacing issues */
   margin-top: 0px;
+   min-height: 60vh; 
+    object-position: left;
 }
 @media (max-width: 768px) {
   .full-img {
-    height: 70vh;         /* make it taller (70% of screen height, adjust as needed) */
+    height: 60vh;         /* make it taller (70% of screen height, adjust as needed) */
     object-fit: cover;    /* fills space while keeping center focus */
-    object-position: center; /* focus on the middle */
+    object-position: left; /* focus on the middle */
   }
 }
  
