@@ -101,6 +101,20 @@ padding-bottom: 20px;
    min-height: 60vh; 
     object-position: left;
 }
+@media (max-width: 1600px) {
+  .full-img {
+    height: 60vh;         /* make it taller (70% of screen height, adjust as needed) */
+    object-fit: contain;    /* fills space while keeping center focus */
+    object-position: left; /* focus on the middle */
+  }
+}
+@media (max-width: 1400px) {
+  .full-img {
+    height: 60vh;         /* make it taller (70% of screen height, adjust as needed) */
+    object-fit: cover;    /* fills space while keeping center focus */
+    object-position: left; /* focus on the middle */
+  }
+}
 @media (max-width: 768px) {
   .full-img {
     height: 60vh;         /* make it taller (70% of screen height, adjust as needed) */
