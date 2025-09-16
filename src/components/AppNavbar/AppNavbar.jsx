@@ -118,7 +118,7 @@ console.log("filter categories",filter.category,filter.subCategory)
 
     
           {/* Videos Dropdown */}
-<Dropdown className="videos-dropdown-container">
+{/* <Dropdown className="videos-dropdown-container">
   <Dropdown.Toggle variant="link" className="videos-dropdown-toggle">
     Videos
   </Dropdown.Toggle>
@@ -151,7 +151,7 @@ console.log("filter categories",filter.category,filter.subCategory)
       </Dropdown>
     ))}
   </Dropdown.Menu>
-</Dropdown>
+</Dropdown> */}
  
  {/* Programs Dropdown */}
  {/* <Dropdown className="programs-dropdown-container">
