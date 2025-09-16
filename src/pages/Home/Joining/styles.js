@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import bgImg from "../../../assets/images/joining_bg.png";
+import bgImg from "../../../assets/images/image2.jpg";
 import {
   fontFamilyRegular,
   mediaDeviceMax,
