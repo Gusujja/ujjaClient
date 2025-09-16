@@ -117,10 +117,10 @@ const SocialIcons = styled.div`
   }
 
   @media (max-width: 992px) {
-    justify-content: right;
+    justify-content: center;
     margin-top: -18px;
     margin-left: 0;
-    margin-right: -50px;
+    // margin-right: -50px;
         gap: 5px;
   }
 `;
@@ -184,7 +184,7 @@ export default function Footer() {
         {/* Logo + Socials */}
         <Column>
           <img className="logoImg" src={logo} alt="Valour Brighton" />
-          <SocialIcons>
+          {/* <SocialIcons>
             <a
               href="https://wa.me/07846997004"
               target="_blank"
@@ -201,7 +201,7 @@ export default function Footer() {
             <a href="https://youtube.com" target="_blank" rel="noreferrer">
               <FaYoutube />
             </a>
-          </SocialIcons>
+          </SocialIcons> */}
         </Column>
 
         {/* Navigation */}

@@ -98,19 +98,19 @@ padding-bottom: 20px;
   height: auto;   /* keep aspect ratio */
   display: block; /* remove inline spacing issues */
   margin-top: 0px;
-   min-height: 60vh; 
+   min-height: 40vh; 
     object-position: left;
 }
 @media (max-width: 1600px) {
   .full-img {
-    height: 50vh;         /* make it taller (70% of screen height, adjust as needed) */
+    height: 40vh;         /* make it taller (70% of screen height, adjust as needed) */
     object-fit: cover;    /* fills space while keeping center focus */
     object-position: left; /* focus on the middle */
   }
 }
 @media (max-width: 1400px) {
   .full-img {
-    height: 50vh;         /* make it taller (70% of screen height, adjust as needed) */
+    height: 40vh;         /* make it taller (70% of screen height, adjust as needed) */
     object-fit: cover;    /* fills space while keeping center focus */
     object-position: left; /* focus on the middle */
   }
