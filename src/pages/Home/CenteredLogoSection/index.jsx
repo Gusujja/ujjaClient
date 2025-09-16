@@ -11,7 +11,7 @@ const Section = styled.section`
   justify-content: center;
   text-align: center;
   padding: 40px 20px; 
-  min-height: 60vh; 
+  min-height: 40vh; 
 
   img {
     width: 200px;

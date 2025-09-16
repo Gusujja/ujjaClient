@@ -9,7 +9,7 @@ export const JoiningContainer = styled.div`
 .bookContainer{
 position:relative;
 top:0;
- min-height: 60vh; !important
+ min-height: 40vh; !important
 }
 h2{
 font-size:20px;
