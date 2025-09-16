@@ -35,7 +35,7 @@ const TimeTable = () => {
 
   return (
     <TimeTableStyled className="py-5" id={"timeTableSection"}>
-      <Container style={{maxWidth:"1263px"}}>
+      <Container style={{maxWidth:"1600px"}}>
         <div className="timetableHeading">
           <h4>Valour Brighton Weekly Time Table</h4>
         </div>

@@ -63,7 +63,7 @@ const Column = styled.div`
     margin: 6px 0;
     color: white;
     text-decoration: none;
-    line-height: 0.5rem;
+    line-height: 0.7rem;
 
     &:hover {
       color: #ddd;
@@ -117,10 +117,11 @@ const SocialIcons = styled.div`
   }
 
   @media (max-width: 992px) {
-    justify-content: center;
-    margin-top: 10px;
+    justify-content: right;
+    margin-top: -18px;
     margin-left: 0;
-    margin-right: 0;
+    margin-right: -50px;
+        gap: 5px;
   }
 `;
 

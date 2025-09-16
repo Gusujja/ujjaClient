@@ -9,6 +9,22 @@ export const TimeTableStyled = styled.div`
 .timetableHeading h4{
 font-weight:600;
 margin: 0px 0px 35px 50px;
+
+@media (max-width: 1400px) {
+ .timetableHeading h4{
+font-weight:600;
+margin: 0px 0px 35px 50px;
+
+}
+@media (max-width: 1600px) {
+  .timetableHeading h4{
+font-weight:600;
+margin: 0px 0px 11px -137px;
+
+}
+
+
+
 }
   .table-responsive {
     &::-webkit-scrollbar {
