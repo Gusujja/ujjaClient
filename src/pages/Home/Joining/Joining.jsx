@@ -102,7 +102,21 @@ const Joining = () => {
         </Container>
       </div>
 
-      <img src={ourMissionImg} alt="Responsive" className="full-img" />
+      {/* <img src={ourMissionImg} alt="Responsive" className="full-img" /> */}
+<picture>
+  {/* Mobile image (loaded only if max-width ≤ 768px) */}
+  <source
+    media="(max-width: 768px)"
+    srcSet={require("../../../assets/images/our-mssion-mobile.png")}
+  />
+
+  {/* Desktop image (fallback/default) */}
+  <img
+    src={require("../../../assets/images/ourMissionImg.jpg")}
+    alt="Our Mission"
+    className="full-img"
+  />
+</picture>
     </JoiningContainer>
   );
 };

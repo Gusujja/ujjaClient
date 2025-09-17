@@ -1,4 +1,4 @@
-
+/* 
 
 .mapImage {
   width: 100%;
@@ -11,11 +11,36 @@
    
 }
 
-/* Tablet + Mobile */
+
 @media (max-width: 991px) {
   .mapImage {
     height: 70vh;         
     object-fit: cover;   
     object-position: center; 
+  }
+} */
+.mapImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  object-position: center;
+  margin-top: -60px;
+  min-height: 40vh;
+
+  /* Desktop image by default */
+  content: url("../../../assets/images/Map-Image.png");
+}
+
+/* Tablet + Mobile */
+@media (max-width: 991px) {
+  .mapImage {
+    margin-top: 5px;
+    height: 70vh;
+    object-fit: cover;
+    object-position: center;
+
+    /* Swap to mobile image */
+    content: url("../../../assets/images/map-mobile.png");
   }
 }

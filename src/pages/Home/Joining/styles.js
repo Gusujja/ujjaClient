@@ -93,35 +93,72 @@ padding-bottom: 20px;
 
 
 
+// .full-img {
+//   width: 100%;
+//   height: auto;   /* keep aspect ratio */
+//   display: block; /* remove inline spacing issues */
+//   margin-top: 0px;
+//    min-height: 40vh; 
+//     object-position: left;
+// }
+// @media (max-width: 1600px) {
+//   .full-img {
+//     height: 40vh;         /* make it taller (70% of screen height, adjust as needed) */
+//     object-fit: cover;    /* fills space while keeping center focus */
+//     object-position: left; /* focus on the middle */
+//   }
+// }
+// @media (max-width: 1400px) {
+//   .full-img {
+//     height: 40vh;         /* make it taller (70% of screen height, adjust as needed) */
+//     object-fit: cover;    /* fills space while keeping center focus */
+//     object-position: left; /* focus on the middle */
+//   }
+// }
+// @media (max-width: 768px) {
+//   .full-img {
+//     height: 60vh;         /* make it taller (70% of screen height, adjust as needed) */
+//     object-fit: cover;    /* fills space while keeping center focus */
+//     object-position: left; /* focus on the middle */
+//      content: url("../../../assets/images/our-mission-mobile.jpg");
+//   }
+// }
+
+
 .full-img {
   width: 100%;
-  height: auto;   /* keep aspect ratio */
-  display: block; /* remove inline spacing issues */
-  margin-top: 0px;
-   min-height: 40vh; 
-    object-position: left;
+  height: auto;   
+  display: block;
+  margin-top: 0;
+  min-height: 40vh; 
+  object-fit: contain;
+  object-position: left;
 }
+
 @media (max-width: 1600px) {
   .full-img {
-    height: 40vh;         /* make it taller (70% of screen height, adjust as needed) */
-    object-fit: cover;    /* fills space while keeping center focus */
-    object-position: left; /* focus on the middle */
+    height: 40vh;
+    object-fit: cover;
+    object-position: left;
   }
 }
+
 @media (max-width: 1400px) {
   .full-img {
-    height: 40vh;         /* make it taller (70% of screen height, adjust as needed) */
-    object-fit: cover;    /* fills space while keeping center focus */
-    object-position: left; /* focus on the middle */
+    height: 40vh;
+    object-fit: cover;
+    object-position: left;
   }
 }
+
 @media (max-width: 768px) {
   .full-img {
-    height: 60vh;         /* make it taller (70% of screen height, adjust as needed) */
-    object-fit: cover;    /* fills space while keeping center focus */
-    object-position: left; /* focus on the middle */
+    height: 70vh;
+    object-fit: cover;
+    object-position: left;
   }
 }
+
  
 
   .bg-image {

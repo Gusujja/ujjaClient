@@ -20,11 +20,13 @@ export const FooterStyled = styled.div`
       font-size: 14px;
       font-weight: 300;
       margin-bottom: 20px;
-      color: ${whiteColor};
+      color: var(--text-color);
+      // color: ${whiteColor};
 
       @media screen and ${mediaDeviceMax.tabletL} {
         font-size: 12px;
-        color: ${pureDark};
+        color: var(--text-color);
+        // color: ${pureDark};
       }
     }
     .contact {
@@ -49,7 +51,7 @@ export const FooterStyled = styled.div`
             font-family: "EnnVisions";
             font-size: 22px;
             margin-bottom: 10px;
-            color: ${whiteColor};
+            color: var(--text-color);
             @media screen and ${mediaDeviceMax.tabletL} {
               font-size: 20px;
               color: ${pureDark};
@@ -59,22 +61,22 @@ export const FooterStyled = styled.div`
             font-size: 19px;
             font-weight: 300;
             margin-bottom: 20px;
-            color: ${whiteColor};
+            color: var(--text-color);
 
             @media screen and ${mediaDeviceMax.tabletL} {
               font-size: 17px;
-              color: ${pureDark};
+              color: var(--text-color);
             }
           }
           p {
             font-size: 14px;
             font-weight: 300;
             margin-bottom: 20px;
-            color: ${whiteColor};
+            color: var(--text-color);
 
             @media screen and ${mediaDeviceMax.tabletL} {
               font-size: 12px;
-              color: ${pureDark};
+              color: var(--text-color);
             }
           }
         }
@@ -82,11 +84,11 @@ export const FooterStyled = styled.div`
           font-size: 14px;
           font-weight: 300;
           margin-bottom: 20px;
-          color: ${whiteColor};
+          color: var(--text-color);
 
           @media screen and ${mediaDeviceMax.tabletL} {
             font-size: 12px;
-            color: ${pureDark};
+            color: var(--text-color);
           }
         }
       }
@@ -104,7 +106,7 @@ export const FooterStyled = styled.div`
         .card {
         height: 50%
           width: 100%;
-          border: 1px solid #e7e5f2;
+          border: 1px solid var(--text-color);
           &-body {
             .form-control {
              font-family:EnnVisions;
@@ -117,9 +119,9 @@ export const FooterStyled = styled.div`
             }
             button {
             margin-top: 3px;
-              background: #c8d7dd;
+              background:var(--bg-color);
               border: 1px solid #c8d7dd;
-              color: #282f40;
+              color: var(--text-color);
               // font-weight: bold;
             }
           }

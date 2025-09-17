@@ -34,6 +34,7 @@ import Leads from "./AdminPortal/Leads/Leads";
 import LeadsDetail from "./AdminPortal/Leads/LeadsDetail/LeadsDetail";
 import Videos from "./pages/Videos/Index"
 import LeadsDone from "./AdminPortal/Leads/LeadsDone/LeadsDone";
+import ContactModal from "./components/Footer/ContactModal";
 
 const tagManagerArgs = { gtmId: "GTM-TTDBW2PL" };
 TagManager.initialize(tagManagerArgs);
@@ -142,6 +143,8 @@ const App = () => {
           <Route path="/videolist" element={<VideoList />} />
           <Route path="/categorylist" element={<CategoryList />} />
           <Route path="/addcategory" element={<AddCategory />} />
+          {/* <Route path="/contactus" element={<ContactModal />} /> */}
+
 
           <Route path="*" element={<div>Page not found.</div>} />
         </Routes>

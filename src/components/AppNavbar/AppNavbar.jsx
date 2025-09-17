@@ -4,7 +4,10 @@ import Dropdown from "react-bootstrap/Dropdown";
 import { NavbarContainer } from "./styles";
 import { FlexContainer, fontFamilyMedium, fontFamilyRegular } from "../GlobalStyle";
 import { useNavigate, useLocation } from "react-router-dom";
-import logo from "../../assets/images/VB logo.png"
+import logoLight from "../../assets/images/VB-logo-black.png"
+import logoDark from "../../assets/images/VB-logo-White-new.png"
+import ThemeToggle from "../ThemeToggle";
+import {useTheme} from "../../hooks/CustomHooks/useTheme";
 const AppNavbar = ({ scrollToSection }) => {
   const web_Url =
     process.env.NODE_ENV === "production"
@@ -54,6 +57,21 @@ console.log("filter categories",filter.category,filter.subCategory)
     }
   };
 
+const { theme, toggleTheme } = useTheme();
+
+//  const [theme, setTheme] = useState(() => {
+//     return localStorage.getItem("theme") || "light";
+//   });
+
+//   useEffect(() => {
+//     document.documentElement.setAttribute("data-theme", theme);
+//     localStorage.setItem("theme", theme);
+//   }, [theme]);
+
+//   const toggleTheme = () => {
+//     setTheme((prev) => (prev === "light" ? "dark" : "light"));
+//   };
+
   const NAVBAR_ITEMS = [
     { id: 7, label: "Home", link: "/", ref: "homeSection" },
     // { id: 1, label: "Videos", link: "/video" }, // This will trigger the "Videos" dropdown
@@ -80,30 +98,23 @@ console.log("filter categories",filter.category,filter.subCategory)
         className="container app-navbar-container  px-0"
         justifycontent="space-between"
       >
-        {/* <FlexContainer
+       
+       <FlexContainer
           className="app-logo gap-3 cursor-pointer"
           onClick={() => navigate("/")}
           justifycontent="space-between"
+          style={{ height: "88px" }}
         >
-          <img style={{height:"80px" }} src={logo} alt="" />
-        </FlexContainer> */}
-<FlexContainer
-  className="app-logo gap-3 cursor-pointer"
-  onClick={() => navigate("/")}
-  justifycontent="space-between"
-  style={{ height: "80px" }} // fixed navbar height
->
-  <img
-    src={logo}
-    alt="Logo"
-    style={{
-      maxHeight: "200%", // keeps it inside container
-      width: "auto",
-      objectFit: "contain",
-    }}
-  />
-</FlexContainer>
-
+          <img
+            src={theme === "light" ? logoLight : logoDark}
+            alt="Logo"
+            style={{
+              maxHeight: "50%",
+              width: "auto",
+              objectFit: "contain",
+            }}
+          />
+        </FlexContainer>
         <div className="app-navbar gap-4 d-lg-flex d-none">
           {/* Render Navbar Links */}
           {NAVBAR_ITEMS.map((item) => (
@@ -112,13 +123,13 @@ console.log("filter categories",filter.category,filter.subCategory)
               key={item.id}
               onClick={() => handleClick(item)}
             >
-                          {item.label}
+              {item.label}
             </div>
-          ))}
+            ))}
+          
 
-    
           {/* Videos Dropdown */}
-{/* <Dropdown className="videos-dropdown-container">
+          {/* <Dropdown className="videos-dropdown-container">
   <Dropdown.Toggle variant="link" className="videos-dropdown-toggle">
     Videos
   </Dropdown.Toggle>
@@ -152,9 +163,9 @@ console.log("filter categories",filter.category,filter.subCategory)
     ))}
   </Dropdown.Menu>
 </Dropdown> */}
- 
- {/* Programs Dropdown */}
- {/* <Dropdown className="programs-dropdown-container">
+
+          {/* Programs Dropdown */}
+          {/* <Dropdown className="programs-dropdown-container">
   <Dropdown.Toggle variant="link" className="programs-dropdown-toggle">
     Programs
   </Dropdown.Toggle>
@@ -173,6 +184,7 @@ console.log("filter categories",filter.category,filter.subCategory)
 
         </div>
 
+
         <button
           onClick={handleClick}
           style={{
@@ -181,65 +193,95 @@ console.log("filter categories",filter.category,filter.subCategory)
             background: "none",
             fontFamily: fontFamilyRegular,
           }}
-        >
+          >
           Call To Book <br />{" "}
           <span style={{ fontFamily: fontFamilyMedium }}>07846997004</span>
         </button>
+          <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
+         
+          
+
+
+        {/* <div className="mobile-menu">
+  {NAVBAR_ITEMS.map((item, index) => (
+    <div key={index} className="py-2">
+      {item.ref ? (
+        <a
+          href={`#${item.ref}`}
+          className="block hover:text-primary transition"
+        >
+          {item.label}
+        </a>
+      ) : (
+        <button
+          onClick={() => {
+            setIsModalOpen(true);
+            setIsMobileMenuOpen(false); // 👈 close dropdown after click
+          }}
+          className="block hover:text-primary transition"
+        >
+          {item.label}
+        </button>
+      )}
+    </div>
+  ))}
+</div> */}
+
 
         {/* Videos Mobile View */}
 
     
 
-<Dropdown className="d-lg-none d-block">
+        <Dropdown className="d-lg-none d-block">
   <Dropdown.Toggle variant="" id="dropdown-basic" className="navbar-toggle">
-    <MenuOutlined />
-  </Dropdown.Toggle>
-  <Dropdown.Menu className="navbar-dropdown-menu">
-    {NAVBAR_ITEMS.map((item) =>
-      item.label === "Videos" ? (
-        <Dropdown key={item.id} className="videos-dropdown">
-          <Dropdown.Toggle
-            variant="link"
-            className="videos-dropdown-toggle"
-          >
-            {item.label}
+            <MenuOutlined />
           </Dropdown.Toggle>
-          <Dropdown.Menu className="videos-submenu">
-            <Dropdown.Item onClick={() => navigate("/video")}>
-              All Videos
-            </Dropdown.Item>
-            {categories.map((category) => (
-              <Dropdown key={category.category} className="category-dropdown">
-                <Dropdown.Toggle
-                  variant="link"
-                  className="category-dropdown-toggle"
-                >
-                  {category.category}
-                </Dropdown.Toggle>
-                <Dropdown.Menu className="subcategory-dropdown-menu">
-                  {category.subcategories.map((subCategory) => (
-                    <Dropdown.Item
-                      key={subCategory}
-                      className="subcategory-dropdown-item"
-                      onClick={() => navigate(`/video/${category.category}/${subCategory}`)}
-                    >
-                      {subCategory}
+          <Dropdown.Menu className="navbar-dropdown-menu">
+            {NAVBAR_ITEMS.map((item) =>
+              item.label === "Videos" ? (
+                <Dropdown key={item.id} className="videos-dropdown">
+                  <Dropdown.Toggle
+                    variant="link"
+                    className="videos-dropdown-toggle"
+                  >
+                    {item.label}
+                  </Dropdown.Toggle>
+                  <Dropdown.Menu className="videos-submenu">
+                    <Dropdown.Item onClick={() => navigate("/video")}>
+                      All Videos
                     </Dropdown.Item>
-                  ))}
-                </Dropdown.Menu>
-              </Dropdown>
-            ))}
-          </Dropdown.Menu>
-        </Dropdown>
-      ) : (
-        <Dropdown.Item key={item.id} onClick={() => handleClick(item)}>
-          {item.label}
-        </Dropdown.Item>
-      )
-    )}
+                    {categories.map((category) => (
+              <Dropdown key={category.category} className="category-dropdown">
+                        <Dropdown.Toggle
+                          variant="link"
+                          className="category-dropdown-toggle"
+                        >
+                          {category.category}
+                        </Dropdown.Toggle>
+                        <Dropdown.Menu className="subcategory-dropdown-menu">
+                          {category.subcategories.map((subCategory) => (
+                            <Dropdown.Item
+                              key={subCategory}
+                              className="subcategory-dropdown-item"
+                      onClick={() => navigate(`/video/${category.category}/${subCategory}`)}
+                            >
+                              {subCategory}
+                            </Dropdown.Item>
+                          ))}
+                        </Dropdown.Menu>
+                      </Dropdown>
+                    ))}
+                  </Dropdown.Menu>
+                </Dropdown>
+              ) : (
+                <Dropdown.Item key={item.id} onClick={() => handleClick(item)}>
+                  {item.label}
+                </Dropdown.Item>
+              )
+            )}
 
-    {/* Programs Dropdown */}
-    {/* <Dropdown className="programs-dropdown">
+            {/* Programs Dropdown */}
+            {/* <Dropdown className="programs-dropdown">
       <Dropdown.Toggle
         variant="link"
         className="programs-dropdown-toggle"
@@ -258,8 +300,8 @@ console.log("filter categories",filter.category,filter.subCategory)
         ))}
       </Dropdown.Menu>
     </Dropdown> */}
-  </Dropdown.Menu>
-</Dropdown>
+          </Dropdown.Menu>
+        </Dropdown>
 
        
 

@@ -1,0 +1,173 @@
+/* ===== Base Toggle ===== */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  width: 140px;
+  height: 36px;
+  /* background: var(--toggle-bg, #ddd); */
+  border-radius: 30px;
+  padding: 0 25px;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.3s ease;
+}
+
+/* Light mode background */
+.theme-toggle {
+  background-color: #ddd; /* light gray */
+}
+
+/* Dark mode background */
+[data-theme="dark"] .theme-toggle {
+  background-color: #6a7a7c; /* dark gray */
+}
+
+/* Default text color (light mode) */
+.theme-toggle .label {
+  color: #6a7a7c; 
+}
+
+/* Dark mode text color */
+[data-theme="dark"] .theme-toggle .label {
+  color: white;
+}
+
+/* Default colors (light mode) */
+.theme-toggle .sun {
+  color: #6a7a7c;
+}
+
+.theme-toggle .moon {
+  color: #6a7a7c; 
+}
+
+/* Optional: change colors in dark mode */
+[data-theme="dark"] .theme-toggle .sun {
+  color: black;
+}
+
+[data-theme="dark"] .theme-toggle .moon {
+  color: white; 
+}
+
+
+.theme-toggle .icon {
+  font-size: 14px;
+  z-index: 2;
+}
+
+.theme-toggle .label {
+  flex: 1;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  z-index: 2;
+  white-space: nowrap;
+}
+
+.slider {
+  position: absolute;
+  top: 7px;
+  bottom: 6px;
+  width: 25px;
+  height: 25px;
+  /* background: rgb(59, 57, 57); */
+  background: black;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  z-index: 1;
+}
+
+/* Slide left for light mode */
+.slider.light {
+  transform: translateX(-1);
+}
+
+/* Slide right for dark mode */
+.slider.dark {
+  transform: translateX(99px);
+}
+
+/* ===== Responsiveness ===== */
+
+/* Small devices (mobile phones) */
+@media (max-width: 480px) {
+  .theme-toggle {
+    width: 85px;
+    height: 30px;
+    padding: 0 4px;
+  }
+
+  .theme-toggle .icon {
+    font-size: 14px;
+  }
+
+  .theme-toggle .label {
+    font-size: 10px;
+  }
+
+  .slider {
+      top: 6px;
+  bottom: 3px;
+    width: 14px;
+    height: 14px;
+  }
+
+  .slider.dark {
+    transform: translateX(35px);
+  }
+}
+
+/* Medium devices (tablets) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .theme-toggle {
+    width: 85px;
+    height: 35px;
+    padding: 0 5px;
+  }
+
+  .theme-toggle .icon {
+    font-size: 14px;
+  }
+
+  .theme-toggle .label {
+    font-size: 12px;
+  }
+
+  .slider {
+    width: 22px;
+    height: 22px;
+  }
+
+  .slider.dark {
+    transform: translateX(57px);
+  }
+}
+
+/* Large devices (laptops/desktops) */
+@media (min-width: 769px) {
+  .theme-toggle {
+    width: 98px;
+    height: 35px;
+    padding: 0px 10px;
+  }
+
+  .theme-toggle .icon {
+    font-size: 14px;
+  }
+
+  .theme-toggle .label {
+    font-size: 14px;
+  }
+
+  .slider {
+    width: 19px;
+    height: 19px;
+  }
+
+  .slider.dark {
+    transform: translateX(60px);
+  }
+}

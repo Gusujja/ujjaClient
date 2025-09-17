@@ -34,7 +34,7 @@ const TimeTable = () => {
   };
 
   return (
-    <TimeTableStyled className="py-5" id={"timeTableSection"}>
+    <TimeTableStyled className="py-4" id={"timeTableSection"}>
       <Container style={{maxWidth:"1600px"}}>
         <div className="timetableHeading">
           <h4>Valour Brighton Weekly Time Table</h4>
@@ -93,7 +93,7 @@ function findColor(day, time) {
                       <React.Fragment key={dayIndex}>
                         <td
                           style={{
-                            background: evt !== null ? findColor(day, oneHour) : "transparent",
+                            background: evt !== null ? findColor(day, oneHour) : "var(--bg-color)",
                           }}
                         >
                          <p className="col-time">{oneHour}</p>

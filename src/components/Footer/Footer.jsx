@@ -208,10 +208,10 @@ export default function Footer() {
         <Column>
           <h3>Navigation</h3>
           <NavLink to="/">Home</NavLink>
-          <NavLink to="/about">About</NavLink>
-          <NavLink to="/services">Programmes</NavLink>
-          <NavLink to="/videosSection">Videos</NavLink>
-          <NavLink to="/contact">Contact</NavLink>
+          <NavLink to="/about">Timetable</NavLink>
+          {/* <NavLink to="/services">Programmes</NavLink>
+          <NavLink to="/videosSection">Videos</NavLink> */}
+          <NavLink to="/contact">Contact Us</NavLink>
         </Column>
 
         {/* Address */}

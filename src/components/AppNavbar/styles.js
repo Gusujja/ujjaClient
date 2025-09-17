@@ -16,7 +16,7 @@ export const NavbarContainer = styled.div`
   left: 0;
   width: 100%;
   z-index: 1001;
-  background-color: #fff;
+  background-color: var(--bg-color);
 
  
 
@@ -57,7 +57,8 @@ export const NavbarContainer = styled.div`
 .programs-dropdown-toggle:hover,
 .videos-dropdown-toggle:hover,
 .nested-dropdown-toggle:hover {
-  color: ${pureDark2}; /* Change color on hover */
+  color: var(--text-color); 
+  // color: ${pureDark2}; 
 }
 
 /* Remove focus outline (blue color) */
@@ -73,8 +74,9 @@ export const NavbarContainer = styled.div`
 .programs-dropdown-menu,
 .videos-dropdown-menu,
 .subcategories-dropdown-menu {
-  background-color: #f9f9f9;
-  border: 1px solid ${pureDark2};
+  background-color: var(--bg-color);
+  // border: 1px solid ${pureDark2};
+  border: 1px solid var(--text-color);
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   padding: 0;
   margin-top: 5px;
@@ -88,7 +90,8 @@ export const NavbarContainer = styled.div`
 .subcategory-dropdown-item {
   font-family: ${fontFamilyRegular};
   font-size: 14px;
-  color: ${pureDark3};
+  // color: ${pureDark3};
+  color: var(--bg-color);
   padding: 10px 15px;
   text-decoration: none; /* Remove underline */
   display: block;
@@ -148,7 +151,8 @@ margin-top: -17px;
 
 
   .app-nav-link {
-    color: #000000;
+    // color: #000000;
+    color: var(--text-color);
     font-weight: 400;
     font-family: ${fontFamilyRegular};
     text-decoration: none;
