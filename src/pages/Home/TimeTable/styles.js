@@ -15,6 +15,7 @@ background: white !important;
 .timetableHeading h4{
 font-weight:600;
 margin: 0px 0px 35px 50px;
+// color: var(--text-color-reverse) !important;
 
 @media (max-width: 1400px) {
  .timetableHeading h4{

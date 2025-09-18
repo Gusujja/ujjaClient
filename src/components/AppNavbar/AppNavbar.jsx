@@ -195,7 +195,7 @@ const { theme, toggleTheme } = useTheme();
           }}
           >
           Call To Book <br />{" "}
-          <span style={{ fontFamily: fontFamilyMedium }}>07846997004</span>
+          <span style={{ fontFamily: fontFamilyRegular }}>07846997004</span>
         </button>
           <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
          

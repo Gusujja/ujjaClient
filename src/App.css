@@ -18,12 +18,14 @@
   /* --text-color: #6a7a7c; */
   --primary-color: #405F74;
   --secondary-color:  #076a99;
+   --text-color-reverse: #ffffff;
 }
 [data-theme="dark"] {
   --bg-color: #121212;
   --text-color: #ffffff;
   --primary-color: #6a7a7c;
   --secondary-color: #6a7a7c;
+  --text-color-reverse: black;
 }
 body {
   background-color: var(--bg-color);

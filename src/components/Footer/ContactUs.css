@@ -7,3 +7,7 @@ img {
   background: var(--bg-color);
   color: var(--text-color);
 }
+
+.card{
+  border: 1px solid var(--bg-color);
+}

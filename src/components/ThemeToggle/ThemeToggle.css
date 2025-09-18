@@ -76,7 +76,7 @@
   /* background: rgb(59, 57, 57); */
   background: black;
   border-radius: 50%;
-  transition: transform 0.3s ease;
+  /* transition: transform 0.3s ease; */
   z-index: 1;
 }
 
