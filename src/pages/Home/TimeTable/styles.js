@@ -6,6 +6,12 @@ import {
 
 export const TimeTableStyled = styled.div`
 
+background: var(--bg-color) !important;
+
+.timeTableContainer{
+background: white !important;
+}
+
 .timetableHeading h4{
 font-weight:600;
 margin: 0px 0px 35px 50px;

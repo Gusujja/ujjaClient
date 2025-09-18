@@ -69,7 +69,7 @@ const Joining = () => {
             <TextCard
               className="description"
               width="500px"
-              background={"#405F74"}
+              background={"var(--primary-color)"}
             >
               <ul>
                 {Array.map((c) => (

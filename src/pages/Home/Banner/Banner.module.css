@@ -23,7 +23,8 @@
     right: 40px; 
     padding: 10px 25px;
     font-size: 14px;
-    background-color: #405F74; 
+    /* background-color: #405F74;  */
+    background-color: var(--primary-color); 
     color: #fff;
     border: none;
     /* border-radius: 5px; */

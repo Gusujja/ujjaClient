@@ -9,7 +9,8 @@ import { PiThreadsLogo } from "react-icons/pi";
 // MAIN FOOTER
 const FooterWrapper = styled.footer`
   margin-top: 100px;
-  background: #076a99;
+  background: var(--secondary-color);
+  // background: #076a99;
   color: #fff;
   position: relative;
   padding: 50px 160px 5px; /* add bottom padding for copyright */

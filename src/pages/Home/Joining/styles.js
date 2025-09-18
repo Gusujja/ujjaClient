@@ -35,7 +35,7 @@ padding-bottom: 20px;
     padding: 10px 20px;
     font-size: 14px;
     // background-color: #1F3340; 
-    background-color: #405F74; 
+    background-color:var(--primary-color); 
     color: #fff;
     border: none;
     /* border-radius: 5px; */

@@ -16,14 +16,14 @@
   --bg-color: #fff;
   --text-color: black;
   /* --text-color: #6a7a7c; */
-  --primary-color: #466cab;
-  --secondary-color: #f1c40f;
+  --primary-color: #405F74;
+  --secondary-color:  #076a99;
 }
 [data-theme="dark"] {
   --bg-color: #121212;
   --text-color: #ffffff;
-  --primary-color: #3b5998;
-  --secondary-color: #f39c12;
+  --primary-color: #6a7a7c;
+  --secondary-color: #6a7a7c;
 }
 body {
   background-color: var(--bg-color);
