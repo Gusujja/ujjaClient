@@ -16,14 +16,16 @@
   --bg-color: #fff;
   --text-color: black;
   /* --text-color: #6a7a7c; */
-  --primary-color: #405F74;
-  --secondary-color:  #076a99;
-   --text-color-reverse: #ffffff;
+  --primary-color: #405f74;
+  --button-color: #ddd;
+  --secondary-color: #076a99;
+  --text-color-reverse: #ffffff;
 }
 [data-theme="dark"] {
   --bg-color: #121212;
   --text-color: #ffffff;
   --primary-color: #6a7a7c;
+  --button-color: #6a7a7c;
   --secondary-color: #6a7a7c;
   --text-color-reverse: black;
 }
