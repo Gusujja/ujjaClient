@@ -8,6 +8,7 @@ import logoLight from "../../assets/images/VB-logo-black.png"
 import logoDark from "../../assets/images/VB-logo-White-new.png"
 import ThemeToggle from "../ThemeToggle";
 import {useTheme} from "../../hooks/CustomHooks/useTheme";
+import ContactModal from "../Footer/ContactModal";
 const AppNavbar = ({ scrollToSection }) => {
   const web_Url =
     process.env.NODE_ENV === "production"
@@ -103,7 +104,7 @@ const { theme, toggleTheme } = useTheme();
           className="app-logo gap-3 cursor-pointer"
           onClick={() => navigate("/")}
           justifycontent="space-between"
-          style={{ height: "88px" }}
+          style={{ height: "90px" }}
         >
           <img
             src={theme === "light" ? logoLight : logoDark}
@@ -183,7 +184,7 @@ const { theme, toggleTheme } = useTheme();
 </Dropdown> */}
 
         </div>
-
+ {/* <ContactModal/>  */}
 
         <button
           onClick={handleClick}

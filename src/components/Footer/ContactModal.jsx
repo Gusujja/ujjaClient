@@ -18,7 +18,7 @@ function ContactModal() {
   return (
     <div className="App">
       {/* Button to trigger modal */}
-      <button style={{background:"var(--bg-color)", color:"var(--text-color)"}}onClick={openModal}>Contact Form</button>
+      <button style={{background:"var(--bg-color)", color:"var(--text-color)"}} onClick={openModal}>Contact Form</button>
 
       {/* Modal */}
       {isModalOpen && (
