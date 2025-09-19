@@ -22,7 +22,7 @@ const Index = () => {
       <Joining />
       {/* <CardGrid /> */}
       {/* <VideoSection /> */}
-      {/* <Subscription /> */}
+      {/* <Subscription /> */} 
     <CenteredLogoSection/>
     <DualImageSection/>
       <Location />

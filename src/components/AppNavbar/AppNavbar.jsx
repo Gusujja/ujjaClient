@@ -17,7 +17,7 @@ const AppNavbar = ({ scrollToSection }) => {
   const [categories, setCategories] = useState([]);
   const [subcategories, setSubcategories] = useState([]);
   const [filter, setFilter] = useState({ category: "", subCategory: "" });
-
+const [isOpen,setIsOpen]=useState(false)
   const navigate = useNavigate();
   const location = useLocation();
 console.log("filter categories",filter.category,filter.subCategory)
@@ -34,7 +34,7 @@ console.log("filter categories",filter.category,filter.subCategory)
         const categoryObj = data.find((cat) => cat.category === filter.category);
         setSubcategories(categoryObj ? categoryObj.subcategories : []);
       } catch (err) {
-        console.log("error fetching categories:", err);
+      //  console.log("error fetching categories:", err);
       }
     };
 
@@ -101,20 +101,29 @@ const { theme, toggleTheme } = useTheme();
             style={{
               maxHeight: "50%",
               width: "auto",
-              objectFit: "contain",
+              objectFit: "contain"
             }}
           />
         </FlexContainer>
         <div className="app-navbar gap-4 d-lg-flex d-none">
           {/* Render Navbar Links */}
-          {NAVBAR_ITEMS.map((item) => (
-            <div
+          {NAVBAR_ITEMS.map((item,index) => (
+            item.label== "Contact Us"?
+             <div
               className="app-nav-link cursor-pointer"
-              key={item.id}
-              onClick={() => handleClick(item)}
+              key={index}
+              onClick={()=>setIsOpen(true)}
             >
               {item.label}
             </div>
+            :( <div
+              className="app-nav-link cursor-pointer"
+              key={index}
+              onClick={() => handleClick(item)}
+            >
+              {item.label}
+            </div>)
+           
             ))}
           
 
@@ -173,7 +182,7 @@ const { theme, toggleTheme } = useTheme();
 </Dropdown> */}
 
         </div>
- <ContactModal/> 
+ <ContactModal isOpen={isOpen} onClose={()=>setIsOpen(false)}/> 
 
         <button
           onClick={handleClick}
@@ -240,8 +249,8 @@ const { theme, toggleTheme } = useTheme();
                     <Dropdown.Item onClick={() => navigate("/video")}>
                       All Videos
                     </Dropdown.Item>
-                    {categories.map((category) => (
-              <Dropdown key={category.category} className="category-dropdown">
+                    {categories.map((category,index) => (
+              <Dropdown key={index} className="category-dropdown">
                         <Dropdown.Toggle
                           variant="link"
                           className="category-dropdown-toggle"

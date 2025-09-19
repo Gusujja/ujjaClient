@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import ContactModal from "./ContactModal";
 import contactimage from "../../assets/images/footerContactImg.jpg";
 import "./ContactUs.css";
 
 function ContactUs() {
+  const [isOpen,setIsOpen]=useState(false)
   return (
+    <>
     <div className="card" style={{ width: "18rem" }}>
       <img
         src={contactimage}
@@ -17,11 +19,15 @@ function ContactUs() {
         <p className="card-text mb-3" style={{ fontSize: "13px" }}>
           If you need help or have inquiries, feel free to reach out through
         </p>
-        <button className="btn ">
-          <ContactModal />
-        </button>
+       <button className="btn" onClick={() => setIsOpen(true)}>
+        Contact Form
+      </button>
+
+     <ContactModal isOpen={isOpen} onClose={() => setIsOpen(false)} />
+     
       </div>
     </div>
+     </>
   );
 }
 
