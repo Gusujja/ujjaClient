@@ -69,7 +69,7 @@ const Joining = () => {
             <TextCard
               className="description"
               width="500px"
-              background={"var(--primary-color)"}
+              background={"var(--button-color)"}
             >
               <ul>
                 {Array.map((c) => (
@@ -84,7 +84,7 @@ const Joining = () => {
           <img className="qrCode" src={VBQR} alt="Valour Brighton QR Code" />
 
           <Button
-            bgColor={pureDark3}
+            bgColor={"var(--button-color)"}
             borderColor={pureDark3}
             width={"290px"}
             className={"bookButton "}

@@ -11,6 +11,13 @@ position:relative;
 top:0;
  min-height: 40vh; !important
 }
+
+.description {
+  color: black !important;
+}
+.description li {
+  color: black !important;
+}
 h2{
 font-size:20px;
 font-weight:bold;
@@ -18,6 +25,7 @@ font-weight:bold;
 .secondPassage{
 margin-top:0px;
 padding-bottom: 20px;
+
 
 }
 .qrCode{
@@ -35,8 +43,8 @@ padding-bottom: 20px;
     padding: 10px 20px;
     font-size: 14px;
     // background-color: #1F3340; 
-    background-color:var(--primary-color); 
-    color: #fff;
+    background-color:var(--button-color);   
+    color: black;
     border: none;
     /* border-radius: 5px; */
     cursor: pointer;
@@ -66,7 +74,8 @@ padding-bottom: 20px;
 
   .bookButton {
     font-size: 16px; /* slightly larger tap target */
-    padding: 12px 10px;;
+    padding: 12px 10px;
+      
   }
 }
 /* Tablet + Mobile */
@@ -100,7 +109,7 @@ padding-bottom: 20px;
   display: block;
   margin-top: 0;
   min-height: 40vh; 
-  object-fit: contain;
+  object-fit: cover;
   object-position: left;
 }
 

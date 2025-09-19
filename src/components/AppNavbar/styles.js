@@ -43,7 +43,7 @@ export const NavbarContainer = styled.div`
 .nested-dropdown-toggle {
   font-family: ${fontFamilyRegular};
   font-size: 16px;
-  color: ${pureDark3};
+  color: var(--text-color);
   text-decoration: none; /* Remove underline */
   border: none;
   background: none;
@@ -103,8 +103,8 @@ export const NavbarContainer = styled.div`
 .programs-dropdown-item:hover,
 .videos-dropdown-item:hover,
 .subcategory-dropdown-item:hover {
-  background-color: ${pureDark2}; /* Highlight background */
-  color: #fff;
+  background-color: var(--bg-color); /* Highlight background */
+  color: var(--text-color);
 }
 
 /* Subcategory Nested Dropdown - Same as Videos Dropdown */
@@ -122,8 +122,8 @@ margin-top: -17px;
 
 /* Hover effect for nested subcategory items */
 .subcategory-dropdown-item:hover {
-  background-color: ${pureDark2}; /* Highlight the entire item */
-  color: #fff;
+  background-color: var(--bg-color); /* Highlight the entire item */
+  color: var(--bg-color);
 }
 
 /* For Mobile View */
