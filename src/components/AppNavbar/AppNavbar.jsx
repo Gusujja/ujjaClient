@@ -41,22 +41,44 @@ console.log("filter categories",filter.category,filter.subCategory)
     fetchCategories();
   }, [filter.category]);
 
-  const handleClick = (item) => {
-    if (item.link) {
-      if (location.pathname === item.link && item.link === "/") {
-        scrollToTop(); // Scroll to top if already on the Home page
-      } else {
-        navigate(item.link); // Navigate to the link
-      }
-    } else if (item.ref) {
-      if (location.pathname !== "/") {
-        navigate("/"); // Navigate to Home first if not already there
-        setTimeout(() => scrollToSection(item.ref), 300); // Wait for navigation and then scroll
-      } else {
-        scrollToSection(item.ref); // Scroll directly if already on Home
-      }
+  // const handleClick = (item) => {
+  //   if (item.link) {
+  //     if (location.pathname === item.link && item.link === "/") {
+  //       scrollToTop(); // Scroll to top if already on the Home page
+  //     } else {
+  //       navigate(item.link); // Navigate to the link
+  //     }
+  //   } else if (item.ref) {
+  //     if (location.pathname !== "/") {
+  //       navigate("/"); // Navigate to Home first if not already there
+  //       setTimeout(() => scrollToSection(item.ref), 300); // Wait for navigation and then scroll
+  //     } else {
+  //       scrollToSection(item.ref); // Scroll directly if already on Home
+  //     }
+  //   }
+  // };
+
+const handleClick = (item) => {
+  if (item.label === "Contact Us") {
+    setIsOpen(true); // open modal
+  } 
+  else if (item.label === "Home") {
+    // scroll to top
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  } 
+  else if (item.ref) {
+    // scroll to section
+    const section = document.getElementById(item.ref);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
     }
-  };
+  } 
+  else if (item.link) {
+    // navigate to another route
+    navigate(item.link);
+  }
+};
+
 
 const { theme, toggleTheme } = useTheme();
 
@@ -233,7 +255,7 @@ const { theme, toggleTheme } = useTheme();
 
         <Dropdown className="d-lg-none d-block">
   <Dropdown.Toggle variant="" id="dropdown-basic" className="navbar-toggle">
-            <MenuOutlined />
+            <MenuOutlined style={{ color: "var(--text-color)"}} />
           </Dropdown.Toggle>
           <Dropdown.Menu className="navbar-dropdown-menu">
             {NAVBAR_ITEMS.map((item) =>

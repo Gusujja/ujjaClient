@@ -206,7 +206,7 @@ export default function Footer() {
         </Column>
 
         {/* Navigation */}
-        <Column>
+       <Column>
           <h3>Navigation</h3>
           <NavLink to="/">Home</NavLink>
           <NavLink to="/about">Timetable</NavLink>

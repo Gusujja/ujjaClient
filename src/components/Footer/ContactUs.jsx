@@ -19,7 +19,7 @@ function ContactUs() {
         <p className="card-text mb-3" style={{ fontSize: "13px" }}>
           If you need help or have inquiries, feel free to reach out through
         </p>
-       <button className="btn" onClick={() => setIsOpen(true)}>
+       <button className="btn" onClick={() => setIsOpen(true)} style={{color:"var(--text-color)", cursor:"pointer"}}>
         Contact Form
       </button>
 

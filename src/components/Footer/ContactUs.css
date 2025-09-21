@@ -11,3 +11,16 @@ img {
 .card{
   border: 1px solid var(--bg-color);
 }
+
+/* .btn {
+  padding: 8px 16px !important;
+} */
+
+.btn {
+  position: relative;
+  z-index: 10;        /* make sure it's above other stuff */
+  display: inline-block;
+  padding: 8px 16px;
+  line-height: normal;
+  cursor: pointer;
+}

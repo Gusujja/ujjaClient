@@ -112,7 +112,7 @@ export const NavbarContainer = styled.div`
 margin-top: -17px;
   margin-left: 90px;
   padding-left: 12px;
-  border-left: 2px solid ${pureDark3};
+  border-left: 2px solid var(--bg-color);
 }
 
 /* No focus outline or blue color for subcategory items */
@@ -148,6 +148,29 @@ margin-top: -17px;
   }
 }
 
+.dropdown-toggle::after {
+  border-top-color: var(--text-color) !important;
+}
+
+/* Dropdown menu background */
+.dropdown-menu {
+  background-color: var(--bg-color) !important;
+  color: var(--text-color) !important;
+  border: 1px solid var(--text-color);
+}
+
+/* Dropdown items */
+.dropdown-item {
+  color: var(--text-color) !important;
+  font-size: 14px;
+}
+
+/* Hover effect for dropdown items */
+.dropdown-item:hover,
+.dropdown-item:focus {
+  background-color: var(--accent-color, #555) !important;
+  color: var(--hover-text-color, #fff) !important;
+}
 
 
   .app-nav-link {
