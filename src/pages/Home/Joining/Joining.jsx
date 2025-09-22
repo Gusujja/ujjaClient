@@ -74,7 +74,7 @@ const Joining = () => {
               <ul>
                 {Array.map((c) => (
                   <li key={c}>
-                    <img src={iconTick} alt="" />
+                    <img src={iconTick} alt=""  style={{ filter: "brightness(0) saturate(100%) invert(0%)" }}/>
                     {c.keyPoint}
                   </li>
                 ))}

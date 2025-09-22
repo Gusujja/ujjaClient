@@ -8,36 +8,57 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 2000; /* make sure it’s above everything */
+  z-index: 2000;
+  padding: 10px; /* prevent sticking to edges */
 }
 
 .modal-content {
   background: white;
   padding: 20px;
   border-radius: 8px;
-  width: 600px;
-  max-width: 90%;
+  width: 100%;
+  max-width: 600px;   /* ✅ desktop cap */
   position: relative;
+  box-sizing: border-box;
   align-items: center;
 }
 
-
-
+/* Close button */
 .modal-close {
   position: absolute;
-  top: 10px;               /* adjust distance from top */
-  left: 50%;               /* center horizontally */
+  top: 10px;
+  left: 50%;
   transform: translateX(-50%);
   border: none;
-  background: none;        /* no background */
-  font-size: 28px;         /* make it bigger */
+  background: none;
+  font-size: 28px;
   cursor: pointer;
-  color: #333;             /* dark gray, visible on white */
+  color: #333;
   z-index: 10;
 }
 
 .modal-close:hover,
 .modal-close:focus {
-  color: #000;             /* darker on hover */
+  color: #000;
 }
 
+/* 📱 Tablet (≤768px) */
+@media (max-width: 768px) {
+  .modal-content {
+    max-width: 90%;   /* shrink modal */
+    padding: 16px;
+  }
+}
+
+/* 📱 Mobile (≤480px) */
+@media (max-width: 480px) {
+  .modal-content {
+    max-width: 95%;   /* almost full width, but with margin */
+    padding: 12px;
+    border-radius: 6px;
+  }
+
+  .modal-close {
+    font-size: 22px;
+  }
+}

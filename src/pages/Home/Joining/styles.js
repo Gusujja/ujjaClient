@@ -18,6 +18,7 @@ top:0;
 .description li {
   color: black !important;
 }
+
 h2{
 font-size:20px;
 font-weight:bold;
@@ -171,11 +172,12 @@ padding-bottom: 20px;
         padding: 0;
 
         li {
-          color: #fff;
+          color: black;
           display: flex;
           align-items: center;
           img {
             margin-right: 10px;
+          
           }
         }
       }
