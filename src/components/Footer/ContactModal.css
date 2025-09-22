@@ -9,66 +9,58 @@
   justify-content: center;
   align-items: center;
   z-index: 2000;
-  padding: 10px; /* stops touching edges */
+  padding: 1rem;
 }
 
 .modal-content {
   background: white;
-  padding: 20px;
-  border-radius: 8px;
-  width: 100%;         /* take full available width */
-  max-width: 600px;    /* ✅ desktop cap */
+  border-radius: 10px;
   position: relative;
+  max-width: 800px;
+  width: 100%;
+  height: auto;
+  padding: 1.5rem;
   box-sizing: border-box;
-  align-items: center;
-  overflow: hidden;    /* keep it tidy */
 }
 
-/* Close button */
 .modal-close {
   position: absolute;
-  top: 10px;
+  top: 20px;
   left: 50%;
   transform: translateX(-50%);
+  font-size: 2rem;
+  background: transparent;
   border: none;
-  background: none;
-  font-size: 28px;
   cursor: pointer;
-  color: #333;
-  z-index: 10;
+  line-height: 1;
+    z-index: 2001;
 }
 
-.modal-close:hover,
-.modal-close:focus {
-  color: #000;
+/* Responsive iframe wrapper */
+.iframe-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 65%; /* 16:10 aspect ratio (adjust if needed) */
 }
 
-/* 📱 Tablet (≤768px) */
+.iframe-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 8px;
+}
+
+/* Mobile adjustments */
 @media (max-width: 768px) {
   .modal-content {
-    max-width: 90%; /* shrink modal */
-    padding: 16px;
-  }
-}
-
-/* 📱 Mobile (≤480px) */
-@media (max-width: 480px) {
-  .modal-content {
-    max-width: 95%;  /* almost full width */
-    padding: 12px;
-    border-radius: 6px;
+    max-width: 95%;
+    padding: 1rem;
   }
 
-  .modal-close {
-    font-size: 22px;
+  .iframe-wrapper {
+    padding-top: 80%; /* taller aspect ratio for mobile */
   }
-}
-
-/* ✅ Responsive iframe */
-.modal-content iframe {
-  width: 100% !important;   /* force full width inside modal */
-  height: auto;             /* auto scale */
-  aspect-ratio: 16/9;       /* keeps video aspect ratio */
-  border: none;
-  display: block;
 }
