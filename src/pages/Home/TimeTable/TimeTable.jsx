@@ -1,5 +1,5 @@
 import React from "react";
-import {TimeTableStyled } from "./styles";
+import { TimeTableStyled } from "./styles";
 // import HeadingWithLine from "../Headings/HeadingWithLine";
 import { Container } from "react-bootstrap";
 import { EVENTS_DB } from "./DB";
@@ -34,26 +34,23 @@ const TimeTable = () => {
   };
 
   return (
-    <TimeTableStyled className="py-4" id={"timeTableSection"}>
-        <div className="timetableHeading">
-          <h4>Valour Brighton Weekly Time Table</h4>
-        </div>
-      <Container className="timeTableContainer" style={{maxWidth:"1600px"}}>
-         
-        
-          {/* <p className="mt-2">
-            27 The Waterfront, Marina Way, Brighton Marina, Brighton and Hove,
-            Brighton BN2 5WA
-          </p> */}
-   
-        <div className="table-responsive mt-4" style={{width:"101%"}}>
+    <TimeTableStyled className="timeTableMain" id={"timeTableSection"}>
+      <div className="timetableHeading">
+        <h4>Valour Brighton Weekly Time Table</h4>
+        {/* <p>
+          27 The Waterfront, Marina Way, Brighton Marina, Brighton and Hove,
+          Brighton BN2 5WA
+        </p> */}
+      </div>
+      <Container className="timeTableContainer" style={{ maxWidth: "1600px" }}>
+        <div className="table-responsive mt-4" style={{ width: "101%" }}>
           <table className="table table-bordered table-sm">
             <thead>
               <tr>
                 {daysOfWeek.map((day, index) => (
-                  <th key={index} className="col-heading ps-3">
+                  <td key={index} className="col-heading ps-3">
                     {day}
-                  </th>
+                  </td>
                 ))}
               </tr>
             </thead>
@@ -64,40 +61,41 @@ const TimeTable = () => {
                     const oneDayEvents = EVENTS_DB.find((e) => e.day === day);
                     const oneHour = timetable[day][timeIndex];
                     const eventAtHour = oneDayEvents.events.find(
-                      (e) => e.time === oneHour 
+                      (e) => e.time === oneHour
                     );
 
-                  
-              // Function to find color according to event time
-function findColor(day, time) {
-  // Find the day object in EVENTS_DB
-  // Check if the day object exists
-  if (oneDayEvents) {
-      // Check if the colors object exists for the day
-      if (oneDayEvents.colors) {
-          // Check if the time exists in the colors object
-          if (oneDayEvents.colors[time]) {
-              // Return the color for the specific time
-              return oneDayEvents.colors[time];
-          }
-      }
-  }
+                    // Function to find color according to event time
+                    function findColor(day, time) {
+                      // Find the day object in EVENTS_DB
+                      // Check if the day object exists
+                      if (oneDayEvents) {
+                        // Check if the colors object exists for the day
+                        if (oneDayEvents.colors) {
+                          // Check if the time exists in the colors object
+                          if (oneDayEvents.colors[time]) {
+                            // Return the color for the specific time
+                            return oneDayEvents.colors[time];
+                          }
+                        }
+                      }
 
-  // Return null if color is not found
-  return null;
-}
-
+                      // Return null if color is not found
+                      return null;
+                    }
 
                     const evt = eventAtHour?.event;
                     return (
                       <React.Fragment key={dayIndex}>
                         <td
                           style={{
-                            background: evt !== null ? findColor(day, oneHour) : "transparent",
+                            background:
+                              evt !== null
+                                ? findColor(day, oneHour)
+                                : "transparent",
                           }}
                         >
-                         <p className="col-time">{oneHour}</p>
-                       
+                          <p className="col-time" style={{fontSize:"11px"}}>{oneHour}</p>
+
                           <p
                             style={{
                               padding: evt ? "5px" : "0px",

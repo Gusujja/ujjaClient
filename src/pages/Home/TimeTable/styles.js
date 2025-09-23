@@ -8,13 +8,30 @@ export const TimeTableStyled = styled.div`
 
 background: var(--bg-color) !important;
 
+.my-custom-table th.col-heading {
+  font-weight: normal !important; /* override Bootstrap bold */
+}
+
 .timeTableContainer{
 background: white !important;
 }
+.timetableHeading p{
+margin: 0px 0px 0px 50px;
+margin-bottom: 35px;
+margin-top: 10px;
+}
 
-.timetableHeading h4{
+.timetableHeading p{
+font-size: 6px;
+}
+
+
+.timetableHeading h4 {
 font-weight:600;
-margin: 0px 0px 35px 50px;
+
+
+
+margin: 0px 0px 40px 50px;
 // color: var(--text-color-reverse) !important;
 
 @media (max-width: 1400px) {
@@ -61,9 +78,9 @@ margin: 0px 0px 11px -137px;
       tr {
         .col-heading {
           color: #302c36;
-          font-size: 14px;
-          font-weight: 500;
-          font-family: ${fontFamilyRegular};
+          font-size: 12px;
+  font-weight: normal;     
+      font-family: ${fontFamilyRegular};
         }
       }
     }
@@ -75,7 +92,7 @@ margin: 0px 0px 11px -137px;
           white-space: nowrap;
         }
         p {
-          font-size: 14px;
+          font-size: 12px;
           color: #000000;
           display: inline-block;
         }
@@ -92,3 +109,4 @@ margin: 0px 0px 11px -137px;
     }
   }
 `;
+
