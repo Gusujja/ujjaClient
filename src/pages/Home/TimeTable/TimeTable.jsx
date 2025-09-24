@@ -98,8 +98,7 @@ const TimeTable = () => {
 
                           <p
                             style={{
-                              padding: evt ? "5px" : "0px",
-                            }}
+                              padding: evt ? "5px" : "0px", fontSize: "11px" }}
                           >
                             {evt}
                           </p>

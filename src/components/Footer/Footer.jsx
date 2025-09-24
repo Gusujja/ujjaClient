@@ -234,7 +234,7 @@ export default function Footer() {
       </RightSection>
 
       {/* COPYRIGHT */}
-      <Copyright >©2024 Valour Brighton. All rights reserved.</Copyright>
+      <Copyright >©2025 Valour Brighton. All rights reserved.</Copyright>
     </FooterWrapper>
   );
 }

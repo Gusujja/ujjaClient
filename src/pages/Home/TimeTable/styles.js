@@ -8,9 +8,10 @@ export const TimeTableStyled = styled.div`
 
 background: var(--bg-color) !important;
 
-.my-custom-table th.col-heading {
-  font-weight: normal !important; /* override Bootstrap bold */
-}
+// .col-time p {
+// font-size: 10px !important;
+// }
+
 
 .timeTableContainer{
 background: white !important;
